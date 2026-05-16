@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { supabase } from '../lib/supabase';
 import { RiLockLine, RiMailLine, RiEyeLine, RiEyeOffLine, RiLoader4Line } from 'react-icons/ri';
-import logo from '../assets/images/povG.png';
+import logo from '../assets/newbos.png';
 
 export default function AdminLogin() {
   const navigate = useNavigate();

@@ -9,7 +9,7 @@ import {
   RiDownloadLine, RiSearchLine, RiFilterLine, RiLoader4Line,
   RiInboxLine, RiTeamLine, RiArrowRightUpLine,
 } from 'react-icons/ri';
-import logo from '../assets/images/povG.png';
+import logo from '../assets/newbos.png';
 
 // ── Status badge ─────────────────────────────────────────────
 const STATUS_STYLES = {
