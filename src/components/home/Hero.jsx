@@ -167,13 +167,11 @@ export default function Hero() {
               Book a Free Call
               <RiArrowRightUpLine className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
-            <button
-              onClick={() => scrollTo('portfolio')}
-              className="btn-secondary text-sm sm:text-base px-6 sm:px-8 py-3.5 sm:py-4 group"
+            <Link to="/portfolio" className="btn-secondary text-sm sm:text-base px-6 sm:px-8 py-3.5 sm:py-4 group"
             >
               <RiPlayCircleLine className="w-5 h-5 group-hover:scale-110 transition-transform text-orange-500" />
               See Our Work
-            </button>
+            </Link>
           </motion.div>
 
           {/* Trust micro-row */}
@@ -229,7 +227,7 @@ export default function Hero() {
                   className="flex-1 mx-4 h-6 rounded-md flex items-center px-3 text-xs font-body"
                   style={{ background: 'rgba(124,58,237,0.06)', color: 'var(--text-muted)' }}
                 >
-                  provenprofitmarketing.com
+                  https://www.provenprofitbrand.com/
                 </div>
                 <div
                   className="w-6 h-6 rounded-md flex items-center justify-center"
