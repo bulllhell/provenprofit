@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import logo from '../../assets/povG.png';
+import logo from '../../assets/newbos.png';
 import { NavLink, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { RiMenuLine, RiCloseLine, RiArrowRightUpLine } from 'react-icons/ri';
