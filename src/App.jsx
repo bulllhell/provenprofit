@@ -23,7 +23,8 @@ const Home      = lazy(() => import('./pages/Home'));
 const Portfolio = lazy(() => import('./pages/Portfolio'));
 const Services  = lazy(() => import('./pages/Services'));
 const BookCall  = lazy(() => import('./pages/BookCall'));
-const ThankYou  = lazy(() => import('./pages/ThankYou'));
+const ThankYou  = lazy(() => import('./pages/Team'));
+const Team  = lazy(() => import('./pages/Team'));
 const NotFound       = lazy(() => import('./pages/NotFound'));
 const AdminLogin     = lazy(() => import('./pages/AdminLogin'));
 const AdminDashboard = lazy(() => import('./pages/AdminDashboard'));
@@ -38,6 +39,7 @@ export default function App() {
           <Route path="services"    element={<Services />} />
           <Route path="book-a-call" element={<BookCall />} />
           <Route path="thank-you"   element={<ThankYou />} />
+            <Route path="team"   element={<Team />} />
         </Route>
         {/* Admin routes — outside Layout (no navbar/footer) */}
         <Route path="admin" element={<AdminLogin />} />

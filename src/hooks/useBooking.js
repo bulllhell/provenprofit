@@ -6,14 +6,25 @@ export function useBooking() {
   const [message, setMessage] = useState('');
 
   const submit = async (formData) => {
-    const { name, email, phone, service, budget, userMessage, preferredTime } = formData;
+    const {
+      name, email, phone, business,
+      service, budget, preferredTime,
+      message: msg, userMessage,
+    } = formData;
 
-    if (!name?.trim() || !email?.trim() || !userMessage?.trim()) {
+    const body = (msg || userMessage || '').trim();
+
+    if (!name?.trim() || !email?.trim()) {
       setStatus('error');
-      setMessage('Please fill in all required fields.');
+      setMessage('Name and email are required.');
       return false;
     }
-    if (!email.includes('@')) {
+    if (!service) {
+      setStatus('error');
+      setMessage('Please select a service.');
+      return false;
+    }
+    if (!/\S+@\S+\.\S+/.test(email)) {
       setStatus('error');
       setMessage('Please enter a valid email address.');
       return false;
@@ -28,11 +39,12 @@ export function useBooking() {
         .insert([{
           name:           name.trim(),
           email:          email.toLowerCase().trim(),
-          phone:          phone?.trim() || null,
-          service:        service || null,
-          budget:         budget || null,
-          message:        userMessage.trim(),
-          preferred_time: preferredTime || null,
+          phone:          phone?.trim()    || null,
+          business:       business?.trim() || null,
+          service:        service          || null,
+          budget:         budget           || null,
+          message:        body             || null,
+          preferred_time: preferredTime    || null,
           status:         'new',
           submitted_at:   new Date().toISOString(),
         }]);
@@ -40,7 +52,7 @@ export function useBooking() {
       if (error) throw error;
 
       setStatus('success');
-      setMessage("Message sent! We will be in touch within 24 hours.");
+      setMessage("You are booked in! We will be in touch within 24 hours.");
       return true;
     } catch (err) {
       console.error('Booking error:', err);
