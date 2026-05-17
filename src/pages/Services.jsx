@@ -19,7 +19,7 @@ const SERVICES = [
     imgAlt: 'eCommerce store on laptop',
     name: 'Store Design & Development',
     tagline: 'Beautiful stores built to convert',
-    description: 'We build high-converting Shopify and WooCommerce stores from the ground up. Every pixel is crafted with conversion in mind — fast, mobile-first, and optimised to turn browsers into buyers.',
+    description: 'We build high-converting Shopify and WooCommerce stores from the ground up. Every pixel is crafted with conversion in mind fast, mobile-first, and optimised to turn browsers into buyers.',
     features: [
       'Custom Shopify & WooCommerce builds',
       'Mobile-first responsive design',
@@ -41,7 +41,7 @@ const SERVICES = [
     imgAlt: 'Social media management',
     name: 'Social Media Management',
     tagline: 'Content that stops the scroll',
-    description: 'Full-service social media across Instagram, TikTok, Facebook and more. We handle content creation, scheduling, community management and paid advertising — so you focus on running your business.',
+    description: 'Full-service social media across Instagram, TikTok, Facebook and more. We handle content creation, scheduling, community management and paid advertising so you focus on running your business.',
     features: [
       'Instagram & TikTok content',
       'Facebook & LinkedIn management',
@@ -63,7 +63,7 @@ const SERVICES = [
     imgAlt: 'Brand identity design',
     name: 'Brand Identity & Design',
     tagline: 'A brand people remember and trust',
-    description: 'Your brand is more than a logo — it is the entire feeling people get when they interact with your business. We craft complete visual identities that position you as premium and trustworthy.',
+    description: 'Your brand is more than a logo it is the entire feeling people get when they interact with your business. We craft complete visual identities that position you as premium and trustworthy.',
     features: [
       'Logo design & variations',
       'Full brand style guide',
@@ -85,7 +85,7 @@ const SERVICES = [
     imgAlt: 'Paid advertising analytics',
     name: 'Paid Advertising',
     tagline: 'Every dollar tracked, every campaign optimised',
-    description: 'High-ROI paid campaigns on Meta, Google and TikTok. From ad creative to audience targeting to daily optimisation — we manage every detail so your ad spend turns into trackable revenue.',
+    description: 'High-ROI paid campaigns on Meta, Google and TikTok. From ad creative to audience targeting to daily optimisation we manage every detail so your ad spend turns into trackable revenue.',
     features: [
       'Meta (Facebook & Instagram) Ads',
       'Google Search & Shopping Ads',
@@ -107,7 +107,7 @@ const SERVICES = [
     imgAlt: 'Email marketing campaigns',
     name: 'Email Marketing',
     tagline: 'Automated flows that sell while you sleep',
-    description: 'Email is still the highest-ROI channel — when done right. We set up Klaviyo and Mailchimp automations, write compelling campaigns and build flows that nurture your list and recover abandoned carts.',
+    description: 'Email is still the highest-ROI channel when done right. We set up Klaviyo and Mailchimp automations, write compelling campaigns and build flows that nurture your list and recover abandoned carts.',
     features: [
       'Klaviyo & Mailchimp setup',
       'Welcome & nurture sequences',
@@ -129,7 +129,7 @@ const SERVICES = [
     imgAlt: 'SEO analytics and keyword rankings',
     name: 'SEO & Organic Growth',
     tagline: 'Rank higher. Get found. Grow for free.',
-    description: 'Long-term organic growth through technical SEO, content strategy and link building. We optimise your store to rank for the exact keywords your customers are searching — driving free, compounding traffic.',
+    description: 'Long-term organic growth through technical SEO, content strategy and link building. We optimise your store to rank for the exact keywords your customers are searching driving free, compounding traffic.',
     features: [
       'Technical SEO audit & fixes',
       'Keyword research & mapping',
@@ -419,7 +419,7 @@ export default function ServicesPage() {
             className="text-sm sm:text-base font-body max-w-xl mx-auto leading-relaxed"
             style={{ color: 'var(--text-muted)' }}
           >
-            From store builds to social media, paid ads to brand identity —
+            From store builds to social media, paid ads to brand identity 
             every service is delivered by specialists focused on one thing: growing your revenue.
           </motion.p>
         </div>
