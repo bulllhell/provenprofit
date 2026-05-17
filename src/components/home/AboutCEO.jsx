@@ -120,7 +120,7 @@ export default function AboutCEO() {
                 style={{ background: 'linear-gradient(to top, rgba(26,16,35,0.92), transparent 55%)' }}
               />
               <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
-                <div className="font-heading text-2xl font-bold text-white">Olatubosun</div>
+                <div className="font-heading text-2xl font-bold text-white">Olatunbosun</div>
                 <div className="text-sm text-orange-400 mt-1">Founder & CEO, Proven Profit Marketing</div>
                 <div className="flex items-center gap-3 mt-5">
                   <a href="https://www.instagram.com/proven_profit_?igsh=YzljYTk1ODg3Zg==" target="_blank" rel="noopener noreferrer"

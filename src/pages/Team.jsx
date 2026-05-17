@@ -15,7 +15,7 @@ import {
 } from 'react-icons/ri';
 
 const CEO = {
-  name: 'Adeyemo',
+  name: 'Adeyemo Olatunbosun',
   role: 'Founder & CEO',
   title: 'Proven Profit Marketing',
   bio: 'The visionary behind Proven Profit. With 5 years of hands-on eCommerce experience, Adeyemo has helped 120+ brands across the US, Canada, Australia and Europe build profitable online presences from the ground up.',
