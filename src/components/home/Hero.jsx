@@ -140,7 +140,7 @@ export default function Hero() {
               maxWidth: 'clamp(280px, 90vw, 500px)',
             }}
           >
-            eCommerce stores, social media management, and brand scaling —
+            eCommerce stores, social media management, and brand scaling 
             built for serious brands across the{' '}
             <span className="font-semibold" style={{ color: 'var(--text)' }}>
               US, Canada, Australia & Europe
