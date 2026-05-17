@@ -58,7 +58,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
             className="flex items-center justify-between"
-            style={{ height: 'clamp(60px, 10vw, 80px)' }}
+            style={{ height: 'clamp(70px, 12vw, 100px)' }}
           >
 
             {/* Logo */}
@@ -67,7 +67,7 @@ export default function Navbar() {
                 src={logo}
                 alt="Proven Profit"
                 className="h-auto w-auto object-contain group-hover:opacity-90 transition-opacity duration-200"
-                style={{ maxHeight: 'clamp(48px, 8vw, 72px)' }}
+                style={{ maxHeight: 'clamp(70px, 12vw, 120px)' }}
                 loading="eager"
               />
             </Link>
@@ -194,7 +194,7 @@ export default function Navbar() {
                   <img
                     src={logo}
                     alt="Proven Profit"
-                    className="h-12 w-auto object-contain"
+                    className="h-16 w-auto object-contain"
                     loading="eager"
                   />
                 </Link>
