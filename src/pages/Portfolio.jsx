@@ -140,7 +140,7 @@ const RESULTS = [
     badge: 'After',
     badgeColor: '#16a34a',
     title: 'Facebook After',
-    desc: 'The same account after 60 days under our management — viral reach, exponential engagement growth and audience growth.',
+    desc: 'The same account after 60 days under our management viral reach, exponential engagement growth and audience growth.',
     accent: '#16a34a',
   },
   {
@@ -152,7 +152,7 @@ const RESULTS = [
     badge: 'Results',
     badgeColor: '#E1306C',
     title: 'Meta Ads Campaign',
-    desc: 'Successful Meta advertising campaign results — ROAS, impressions, click-through rates and revenue driven for a client brand.',
+    desc: 'Successful Meta advertising campaign results ROAS, impressions, click-through rates and revenue driven for a client brand.',
     accent: '#E1306C',
   },
   {
@@ -164,7 +164,7 @@ const RESULTS = [
     badge: 'Results',
     badgeColor: '#7C3AED',
     title: 'Google Ads Success',
-    desc: 'Live screen recording showing Google Ads dashboard — campaign performance, keyword rankings and revenue attribution.',
+    desc: 'Live screen recording showing Google Ads dashboard campaign performance, keyword rankings and revenue attribution.',
     accent: '#7C3AED',
   },
   {
@@ -660,7 +660,7 @@ export default function PortfolioPage() {
                 className="font-heading text-2xl sm:text-3xl font-extrabold leading-tight"
                 style={{ color: 'var(--text)' }}
               >
-                The numbers don't lie —{' '}
+                The numbers don't lie{' '}
                 <span className="text-gradient">real campaign data</span>
               </h2>
             </div>
@@ -785,7 +785,7 @@ export default function PortfolioPage() {
             </h2>
             <p className="font-body text-sm sm:text-base leading-relaxed mb-8 max-w-lg mx-auto" style={{ color: 'var(--text-muted)' }}>
               Book a free strategy call and we'll map out exactly how to build, launch
-              and scale your brand — just like the stores above.
+              and scale your brand just like the stores above.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link to="/book-a-call" className="btn-primary text-sm px-7 py-3.5 group">

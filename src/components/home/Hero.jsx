@@ -90,14 +90,14 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-8 sm:pb-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-8 sm:pb-12 lg:pb-16 xl:pb-20">
         <div className="flex flex-col items-center text-center">
 
           <motion.div
             initial={{ opacity: 0, y: -16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="section-tag mb-8 group cursor-default"
+            className="section-tag mb-6 sm:mb-8 lg:mb-10 group cursor-default"
           >
             <RiFlashlightLine className="w-3.5 h-3.5" />
             eCommerce · Social Media · Brand Scaling
@@ -107,8 +107,11 @@ export default function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.7 }}
-            className="font-heading text-4xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold max-w-5xl leading-[1.0] tracking-tight"
-            style={{ color: 'var(--text)' }}
+            className="font-heading font-extrabold max-w-5xl leading-[1.0] tracking-tight"
+            style={{
+              color: 'var(--text)',
+              fontSize: 'clamp(2rem, 7vw, 4rem)',
+            }}
           >
             We Build Your{' '}
             <br className="hidden sm:block" />
@@ -130,8 +133,12 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="mt-6 text-sm sm:text-base font-body max-w-xl leading-relaxed px-2 sm:px-0"
-            style={{ color: 'var(--text-muted)' }}
+            className="mt-4 sm:mt-6 lg:mt-8 font-body leading-relaxed px-2 sm:px-0"
+            style={{
+              color: 'var(--text-muted)',
+              fontSize: 'clamp(0.9375rem, 2vw, 1.0625rem)',
+              maxWidth: 'clamp(280px, 90vw, 500px)',
+            }}
           >
             eCommerce stores, social media management, and brand scaling —
             built for serious brands across the{' '}
@@ -145,13 +152,20 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.55 }}
-            className="flex flex-col sm:flex-row items-center gap-4 mt-10"
+            className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 lg:gap-5 mt-8 sm:mt-10 lg:mt-12"
           >
-            <Link to="/book-a-call" className="btn-primary text-sm sm:text-base px-6 sm:px-8 py-3.5 sm:py-4 group">
+            <Link
+              to="/book-a-call"
+              className="btn-primary group"
+              style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)' }}
+            >
               Book a Free Call
               <RiArrowRightUpLine className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
-            <Link to="/portfolio" className="btn-secondary text-sm sm:text-base px-6 sm:px-8 py-3.5 sm:py-4 group"
+            <Link
+              to="/portfolio"
+              className="btn-secondary group"
+              style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)' }}
             >
               <RiPlayCircleLine className="w-5 h-5 group-hover:scale-110 transition-transform text-orange-500" />
               See Our Work
@@ -162,7 +176,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.75 }}
-            className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-8"
+            className="flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-6 gap-y-2 mt-6 sm:mt-8 lg:mt-10"
           >
             {[
               { icon: RiShieldCheckLine, text: 'Verified Results' },
@@ -171,10 +185,13 @@ export default function Hero() {
             ].map(({ icon: Icon, text }) => (
               <span
                 key={text}
-                className="flex items-center gap-1.5 text-xs font-body"
-                style={{ color: 'var(--text-muted)' }}
+                className="flex items-center gap-1.5"
+                style={{
+                  color: 'var(--text-muted)',
+                  fontSize: 'clamp(0.75rem, 1.2vw, 0.875rem)',
+                }}
               >
-                <Icon className="w-3.5 h-3.5 text-orange-500" />
+                <Icon className="w-3.5 h-3.5 text-orange-500 flex-shrink-0" />
                 {text}
               </span>
             ))}
@@ -184,7 +201,8 @@ export default function Hero() {
             initial={{ opacity: 0, y: 40, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ delay: 0.5, duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="relative mt-10 sm:mt-16 w-full max-w-4xl"
+            className="relative mt-10 sm:mt-14 lg:mt-20 w-full"
+            style={{ maxWidth: 'clamp(300px, 95vw, 900px)' }}
           >
             <div className="absolute -inset-1 rounded-3xl bg-brand-gradient opacity-10 blur-xl" />
 
@@ -196,33 +214,34 @@ export default function Hero() {
               }}
             >
               <div
-                className="flex items-center gap-2 px-4 py-3 border-b"
+                className="flex items-center gap-2 px-3 sm:px-4 py-2.5 sm:py-3 border-b"
                 style={{ borderColor: 'var(--dark-border)', background: 'rgba(124,58,237,0.04)' }}
               >
-                <span className="w-3 h-3 rounded-full bg-red-400/70" />
-                <span className="w-3 h-3 rounded-full bg-yellow-400/70" />
-                <span className="w-3 h-3 rounded-full bg-green-400/70" />
+                <span className="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full bg-red-400/70" />
+                <span className="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full bg-yellow-400/70" />
+                <span className="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full bg-green-400/70" />
                 <div
-                  className="flex-1 mx-4 h-6 rounded-md flex items-center px-3 text-xs font-body"
+                  className="flex-1 mx-2 sm:mx-4 h-5 sm:h-6 rounded-md flex items-center px-2 sm:px-3 text-[9px] sm:text-xs font-body"
                   style={{ background: 'rgba(124,58,237,0.06)', color: 'var(--text-muted)' }}
                 >
                   https://www.provenprofitbrand.com/
                 </div>
                 <div
-                  className="w-6 h-6 rounded-md flex items-center justify-center"
+                  className="w-5 sm:w-6 h-5 sm:h-6 rounded-md flex items-center justify-center flex-shrink-0"
                   style={{ background: 'rgba(124,58,237,0.1)' }}
                 >
                   <RiShieldCheckLine className="w-3 h-3 text-purple-600" />
                 </div>
               </div>
 
-              <div className="p-4 sm:p-6 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 min-h-[160px] sm:min-h-[280px]">
-                <div className="hidden sm:block col-span-1 space-y-2">
+              <div className="p-3 sm:p-4 lg:p-6 grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3 lg:gap-4 min-h-[140px] sm:min-h-[240px] lg:min-h-[320px]">
+                <div className="hidden sm:block col-span-1 space-y-1.5 sm:space-y-2">
                   {['Dashboard', 'Stores', 'Analytics', 'Campaigns', 'Settings'].map((item, i) => (
                     <div
                       key={item}
-                      className="h-8 rounded-lg flex items-center px-3 text-xs font-body transition-colors"
+                      className="rounded-lg flex items-center px-2 sm:px-3 text-[11px] sm:text-xs font-body transition-colors"
                       style={{
+                        height: 'clamp(1.75rem, 2vw, 2.25rem)',
                         background: i === 0 ? 'rgba(124,58,237,0.1)' : 'transparent',
                         color: i === 0 ? 'var(--purple)' : 'var(--text-muted)',
                       }}
@@ -232,8 +251,8 @@ export default function Hero() {
                   ))}
                 </div>
 
-                <div className="col-span-2 space-y-3">
-                  <div className="grid grid-cols-3 gap-2">
+                <div className="col-span-2 space-y-2 sm:space-y-3">
+                  <div className="grid grid-cols-3 gap-1.5 sm:gap-2 lg:gap-3">
                     {[
                       { v: '$4.2M', l: 'Revenue', color: 'var(--orange)'  },
                       { v: '1,847', l: 'Orders',  color: 'var(--purple)'  },
@@ -241,17 +260,33 @@ export default function Hero() {
                     ].map(({ v, l, color }) => (
                       <div
                         key={l}
-                        className="rounded-lg p-3 text-center"
+                        className="rounded-lg p-2 sm:p-3 text-center"
                         style={{ background: 'rgba(124,58,237,0.05)' }}
                       >
-                        <div className="font-heading text-sm font-bold" style={{ color }}>{v}</div>
-                        <div className="text-[9px] font-body" style={{ color: 'var(--text-muted)' }}>{l}</div>
+                        <div
+                          className="font-heading font-bold"
+                          style={{
+                            color,
+                            fontSize: 'clamp(0.875rem, 2vw, 1.125rem)',
+                          }}
+                        >
+                          {v}
+                        </div>
+                        <div
+                          className="font-body mt-0.5"
+                          style={{
+                            color: 'var(--text-muted)',
+                            fontSize: 'clamp(0.65rem, 1vw, 0.75rem)',
+                          }}
+                        >
+                          {l}
+                        </div>
                       </div>
                     ))}
                   </div>
 
-                  <div className="rounded-lg p-3" style={{ background: 'rgba(124,58,237,0.04)' }}>
-                    <div className="flex items-end gap-1.5 h-16">
+                  <div className="rounded-lg p-2 sm:p-3" style={{ background: 'rgba(124,58,237,0.04)' }}>
+                    <div className="flex items-end gap-1 sm:gap-1.5" style={{ height: 'clamp(3rem, 8vw, 5rem)' }}>
                       {[40, 65, 45, 80, 55, 90, 70, 95, 60, 85, 75, 100].map((h, i) => (
                         <motion.div
                           key={i}
@@ -271,8 +306,11 @@ export default function Hero() {
                       ))}
                     </div>
                     <div
-                      className="text-[9px] font-body mt-1.5"
-                      style={{ color: 'var(--text-muted)' }}
+                      className="font-body mt-1 sm:mt-1.5"
+                      style={{
+                        color: 'var(--text-muted)',
+                        fontSize: 'clamp(0.65rem, 1vw, 0.75rem)',
+                      }}
                     >
                       Monthly Revenue Growth
                     </div>
@@ -286,14 +324,14 @@ export default function Hero() {
               value="120+"
               label="Stores Built"
               delay={0.9}
-              className="absolute -left-4 sm:-left-8 top-8 hidden sm:flex"
+              className="absolute -left-4 sm:-left-6 lg:-left-8 top-6 sm:top-8 lg:top-10 hidden sm:flex"
             />
             <StatPill
               icon={RiShieldCheckLine}
               value="98%"
               label="Satisfaction"
               delay={1.1}
-              className="absolute -right-4 sm:-right-8 bottom-8 hidden sm:flex"
+              className="absolute -right-4 sm:-right-6 lg:-right-8 bottom-6 sm:bottom-8 lg:bottom-10 hidden sm:flex"
             />
           </motion.div>
 
@@ -302,10 +340,15 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 1.3 }}
             onClick={() => scrollTo('trustbar')}
-            className="mt-8 sm:mt-12 flex flex-col items-center gap-2 hover:text-purple-600 transition-colors"
+            className="mt-8 sm:mt-10 lg:mt-14 flex flex-col items-center gap-2 hover:text-purple-600 transition-colors"
             style={{ color: 'var(--text-muted)' }}
           >
-            <span className="text-xs font-body tracking-wider uppercase">Scroll to explore</span>
+            <span
+              className="font-body tracking-wider uppercase"
+              style={{ fontSize: 'clamp(0.65rem, 1vw, 0.75rem)' }}
+            >
+              Scroll to explore
+            </span>
             <div className="w-5 h-8 rounded-full border border-current flex items-start justify-center p-1">
               <motion.div
                 animate={{ y: [0, 10, 0] }}

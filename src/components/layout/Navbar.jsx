@@ -8,15 +8,13 @@ const NAV_LINKS = [
   { label: 'Home',      to: '/' },
   { label: 'Services',  to: '/services' },
   { label: 'Portfolio', to: '/portfolio' },
-   { label: 'Team', to: '/Team' },
-
+  { label: 'Team', to: '/Team' },
 ];
 
 export default function Navbar() {
   const [scrolled,    setScrolled]    = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // ── Scroll detection ──────────────────────────────────────
   const handleScroll = useCallback(() => {
     setScrolled(window.scrollY > 40);
   }, []);
@@ -26,13 +24,11 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [handleScroll]);
 
-  // ── Lock body scroll when mobile menu is open ─────────────
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
 
-  // ── Smooth scroll for hash links ──────────────────────────
   const handleHashLink = (e, to) => {
     if (to.startsWith('/#')) {
       e.preventDefault();
@@ -58,28 +54,38 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-[68px]">
+          <div
+            className="flex items-center justify-between"
+            style={{
+              height: 'clamp(60px, 10vw, 80px)',
+            }}
+          >
 
-            {/* ── Logo ──────────────────────────────────── */}
-            <Link to="/" className="flex items-center group">
+            <Link to="/" className="flex items-center group flex-shrink-0">
               <img
                 src={logo}
                 alt="Proven Profit"
-                className="h-9 w-auto object-contain group-hover:opacity-90 transition-opacity duration-200"
+                className="h-auto w-auto object-contain group-hover:opacity-90 transition-opacity duration-200"
+                style={{
+                  maxHeight: 'clamp(32px, 6vw, 48px)',
+                }}
                 loading="eager"
               />
             </Link>
 
-            {/* ── Desktop Nav ───────────────────────────── */}
             <nav className="hidden lg:flex items-center gap-1">
               {NAV_LINKS.map(({ label, to }) => (
                 <NavLink
                   key={to}
                   to={to}
                   onClick={(e) => handleHashLink(e, to)}
-                  style={{ position: 'relative' }}
+                  style={{
+                    position: 'relative',
+                    fontSize: 'clamp(0.8125rem, 1.2vw, 0.9375rem)',
+                    padding: 'clamp(0.5rem, 1vw, 0.625rem) clamp(0.75rem, 2vw, 1rem)',
+                  }}
                   className={({ isActive }) =>
-                    `px-4 py-2 text-sm font-body font-medium tracking-wide rounded-lg transition-all duration-200
+                    `font-body font-medium tracking-wide rounded-lg transition-all duration-200
                     ${isActive && !to.includes('#')
                       ? 'text-orange-500 bg-orange-500/8'
                       : 'text-light-dim hover:text-white hover:bg-white/5'
@@ -91,8 +97,11 @@ export default function Navbar() {
                       {label}
                       {isActive && !to.includes('#') && (
                         <span
-                          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 rounded-full bg-orange-500"
-                          style={{ position: 'absolute' }}
+                          className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 rounded-full bg-orange-500"
+                          style={{
+                            position: 'absolute',
+                            width: 'clamp(8px, 1.5vw, 20px)',
+                          }}
                         />
                       )}
                     </>
@@ -101,19 +110,31 @@ export default function Navbar() {
               ))}
             </nav>
 
-            {/* ── Desktop CTA ───────────────────────────── */}
-            <div className="hidden lg:flex items-center gap-3">
-              <Link to="/book-a-call" className="btn-secondary text-sm">
+            <div className="hidden lg:flex items-center gap-2 lg:gap-3 flex-shrink-0">
+              <Link
+                to="/book-a-call"
+                className="btn-secondary"
+                style={{
+                  fontSize: 'clamp(0.8125rem, 1.2vw, 0.9375rem)',
+                  padding: 'clamp(0.5rem, 0.8vw, 0.75rem) clamp(1rem, 2vw, 1.25rem)',
+                }}
+              >
                 Book a Call
               </Link>
-              <Link to="/#packages" onClick={(e) => handleHashLink(e, '/#packages')}
-                className="btn-primary text-sm group">
+              <Link
+                to="/#packages"
+                onClick={(e) => handleHashLink(e, '/#packages')}
+                className="btn-primary group"
+                style={{
+                  fontSize: 'clamp(0.8125rem, 1.2vw, 0.9375rem)',
+                  padding: 'clamp(0.5rem, 0.8vw, 0.75rem) clamp(1rem, 2vw, 1.25rem)',
+                }}
+              >
                 Get Started
                 <RiArrowRightUpLine className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </Link>
             </div>
 
-            {/* ── Mobile Menu Toggle ────────────────────── */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Toggle menu"
@@ -145,11 +166,9 @@ export default function Navbar() {
         </div>
       </motion.header>
 
-      {/* ── Mobile Drawer ─────────────────────────────────── */}
       <AnimatePresence>
         {menuOpen && (
           <>
-            {/* Backdrop */}
             <motion.div
               key="backdrop"
               initial={{ opacity: 0 }}
@@ -159,7 +178,6 @@ export default function Navbar() {
               className="fixed inset-0 z-40 bg-dark/80 backdrop-blur-sm lg:hidden"
             />
 
-            {/* Drawer panel */}
             <motion.div
               key="drawer"
               initial={{ x: '100%' }}
@@ -168,10 +186,14 @@ export default function Navbar() {
               transition={{ type: 'spring', damping: 28, stiffness: 250 }}
               className="fixed top-0 right-0 bottom-0 z-50 w-[min(320px,90vw)] glass border-l border-dark-border flex flex-col lg:hidden"
             >
-              {/* Header */}
               <div className="flex items-center justify-between p-5 border-b border-dark-border">
                 <Link to="/" onClick={() => setMenuOpen(false)} className="flex items-center">
-                  <img src={logo} alt="Proven Profit" className="h-8 w-auto object-contain" loading="eager" />
+                  <img
+                    src={logo}
+                    alt="Proven Profit"
+                    className="h-8 w-auto object-contain"
+                    loading="eager"
+                  />
                 </Link>
                 <button
                   onClick={() => setMenuOpen(false)}
@@ -181,7 +203,6 @@ export default function Navbar() {
                 </button>
               </div>
 
-              {/* Links */}
               <nav className="flex-1 px-4 py-6 space-y-1">
                 {NAV_LINKS.map(({ label, to }, i) => (
                   <motion.div
@@ -208,14 +229,19 @@ export default function Navbar() {
                 ))}
               </nav>
 
-              {/* Footer CTA */}
               <div className="p-4 border-t border-dark-border space-y-3">
-                <Link to="/book-a-call" onClick={() => setMenuOpen(false)}
-                  className="btn-secondary w-full justify-center flex">
+                <Link
+                  to="/book-a-call"
+                  onClick={() => setMenuOpen(false)}
+                  className="btn-secondary w-full justify-center flex"
+                >
                   Book a Call
                 </Link>
-                <Link to="/#packages" onClick={(e) => { handleHashLink(e, '/#packages'); }}
-                  className="btn-primary w-full justify-center flex">
+                <Link
+                  to="/#packages"
+                  onClick={(e) => { handleHashLink(e, '/#packages'); }}
+                  className="btn-primary w-full justify-center flex"
+                >
                   Get Started <RiArrowRightUpLine className="w-4 h-4" />
                 </Link>
               </div>
