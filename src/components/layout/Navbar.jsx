@@ -67,7 +67,7 @@ export default function Navbar() {
                 src={logo}
                 alt="Proven Profit"
                 className="h-auto w-auto object-contain group-hover:opacity-90 transition-opacity duration-200"
-                style={{ maxHeight: 'clamp(32px, 6vw, 48px)' }}
+                style={{ maxHeight: 'clamp(48px, 8vw, 72px)' }}
                 loading="eager"
               />
             </Link>
@@ -194,7 +194,7 @@ export default function Navbar() {
                   <img
                     src={logo}
                     alt="Proven Profit"
-                    className="h-8 w-auto object-contain"
+                    className="h-12 w-auto object-contain"
                     loading="eager"
                   />
                 </Link>
