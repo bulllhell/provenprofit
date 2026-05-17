@@ -22,7 +22,7 @@ const steps = [
   { icon: RiCalendarLine,     title: 'Book Your Call',      desc: 'Fill the form and tell us about your brand and goals.' },
   { icon: RiMessage2Line,     title: 'Discovery Session',   desc: 'We talk about your brand, challenges, and what you want to achieve.' },
   { icon: RiStore2Line,       title: 'Get Your Strategy',   desc: 'We map out a clear plan and recommend the best service for your business.' },
-  { icon: RiArrowRightUpLine, title: 'We Execute',          desc: "Once you're in, we get to work — fast, focused, and results-driven." },
+  { icon: RiArrowRightUpLine, title: 'We Execute',          desc: "Once you're in, we get to work fast, focused, and results-driven." },
 ]
 
 const perks = [
@@ -173,7 +173,7 @@ export default function BookCall() {
               Let's Build Your Brand <span className="text-gradient">Together</span>
             </motion.h1>
             <motion.p variants={fadeUp} className="text-base leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-              Book a free 30-minute call. No pitch, no pressure — just a real conversation about your brand and how we can help it grow.
+              Book a free 30-minute call. No pitch, no pressure just a real conversation about your brand and how we can help it grow.
             </motion.p>
             <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-4 pt-1">
               {perks.map(({ icon: Icon, text }) => (
@@ -234,7 +234,7 @@ export default function BookCall() {
                     <RiPhoneLine style={{ color: 'var(--purple)' }} /> +234 805 984 6912
                   </a>
                   <a href="mailto:info@provenprofitmarketing.com" className="flex items-center gap-2.5 text-sm transition-colors duration-200 hover:text-[#7C3AED]" style={{ color: 'var(--text-muted)' }}>
-                    <RiMailLine style={{ color: 'var(--orange)' }} /> info@provenprofitmarketing.com
+                    <RiMailLine style={{ color: 'var(--orange)' }} /> support@provenprofitbrand.com
                   </a>
                   <div className="flex items-center gap-2.5 text-sm" style={{ color: 'var(--text-muted)' }}>
                     <RiMapPinLine style={{ color: 'var(--purple)' }} /> Lagos, Ikeja, Nigeria
