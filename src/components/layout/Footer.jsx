@@ -188,7 +188,7 @@ export default function Footer() {
                 onMouseEnter={e => { e.currentTarget.style.color = '#fff'; }}
                 onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.4)'; }}>
                 <RiMailLine className="w-3.5 h-3.5 text-orange-500 flex-shrink-0" />
-                <span className="break-all">info@provenprofitmarketing.com</span>
+                <span className="break-all">support@provenprofitbrand.com</span>
               </a>
               <a href="https://wa.me/message/322ETXOWGEWVG1" target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-2 text-xs font-body transition-colors"

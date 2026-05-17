@@ -284,7 +284,7 @@ export default function VideoReviews() {
             className="font-heading text-3xl sm:text-4xl font-extrabold leading-tight mb-2"
             style={{ color: 'var(--text)' }}
           >
-            Don't take our word for it —{' '}
+            Don't take our word for it{' '}
             <span className="text-gradient">hear it from them</span>
           </motion.h2>
 

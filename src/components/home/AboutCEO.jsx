@@ -120,7 +120,7 @@ export default function AboutCEO() {
                 style={{ background: 'linear-gradient(to top, rgba(26,16,35,0.92), transparent 55%)' }}
               />
               <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
-                <div className="font-heading text-2xl font-bold text-white">Adeyemo</div>
+                <div className="font-heading text-2xl font-bold text-white">Olatubosun</div>
                 <div className="text-sm text-orange-400 mt-1">Founder & CEO, Proven Profit Marketing</div>
                 <div className="flex items-center gap-3 mt-5">
                   <a href="https://www.instagram.com/proven_profit_?igsh=YzljYTk1ODg3Zg==" target="_blank" rel="noopener noreferrer"
@@ -183,12 +183,12 @@ export default function AboutCEO() {
               <RiDoubleQuotesL className="absolute -top-1 -left-1 w-4 h-4" style={{ color: 'rgba(124,58,237,0.35)' }} />
               <p className="font-body text-sm sm:text-base leading-relaxed italic" style={{ color: 'var(--text-muted)' }}>
                 "I started Proven Profit because I was tired of seeing great brands fail online not because of their
-                products, but because of poor execution. Every store we build, every campaign we run — it's personal."
+                products, but because of poor execution. Every store we build, every campaign we run it's personal."
               </p>
             </div>
 
             <p className="text-sm sm:text-base font-body leading-relaxed mb-7" style={{ color: 'var(--text-muted)' }}>
-              Proven Profit Marketing was founded with one mission — to help ambitious brands across the US, Canada,
+              Proven Profit Marketing was founded with one mission to help ambitious brands across the US, Canada,
               Australia and Europe build a real, profitable online presence. From Shopify store builds to full-scale
               social media management and brand identity, we deliver end-to-end digital growth strategies that move the needle.
             </p>

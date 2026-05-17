@@ -9,7 +9,6 @@ import {
   RiFlashlightLine,
 } from 'react-icons/ri';
 
-// ── Floating Stat Pill ─────────────────────────────────────
 function StatPill({ icon: Icon, value, label, delay, className }) {
   return (
     <motion.div
@@ -36,7 +35,6 @@ function StatPill({ icon: Icon, value, label, delay, className }) {
   );
 }
 
-// ── Typewriter words ───────────────────────────────────────
 const WORDS = ['eCommerce Store', 'Social Media', 'Brand Identity', 'Online Business'];
 
 export default function Hero() {
@@ -47,7 +45,6 @@ export default function Hero() {
   const y       = useTransform(scrollYProgress, [0, 1], ['0%', '25%']);
   const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
-  // ── Typewriter effect ──────────────────────────────────
   useEffect(() => {
     const word = WORDS[wordIdx];
     let timeout;
@@ -64,7 +61,6 @@ export default function Hero() {
     return () => clearTimeout(timeout);
   }, [displayed, deleting, wordIdx]);
 
-  // ── Scroll to section ──────────────────────────────────
   const scrollTo = (id) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -75,23 +71,16 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{ background: 'var(--light)' }}
     >
-      {/* ── Layered background ──────────────────────────── */}
-      {/* Gradient mesh */}
       <div className="absolute inset-0 bg-hero-mesh pointer-events-none" />
 
-      {/* Geometric ring decorations */}
       <motion.div style={{ y, opacity }} className="absolute inset-0 pointer-events-none">
-        {/* Large purple ring */}
         <div className="absolute -top-32 -right-32 w-[700px] h-[700px] rounded-full border border-purple-600/10" />
         <div className="absolute -top-32 -right-32 w-[560px] h-[560px] rounded-full border border-purple-600/6 translate-x-16 translate-y-16" />
-        {/* Orange ring bottom left */}
         <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] rounded-full border border-orange-500/10" />
-        {/* Center glow blobs */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-purple-600/5 blur-[100px]" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-orange-500/4 blur-[80px]" />
       </motion.div>
 
-      {/* Animated dot grid */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -101,11 +90,9 @@ export default function Hero() {
         }}
       />
 
-      {/* ── Content ─────────────────────────────────────── */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-8 sm:pb-12">
         <div className="flex flex-col items-center text-center">
 
-          {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: -16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -116,7 +103,6 @@ export default function Hero() {
             eCommerce · Social Media · Brand Scaling
           </motion.div>
 
-          {/* Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -140,7 +126,6 @@ export default function Hero() {
             </span>
           </motion.h1>
 
-          {/* Sub */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -156,7 +141,6 @@ export default function Hero() {
             120+ stores. Real results.
           </motion.p>
 
-          {/* CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -174,7 +158,6 @@ export default function Hero() {
             </Link>
           </motion.div>
 
-          {/* Trust micro-row */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -197,17 +180,14 @@ export default function Hero() {
             ))}
           </motion.div>
 
-          {/* ── Hero visual card ──────────────────────── */}
           <motion.div
             initial={{ opacity: 0, y: 40, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ delay: 0.5, duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="relative mt-10 sm:mt-16 w-full max-w-4xl"
           >
-            {/* Glow */}
             <div className="absolute -inset-1 rounded-3xl bg-brand-gradient opacity-10 blur-xl" />
 
-            {/* Main card */}
             <div
               className="relative rounded-2xl overflow-hidden border"
               style={{
@@ -215,7 +195,6 @@ export default function Hero() {
                 borderColor: 'var(--dark-border)',
               }}
             >
-              {/* Fake browser chrome */}
               <div
                 className="flex items-center gap-2 px-4 py-3 border-b"
                 style={{ borderColor: 'var(--dark-border)', background: 'rgba(124,58,237,0.04)' }}
@@ -237,9 +216,7 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* Dashboard preview mockup */}
               <div className="p-4 sm:p-6 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 min-h-[160px] sm:min-h-[280px]">
-                {/* Sidebar */}
                 <div className="hidden sm:block col-span-1 space-y-2">
                   {['Dashboard', 'Stores', 'Analytics', 'Campaigns', 'Settings'].map((item, i) => (
                     <div
@@ -255,9 +232,7 @@ export default function Hero() {
                   ))}
                 </div>
 
-                {/* Main content */}
                 <div className="col-span-2 space-y-3">
-                  {/* Stats row */}
                   <div className="grid grid-cols-3 gap-2">
                     {[
                       { v: '$4.2M', l: 'Revenue', color: 'var(--orange)'  },
@@ -275,7 +250,6 @@ export default function Hero() {
                     ))}
                   </div>
 
-                  {/* Chart bars */}
                   <div className="rounded-lg p-3" style={{ background: 'rgba(124,58,237,0.04)' }}>
                     <div className="flex items-end gap-1.5 h-16">
                       {[40, 65, 45, 80, 55, 90, 70, 95, 60, 85, 75, 100].map((h, i) => (
@@ -307,7 +281,6 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* ── Floating stat pills ─────────────────── */}
             <StatPill
               icon={RiStarSLine}
               value="120+"
@@ -324,7 +297,6 @@ export default function Hero() {
             />
           </motion.div>
 
-          {/* ── Scroll indicator ──────────────────────── */}
           <motion.button
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

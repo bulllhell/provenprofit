@@ -167,6 +167,66 @@ const RESULTS = [
     desc: 'Live screen recording showing Google Ads dashboard — campaign performance, keyword rankings and revenue attribution.',
     accent: '#7C3AED',
   },
+  {
+    id: 'shopify-sales-1',
+    type: 'image',
+    src: '/images/bsales1.jpeg',
+    icon: RiShoppingBag3Line,
+    label: 'Shopify Sales',
+    badge: 'Proof',
+    badgeColor: '#16a34a',
+    title: 'Shopify Store Sales #1',
+    desc: 'Live Shopify dashboard showing order volume, revenue metrics and sales performance from a client store.',
+    accent: '#16a34a',
+  },
+  {
+    id: 'shopify-sales-2',
+    type: 'image',
+    src: '/images/bsales2.jpeg',
+    icon: RiShoppingBag3Line,
+    label: 'Shopify Sales',
+    badge: 'Proof',
+    badgeColor: '#16a34a',
+    title: 'Shopify Store Sales #2',
+    desc: 'Real-time sales data and order metrics from another successful client store launch.',
+    accent: '#16a34a',
+  },
+  {
+    id: 'shopify-sales-3',
+    type: 'image',
+    src: '/images/bsales3.jpeg',
+    icon: RiShoppingBag3Line,
+    label: 'Shopify Sales',
+    badge: 'Proof',
+    badgeColor: '#16a34a',
+    title: 'Shopify Store Sales #3',
+    desc: 'Client sales dashboard demonstrating consistent revenue generation and customer order patterns.',
+    accent: '#16a34a',
+  },
+  {
+    id: 'shopify-sales-4',
+    type: 'image',
+    src: '/images/bsales4.jpeg',
+    icon: RiShoppingBag3Line,
+    label: 'Shopify Sales',
+    badge: 'Proof',
+    badgeColor: '#16a34a',
+    title: 'Shopify Store Sales #4',
+    desc: 'High-performing store metrics showing strong conversion rates and repeat customer sales.',
+    accent: '#16a34a',
+  },
+  {
+    id: 'shopify-sales-5',
+    type: 'image',
+    src: '/images/bsales5.jpeg',
+    icon: RiShoppingBag3Line,
+    label: 'Shopify Sales',
+    badge: 'Proof',
+    badgeColor: '#16a34a',
+    title: 'Shopify Store Sales #5',
+    desc: 'Real client data showcasing profitable store operations with healthy order values and customer engagement.',
+    accent: '#16a34a',
+  },
 ];
 
 // ── Result Media Card ─────────────────────────────────────────
@@ -605,7 +665,7 @@ export default function PortfolioPage() {
               </h2>
             </div>
             <p className="text-sm font-body max-w-xs" style={{ color: 'var(--text-muted)' }}>
-              Actual screenshots and recordings from live client campaigns. Facebook, Meta Ads, and Google Ads.
+              Actual screenshots and recordings from live client campaigns. Facebook, Meta Ads, Google Ads, and Shopify sales data.
             </p>
           </div>
         </motion.div>
