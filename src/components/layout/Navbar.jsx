@@ -8,12 +8,14 @@ const NAV_LINKS = [
   { label: 'Home',      to: '/' },
   { label: 'Services',  to: '/services' },
   { label: 'Portfolio', to: '/portfolio' },
-  { label: 'Team', to: '/Team' },
+  { label: 'Team',      to: '/Team' },
 ];
 
+const WHATSAPP_URL = 'https://wa.me/2348059846912';
+
 export default function Navbar() {
-  const [scrolled,    setScrolled]    = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled,  setScrolled]  = useState(false);
+  const [menuOpen,  setMenuOpen]  = useState(false);
 
   const handleScroll = useCallback(() => {
     setScrolled(window.scrollY > 40);
@@ -56,23 +58,21 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
             className="flex items-center justify-between"
-            style={{
-              height: 'clamp(60px, 10vw, 80px)',
-            }}
+            style={{ height: 'clamp(60px, 10vw, 80px)' }}
           >
 
+            {/* Logo */}
             <Link to="/" className="flex items-center group flex-shrink-0">
               <img
                 src={logo}
                 alt="Proven Profit"
                 className="h-auto w-auto object-contain group-hover:opacity-90 transition-opacity duration-200"
-                style={{
-                  maxHeight: 'clamp(32px, 6vw, 48px)',
-                }}
+                style={{ maxHeight: 'clamp(32px, 6vw, 48px)' }}
                 loading="eager"
               />
             </Link>
 
+            {/* Desktop nav links */}
             <nav className="hidden lg:flex items-center gap-1">
               {NAV_LINKS.map(({ label, to }) => (
                 <NavLink
@@ -98,10 +98,7 @@ export default function Navbar() {
                       {isActive && !to.includes('#') && (
                         <span
                           className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 rounded-full bg-orange-500"
-                          style={{
-                            position: 'absolute',
-                            width: 'clamp(8px, 1.5vw, 20px)',
-                          }}
+                          style={{ position: 'absolute', width: 'clamp(8px, 1.5vw, 20px)' }}
                         />
                       )}
                     </>
@@ -110,6 +107,7 @@ export default function Navbar() {
               ))}
             </nav>
 
+            {/* Desktop CTAs */}
             <div className="hidden lg:flex items-center gap-2 lg:gap-3 flex-shrink-0">
               <Link
                 to="/book-a-call"
@@ -121,9 +119,12 @@ export default function Navbar() {
               >
                 Book a Call
               </Link>
-              <Link
-                to="/#packages"
-                onClick={(e) => handleHashLink(e, '/#packages')}
+
+              {/* Get Started → WhatsApp */}
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-primary group"
                 style={{
                   fontSize: 'clamp(0.8125rem, 1.2vw, 0.9375rem)',
@@ -132,9 +133,10 @@ export default function Navbar() {
               >
                 Get Started
                 <RiArrowRightUpLine className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </Link>
+              </a>
             </div>
 
+            {/* Mobile hamburger */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Toggle menu"
@@ -166,6 +168,7 @@ export default function Navbar() {
         </div>
       </motion.header>
 
+      {/* Mobile drawer */}
       <AnimatePresence>
         {menuOpen && (
           <>
@@ -237,13 +240,17 @@ export default function Navbar() {
                 >
                   Book a Call
                 </Link>
-                <Link
-                  to="/#packages"
-                  onClick={(e) => { handleHashLink(e, '/#packages'); }}
+
+                {/* Mobile Get Started → WhatsApp */}
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMenuOpen(false)}
                   className="btn-primary w-full justify-center flex"
                 >
                   Get Started <RiArrowRightUpLine className="w-4 h-4" />
-                </Link>
+                </a>
               </div>
             </motion.div>
           </>
