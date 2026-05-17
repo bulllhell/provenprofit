@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   RiExternalLinkLine,
@@ -13,6 +13,10 @@ import {
   RiLineChartLine,
   RiMegaphoneLine,
   RiSearchLine,
+  RiZoomInLine,
+  RiCloseLine,
+  RiArrowLeftLine,
+  RiArrowRightLine,
 } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 
@@ -108,7 +112,7 @@ const STORES = [
     niche: 'Sunglasses & Eyewear',
     url: 'https://blenderseyewear.com',
     desc: 'Bold eyewear brand with an energetic, colour-forward storefront. Virtual try-on integration and an immersive product experience built for Gen Z shoppers.',
-    img: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    img: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=80&w=1160&auto=format&fit=crop',
     accent: '#7C3AED',
     result: '67% mobile conversion rate',
     features: ['Virtual try-on UX', 'Gen-Z design language', 'Speed optimisation'],
@@ -117,7 +121,6 @@ const STORES = [
 
 const FILTERS = ['All', 'Gym & Fitness', 'Sports Clothing', 'Books & Lifestyle', 'Phone & Tech', 'Beauty', 'Travel Bags', 'Glasses & Eyewear'];
 
-// ── Results data ─────────────────────────────────────────────
 const RESULTS = [
   {
     id: 'fb-before',
@@ -128,7 +131,7 @@ const RESULTS = [
     badge: 'Before',
     badgeColor: '#94A3B8',
     title: 'Facebook Before',
-    desc: 'Organic content statistics — reach, views and engagement before our social media management strategy was applied.',
+    desc: 'Organic content statistics showing reach, views and engagement before our social media management strategy was applied.',
     accent: '#0081FB',
   },
   {
@@ -229,19 +232,205 @@ const RESULTS = [
   },
 ];
 
-// ── Result Media Card ─────────────────────────────────────────
-function ResultCard({ item, index }) {
+// ── Lightbox ──────────────────────────────────────────────────
+function Lightbox({ items, startIndex, onClose }) {
+  const [current, setCurrent] = useState(startIndex);
   const videoRef = useRef(null);
-  const [playing, setPlaying] = useState(false);
-  const [loaded, setLoaded] = useState(false);
-  const { type, src, icon: Icon, label, badge, badgeColor, title, desc, accent } = item;
+  const item = items[current];
 
-  const togglePlay = () => {
-    const v = videoRef.current;
-    if (!v) return;
-    if (v.paused) { v.play(); setPlaying(true); }
-    else { v.pause(); setPlaying(false); }
-  };
+  // Close on Escape, arrow keys for navigation
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (e.key === 'Escape') onClose();
+      if (e.key === 'ArrowRight') goNext();
+      if (e.key === 'ArrowLeft') goPrev();
+    };
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, [current]);
+
+  // Pause video when switching slides
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+  }, [current]);
+
+  // Lock body scroll while open
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = ''; };
+  }, []);
+
+  const goPrev = () => setCurrent(i => (i - 1 + items.length) % items.length);
+  const goNext = () => setCurrent(i => (i + 1) % items.length);
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 z-[999] flex items-center justify-center p-4"
+        style={{
+          background: `linear-gradient(135deg, ${item.accent}22 0%, rgba(124,58,237,0.18) 50%, ${item.accent}18 100%)`,
+          backdropFilter: 'blur(24px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(24px) saturate(180%)',
+        }}
+        onClick={onClose}
+      >
+        {/* Ambient glow blobs behind the card */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div style={{
+            position: 'absolute', top: '15%', left: '10%',
+            width: 400, height: 400, borderRadius: '50%',
+            background: `radial-gradient(circle, ${item.accent}35, transparent 70%)`,
+            filter: 'blur(60px)',
+          }} />
+          <div style={{
+            position: 'absolute', bottom: '10%', right: '8%',
+            width: 320, height: 320, borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(124,58,237,0.3), transparent 70%)',
+            filter: 'blur(60px)',
+          }} />
+        </div>
+
+        {/* Card */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.93, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.93 }}
+          transition={{ type: 'spring', stiffness: 300, damping: 28 }}
+          className="relative flex flex-col rounded-3xl overflow-hidden"
+          style={{
+            width: 'min(90vw, 900px)',
+            maxHeight: '90vh',
+            background: 'rgba(255,255,255,0.96)',
+            border: `1px solid ${item.accent}25`,
+            boxShadow: `0 32px 80px ${item.accent}30, 0 0 0 1px ${item.accent}15, 0 8px 32px rgba(0,0,0,0.12)`,
+          }}
+          onClick={e => e.stopPropagation()}
+        >
+          {/* Accent stripe top */}
+          <div style={{
+            height: 4,
+            background: `linear-gradient(90deg, ${item.accent}, ${item.accent}80, transparent)`,
+            flexShrink: 0,
+          }} />
+
+          {/* Close button */}
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full flex items-center justify-center transition-all"
+            style={{ background: `${item.accent}12`, color: item.accent, border: `1px solid ${item.accent}25` }}
+            onMouseEnter={e => { e.currentTarget.style.background = item.accent; e.currentTarget.style.color = '#fff'; }}
+            onMouseLeave={e => { e.currentTarget.style.background = `${item.accent}12`; e.currentTarget.style.color = item.accent; }}
+          >
+            <RiCloseLine className="w-5 h-5" />
+          </button>
+
+          {/* Media */}
+          <div
+            className="relative flex items-center justify-center overflow-hidden flex-shrink-0"
+            style={{ maxHeight: '68vh', background: `${item.accent}06` }}
+          >
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={current}
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -30 }}
+                transition={{ duration: 0.22 }}
+                className="w-full flex items-center justify-center"
+              >
+                {item.type === 'image' ? (
+                  <img
+                    src={item.src}
+                    alt={item.title}
+                    style={{
+                      width: '100%',
+                      maxHeight: '68vh',
+                      objectFit: 'contain',
+                      display: 'block',
+                    }}
+                  />
+                ) : (
+                  <video
+                    ref={videoRef}
+                    src={item.src}
+                    controls
+                    autoPlay
+                    playsInline
+                    style={{
+                      width: '100%',
+                      maxHeight: '68vh',
+                      display: 'block',
+                    }}
+                  />
+                )}
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Prev / Next arrows */}
+            {items.length > 1 && (
+              <>
+                <button
+                  onClick={goPrev}
+                  className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center transition-all z-10"
+                  style={{ background: 'rgba(255,255,255,0.85)', color: item.accent, border: `1px solid ${item.accent}20`, boxShadow: '0 2px 12px rgba(0,0,0,0.1)' }}
+                  onMouseEnter={e => { e.currentTarget.style.background = item.accent; e.currentTarget.style.color = '#fff'; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.85)'; e.currentTarget.style.color = item.accent; }}
+                >
+                  <RiArrowLeftLine className="w-5 h-5" />
+                </button>
+                <button
+                  onClick={goNext}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center transition-all z-10"
+                  style={{ background: 'rgba(255,255,255,0.85)', color: item.accent, border: `1px solid ${item.accent}20`, boxShadow: '0 2px 12px rgba(0,0,0,0.1)' }}
+                  onMouseEnter={e => { e.currentTarget.style.background = item.accent; e.currentTarget.style.color = '#fff'; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.85)'; e.currentTarget.style.color = item.accent; }}
+                >
+                  <RiArrowRightLine className="w-5 h-5" />
+                </button>
+              </>
+            )}
+          </div>
+
+          {/* Info bar */}
+          <div className="px-5 py-4 flex items-center justify-between gap-4 flex-shrink-0"
+            style={{ borderTop: `1px solid ${item.accent}12`, background: `${item.accent}04` }}>
+            <div>
+              <p className="font-heading font-bold text-sm leading-tight" style={{ color: 'var(--text)' }}>{item.title}</p>
+              <p className="text-xs mt-0.5" style={{ color: 'var(--text-muted)' }}>{item.desc}</p>
+            </div>
+            {/* Dot indicators */}
+            {items.length > 1 && (
+              <div className="flex items-center gap-1.5 flex-shrink-0">
+                {items.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrent(i)}
+                    className="rounded-full transition-all duration-200"
+                    style={{
+                      width: i === current ? 20 : 6,
+                      height: 6,
+                      background: i === current ? item.accent : `${item.accent}30`,
+                    }}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  );
+}
+
+// ── Result Media Card ─────────────────────────────────────────
+function ResultCard({ item, index, onOpen }) {
+  const { type, src, icon: Icon, label, badge, badgeColor, title, desc, accent } = item;
 
   return (
     <motion.div
@@ -249,13 +438,14 @@ function ResultCard({ item, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ delay: (index % 4) * 0.1, duration: 0.5 }}
-      className="group flex flex-col rounded-2xl overflow-hidden"
+      className="group flex flex-col rounded-2xl overflow-hidden cursor-pointer"
       style={{
         background: '#FFFFFF',
         border: '1px solid var(--dark-border)',
         boxShadow: '0 2px 12px rgba(124,58,237,0.04)',
         transition: 'border-color 0.3s, box-shadow 0.3s, transform 0.3s',
       }}
+      onClick={() => onOpen(index)}
       onMouseEnter={e => {
         e.currentTarget.style.borderColor = `${accent}40`;
         e.currentTarget.style.boxShadow = `0 8px 32px rgba(0,0,0,0.08), 0 0 0 1px ${accent}18`;
@@ -290,11 +480,11 @@ function ResultCard({ item, index }) {
               }}
               className="group-hover:scale-105 transition-transform duration-700"
             />
-            {/* subtle overlay */}
+            {/* gradient overlay */}
             <div
               className="absolute inset-0 pointer-events-none"
               style={{
-                background: 'linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.25) 100%)',
+                background: 'linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.3) 100%)',
                 zIndex: 2,
               }}
             />
@@ -302,53 +492,39 @@ function ResultCard({ item, index }) {
         ) : (
           <>
             <video
-              ref={videoRef}
               src={src}
               playsInline
-              preload="auto"
-              loop
-              onLoadedData={() => setLoaded(true)}
-              onEnded={() => setPlaying(false)}
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                display: 'block',
-                zIndex: 1,
-              }}
+              preload="metadata"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', zIndex: 1 }}
             />
-            {/* Play button overlay */}
-            <AnimatePresence>
-              {!playing && (
-                <motion.button
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  onClick={togglePlay}
-                  className="absolute inset-0 flex items-center justify-center z-20"
-                  style={{ background: 'rgba(0,0,0,0.25)' }}
-                >
-                  <div
-                    className="w-14 h-14 rounded-full flex items-center justify-center backdrop-blur-sm"
-                    style={{ background: accent, boxShadow: `0 4px 20px ${accent}50` }}
-                  >
-                    <RiPlayCircleLine className="w-7 h-7 text-white" />
-                  </div>
-                </motion.button>
-              )}
-            </AnimatePresence>
-            {/* Pause button */}
-            {playing && (
-              <button
-                onClick={togglePlay}
-                className="absolute bottom-3 right-3 w-8 h-8 rounded-full flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100 z-20"
-                style={{ background: 'rgba(0,0,0,0.5)' }}
-              >
-                <RiPauseLine className="w-4 h-4 text-white" />
-              </button>
-            )}
+            <div className="absolute inset-0 pointer-events-none"
+              style={{ background: 'rgba(0,0,0,0.2)', zIndex: 2 }} />
           </>
         )}
+
+        {/* Click-to-expand hint — always visible, pulses on hover */}
+        <div
+          className="absolute inset-0 z-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          style={{ background: `${accent}18` }}
+        >
+          <div
+            className="flex flex-col items-center gap-2"
+          >
+            <div
+              className="w-12 h-12 rounded-full flex items-center justify-center"
+              style={{ background: accent, boxShadow: `0 4px 24px ${accent}60` }}
+            >
+              {type === 'video'
+                ? <RiPlayCircleLine className="w-6 h-6 text-white" />
+                : <RiZoomInLine className="w-6 h-6 text-white" />
+              }
+            </div>
+            <span className="text-[11px] font-heading font-bold text-white tracking-wider uppercase"
+              style={{ textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}>
+              {type === 'video' ? 'Play Video' : 'View Full Image'}
+            </span>
+          </div>
+        </div>
 
         {/* Badge pill — top left */}
         <div className="absolute top-3 left-3 z-30 flex items-center gap-2">
@@ -381,9 +557,19 @@ function ResultCard({ item, index }) {
         <h3 className="font-heading text-base font-bold mb-1.5" style={{ color: 'var(--text)' }}>
           {title}
         </h3>
-        <p className="text-xs font-body leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+        <p className="text-xs font-body leading-relaxed mb-3" style={{ color: 'var(--text-muted)' }}>
           {desc}
         </p>
+        {/* Click CTA hint */}
+        <div className="flex items-center gap-1.5" style={{ color: accent }}>
+          {type === 'video'
+            ? <RiPlayCircleLine className="w-3.5 h-3.5" />
+            : <RiZoomInLine className="w-3.5 h-3.5" />
+          }
+          <span className="text-[11px] font-heading font-semibold uppercase tracking-wider">
+            {type === 'video' ? 'Click to play' : 'Click to expand'}
+          </span>
+        </div>
       </div>
     </motion.div>
   );
@@ -436,16 +622,12 @@ function StoreCard({ store, index }) {
             display: 'block',
           }}
           className="group-hover:scale-105"
-          onError={e => {
-            e.currentTarget.style.display = 'none';
-          }}
+          onError={e => { e.currentTarget.style.display = 'none'; }}
         />
-        {/* Overlay */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{ background: 'linear-gradient(180deg, transparent 45%, rgba(0,0,0,0.45) 100%)' }}
         />
-        {/* Hover tint */}
         <div
           className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
           style={{ background: `linear-gradient(135deg, ${accent}18, transparent 60%)` }}
@@ -472,9 +654,7 @@ function StoreCard({ store, index }) {
           >
             <div className="flex items-center gap-1">
               <RiStarFill className="w-3 h-3" style={{ color: accent }} />
-              <span className="font-heading text-[11px] font-bold" style={{ color: accent }}>
-                {result}
-              </span>
+              <span className="font-heading text-[11px] font-bold" style={{ color: accent }}>{result}</span>
             </div>
           </div>
         </div>
@@ -549,6 +729,7 @@ function StoreCard({ store, index }) {
 // ── Main Page ─────────────────────────────────────────────────
 export default function PortfolioPage() {
   const [activeFilter, setActiveFilter] = useState('All');
+  const [lightboxIndex, setLightboxIndex] = useState(null);
 
   const filtered = activeFilter === 'All'
     ? STORES
@@ -557,8 +738,17 @@ export default function PortfolioPage() {
   return (
     <div className="min-h-screen" style={{ background: 'var(--light)' }}>
 
+      {/* Lightbox */}
+      {lightboxIndex !== null && (
+        <Lightbox
+          items={RESULTS}
+          startIndex={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+        />
+      )}
+
       {/* ── Hero ──────────────────────────────────────── */}
-      <section className="relative pt-32 pb-16 overflow-hidden">
+      <section className="relative pt-20 pb-8 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div
             className="absolute top-0 left-1/4 w-[500px] h-[300px] rounded-full blur-[90px]"
@@ -609,7 +799,7 @@ export default function PortfolioPage() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="flex flex-wrap items-center justify-center gap-8 mb-8"
+            className="flex flex-wrap items-center justify-center gap-8 mb-5"
           >
             {[
               { v: '120+', l: 'Stores Built',       c: '#7C3AED' },
@@ -644,12 +834,12 @@ export default function PortfolioPage() {
       </section>
 
       {/* ── Results section ────────────────────────────── */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-4">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-8"
+          className="mb-5"
         >
           <div className="flex items-end justify-between gap-4 flex-wrap">
             <div>
@@ -665,21 +855,26 @@ export default function PortfolioPage() {
               </h2>
             </div>
             <p className="text-sm font-body max-w-xs" style={{ color: 'var(--text-muted)' }}>
-              Actual screenshots and recordings from live client campaigns. Facebook, Meta Ads, Google Ads, and Shopify sales data.
+              Click any card to view the full image or video. Actual screenshots from live client campaigns: Facebook, Meta Ads, Google Ads, and Shopify.
             </p>
           </div>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {RESULTS.map((item, i) => (
-            <ResultCard key={item.id} item={item} index={i} />
+            <ResultCard
+              key={item.id}
+              item={item}
+              index={i}
+              onOpen={(idx) => setLightboxIndex(idx)}
+            />
           ))}
         </div>
       </section>
 
       {/* ── Filter bar ─────────────────────────────────── */}
       <div
-        className="sticky top-[68px] z-30 backdrop-blur-md border-b mt-10"
+        className="sticky top-[68px] z-30 backdrop-blur-md border-b mt-5"
         style={{ background: 'rgba(248,247,255,0.92)', borderColor: 'var(--dark-border)' }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -703,7 +898,7 @@ export default function PortfolioPage() {
       </div>
 
       {/* ── Store cards grid ───────────────────────────── */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeFilter}
@@ -721,7 +916,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* ── Instagram proof strip ──────────────────────── */}
-      <section className="pb-8 px-4">
+      <section className="pb-5 px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -743,7 +938,7 @@ export default function PortfolioPage() {
               Want more proof? Follow us on Instagram
             </h3>
             <p className="text-sm font-body" style={{ color: 'var(--text-muted)' }}>
-              Behind-the-scenes store builds, client results and live case studies — all on our Instagram.
+              Behind-the-scenes store builds, client results and live case studies all on our Instagram.
             </p>
           </div>
           <a
@@ -760,12 +955,12 @@ export default function PortfolioPage() {
       </section>
 
       {/* ── Bottom CTA ─────────────────────────────────── */}
-      <section className="pb-20 px-4">
+      <section className="pb-10 px-4">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-3xl mx-auto rounded-3xl p-10 sm:p-14 text-center relative overflow-hidden"
+          className="max-w-3xl mx-auto rounded-3xl p-8 sm:p-10 text-center relative overflow-hidden"
           style={{
             background: 'linear-gradient(145deg, #FAF8FF, #F1EEF9)',
             border: '1px solid var(--dark-border)',

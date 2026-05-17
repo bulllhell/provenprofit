@@ -42,11 +42,9 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  /* Base font sizing */
   font-size: 16px;
 }
 
-/* Improve desktop readability */
 @media (min-width: 1024px) {
   html {
     font-size: 18px;
@@ -82,21 +80,17 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text);
 }
 
-/* Responsive heading sizes using clamp() for fluid scaling */
 h1 {
-  /* Min: 1.75rem (28px), Max: 3rem (48px), scales fluidly */
   font-size: clamp(1.75rem, 5vw, 3rem);
   line-height: 1.15;
 }
 
 h2 {
-  /* Min: 1.25rem (20px), Max: 2.25rem (36px) */
   font-size: clamp(1.25rem, 4vw, 2.25rem);
   line-height: 1.2;
 }
 
 h3 {
-  /* Min: 1.125rem (18px), Max: 1.75rem (28px) */
   font-size: clamp(1.125rem, 3vw, 1.75rem);
   line-height: 1.2;
 }
@@ -109,46 +103,42 @@ p {
   font-size: 1rem;
 }
 
-/* Mobile-specific sizing (small screens) */
 @media (max-width: 767px) {
   h1 { font-size: 1.75rem; }
   h2 { font-size: 1.25rem; }
   h3 { font-size: 1.125rem; }
-  p { font-size: 0.9375rem; }
-  
-  .text-sm { font-size: 0.8125rem; }
+  p  { font-size: 0.9375rem; }
+
+  .text-sm   { font-size: 0.8125rem; }
   .text-base { font-size: 0.9375rem; }
 }
 
-/* Tablet sizing (768px - 1023px) */
 @media (min-width: 768px) and (max-width: 1023px) {
   h1 { font-size: 2.25rem; }
   h2 { font-size: 1.75rem; }
   h3 { font-size: 1.375rem; }
-  p { font-size: 1rem; }
+  p  { font-size: 1rem; }
 }
 
-/* Desktop sizing (1024px+) */
 @media (min-width: 1024px) {
   h1 { font-size: 3rem; }
   h2 { font-size: 2.25rem; }
   h3 { font-size: 1.75rem; }
-  p { font-size: 1.0625rem; }
-  
-  .text-sm { font-size: 0.9375rem; }
+  p  { font-size: 1.0625rem; }
+
+  .text-sm   { font-size: 0.9375rem; }
   .text-base { font-size: 1rem; }
-  .text-lg { font-size: 1.125rem; }
+  .text-lg   { font-size: 1.125rem; }
 }
 
-/* Ultra-wide screens (1536px+) */
 @media (min-width: 1536px) {
   h1 { font-size: 3.5rem; }
   h2 { font-size: 2.5rem; }
   h3 { font-size: 2rem; }
-  p { font-size: 1.125rem; }
+  p  { font-size: 1.125rem; }
 }
 
-/* ─── Grain Overlay (global texture) ─────────────────────── */
+/* ─── Grain Overlay ───────────────────────────────────────── */
 body::before {
   content: '';
   position: fixed;
@@ -175,7 +165,6 @@ body::before {
 
 /* ─── Utility Layer ───────────────────────────────────────── */
 @layer utilities {
-  /* Gradient text */
   .text-gradient {
     background: linear-gradient(135deg, var(--purple) 0%, var(--orange) 100%);
     -webkit-background-clip: text;
@@ -190,13 +179,11 @@ body::before {
     background-clip: text;
   }
 
-  /* Gradient borders */
   .border-gradient {
     border: 1px solid transparent;
     background-clip: padding-box;
     position: relative;
   }
-
   .border-gradient::before {
     content: '';
     position: absolute;
@@ -206,7 +193,6 @@ body::before {
     z-index: -1;
   }
 
-  /* Glass morphism card */
   .glass {
     background: rgba(248, 247, 255, 0.75);
     backdrop-filter: blur(20px);
@@ -214,38 +200,34 @@ body::before {
     border: 1px solid rgba(124, 58, 237, 0.1);
   }
 
-  /* Purple glow */
   .glow-purple {
     box-shadow: 0 0 20px rgba(124,58,237,0.3), 0 4px 16px rgba(0,0,0,0.08);
   }
 
-  /* Orange glow */
   .glow-orange {
     box-shadow: 0 0 20px rgba(249,115,22,0.35), 0 4px 16px rgba(0,0,0,0.08);
   }
 
-  /* Section spacing */
+  /* ── Section spacing — REDUCED ── */
   .section-pad {
-    padding-top: 7rem;
-    padding-bottom: 7rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 
-  /* Responsive section padding */
   @media (min-width: 1024px) {
     .section-pad {
-      padding-top: 9rem;
-      padding-bottom: 9rem;
+      padding-top: 5rem;
+      padding-bottom: 5rem;
     }
   }
 
   @media (min-width: 1536px) {
     .section-pad {
-      padding-top: 10rem;
-      padding-bottom: 10rem;
+      padding-top: 6rem;
+      padding-bottom: 6rem;
     }
   }
 
-  /* Noise texture card */
   .noise-card {
     position: relative;
     overflow: hidden;
@@ -260,16 +242,13 @@ body::before {
     border-radius: inherit;
   }
 
-  /* Hide scrollbar on specific elements */
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-  /* Diagonal clip */
   .clip-diagonal {
     clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
   }
 
-  /* Animated underline on hover */
   .hover-underline {
     position: relative;
   }
@@ -290,7 +269,6 @@ body::before {
 
 /* ─── Component Layer ─────────────────────────────────────── */
 @layer components {
-  /* Primary — Purple */
   .btn-primary {
     @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-heading font-semibold text-white tracking-wide transition-all duration-300;
     font-size: clamp(0.875rem, 2vw, 1rem);
@@ -305,7 +283,6 @@ body::before {
     @apply scale-[0.98];
   }
 
-  /* Secondary — outlined purple */
   .btn-secondary {
     @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-heading font-semibold tracking-wide transition-all duration-300;
     font-size: clamp(0.875rem, 2vw, 1rem);
@@ -320,7 +297,6 @@ body::before {
     box-shadow: 0 0 20px rgba(124,58,237,0.15);
   }
 
-  /* Accent — Orange */
   .btn-orange {
     @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-heading font-semibold text-white tracking-wide transition-all duration-300;
     font-size: clamp(0.875rem, 2vw, 1rem);
@@ -332,7 +308,6 @@ body::before {
     box-shadow: 0 6px 28px rgba(249,115,22,0.45);
   }
 
-  /* Card */
   .card-base {
     @apply rounded-2xl p-6 noise-card;
     background: #FFFFFF;
@@ -345,7 +320,6 @@ body::before {
     transform: translateY(-4px);
   }
 
-  /* Section tag */
   .section-tag {
     @apply inline-flex items-center gap-2 px-4 py-1.5 rounded-full font-heading font-semibold uppercase tracking-widest;
     font-size: clamp(0.65rem, 1.5vw, 0.75rem);
@@ -354,7 +328,6 @@ body::before {
     color: var(--purple);
   }
 
-  /* Input */
   .input-base {
     @apply w-full px-4 py-3 rounded-xl outline-none transition-all duration-200;
     font-size: clamp(0.875rem, 2vw, 1rem);
