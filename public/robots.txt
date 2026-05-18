@@ -1,7 +1,4 @@
 User-agent: *
 Allow: /
 
-Disallow: /admin
-Disallow: /admin/dashboard
-
-Sitemap: https://www.provenprofitbrand.com/sitemap.xml
+Sitemap: https://www.provenprofitbrand.com/sitemap_index.xml
