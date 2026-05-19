@@ -297,7 +297,7 @@ export default function Team() {
             className="text-sm sm:text-base font-body max-w-xl mx-auto leading-relaxed"
             style={{ color: 'var(--text-muted)' }}
           >
-            A dedicated team of specialists united by one goal — to build, grow, and scale your brand.
+            A dedicated team of specialists united by one goal to build, grow, and scale your brand.
           </motion.p>
         </div>
       </section>

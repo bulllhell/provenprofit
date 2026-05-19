@@ -1,21 +1,183 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import logo from '../../assets/newbos.png';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { RiMenuLine, RiCloseLine, RiArrowRightUpLine } from 'react-icons/ri';
+import {
+  RiMenuLine, RiCloseLine, RiArrowRightUpLine,
+  RiArrowDownSLine, RiShoppingBag3Line, RiPaletteLine,
+  RiInstagramLine, RiSearchLine, RiMailLine,
+  RiAdvertisementLine, RiGlobalLine, RiFilter3Line,
+} from 'react-icons/ri';
 
+// ── Service dropdown items ────────────────────────────────────
+const SERVICE_ITEMS = [
+  {
+    icon: RiShoppingBag3Line,
+    label: 'eCommerce Store Design',
+    sub:   'Shopify & WooCommerce',
+    to:    '/services/ecommerce',
+    accent: '#F97316',
+  },
+  {
+    icon: RiPaletteLine,
+    label: 'Branding',
+    sub:   'Identity, logo & brand system',
+    to:    '/services/branding',
+    accent: '#7C3AED',
+  },
+  {
+    icon: RiInstagramLine,
+    label: 'Social Media Management & Ads',
+    sub:   'Instagram, TikTok, Meta Ads',
+    to:    '/services/social-media',
+    accent: '#E1306C',
+  },
+  {
+    icon: RiSearchLine,
+    label: 'SEO',
+    sub:   'Organic growth & rankings',
+    to:    '/services/seo',
+    accent: '#4285F4',
+  },
+  {
+    icon: RiMailLine,
+    label: 'Email Marketing & Klaviyo Flows',
+    sub:   'Automations, campaigns & flows',
+    to:    '/services/email-marketing',
+    accent: '#96BF48',
+  },
+  {
+    icon: RiAdvertisementLine,
+    label: 'Google Ads & Google My Business',
+    sub:   'Paid search & local visibility',
+    to:    '/services/google-ads',
+    accent: '#FBBC05',
+  },
+  {
+    icon: RiGlobalLine,
+    label: 'Web Design',
+    sub:   'Custom websites & landing pages',
+    to:    '/services/web-design',
+    accent: '#0081FB',
+  },
+  {
+    icon: RiFilter3Line,
+    label: 'Sales Funnel Creation',
+    sub:   'High-converting funnel builds',
+    to:    '/services/funnels',
+    accent: '#34D399',
+  },
+];
+
+// ── Top-level nav links ───────────────────────────────────────
 const NAV_LINKS = [
-  { label: 'Home',      to: '/' },
-  { label: 'Services',  to: '/services' },
+  { label: 'Home',      to: '/'          },
   { label: 'Portfolio', to: '/portfolio' },
-  { label: 'Team',      to: '/Team' },
 ];
 
 const WHATSAPP_URL = 'https://wa.me/2348059846912';
 
+// ── Services Dropdown (desktop) ───────────────────────────────
+function ServicesDropdown({ open }) {
+  return (
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          initial={{ opacity: 0, y: 8, scale: 0.97 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 8, scale: 0.97 }}
+          transition={{ duration: 0.18, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[520px] rounded-2xl overflow-hidden z-50"
+          style={{
+            background: '#FFFFFF',
+            border: '1px solid var(--dark-border)',
+            boxShadow: '0 20px 60px rgba(124,58,237,0.12), 0 4px 16px rgba(0,0,0,0.08)',
+          }}
+        >
+          {/* Header */}
+          <div className="px-5 py-3.5 border-b flex items-center justify-between"
+            style={{ borderColor: 'var(--dark-border)', background: 'var(--light)' }}>
+            <p className="text-xs font-heading font-bold uppercase tracking-widest"
+              style={{ color: 'var(--text-muted)' }}>
+              Our Services
+            </p>
+            <Link to="/services"
+              className="text-xs font-body font-semibold flex items-center gap-1 transition-colors hover:opacity-80"
+              style={{ color: '#7C3AED' }}>
+              View all <RiArrowRightUpLine className="w-3 h-3" />
+            </Link>
+          </div>
+
+          {/* Grid */}
+          <div className="p-3 grid grid-cols-2 gap-1">
+            {SERVICE_ITEMS.map(({ icon: Icon, label, sub, to, accent }) => (
+              <Link
+                key={to}
+                to={to}
+                className="flex items-start gap-3 px-3 py-3 rounded-xl transition-all duration-150 group"
+                style={{ color: 'var(--text)' }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = accent + '0e';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = 'transparent';
+                }}
+              >
+                <div
+                  className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5"
+                  style={{ background: accent + '15' }}
+                >
+                  <Icon className="w-4 h-4" style={{ color: accent }} />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-xs font-heading font-semibold leading-snug"
+                    style={{ color: 'var(--text)' }}>
+                    {label}
+                  </p>
+                  <p className="text-[10px] font-body mt-0.5 leading-snug"
+                    style={{ color: 'var(--text-muted)' }}>
+                    {sub}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* Footer CTA */}
+          <div className="px-5 py-3 border-t flex items-center justify-between"
+            style={{ borderColor: 'var(--dark-border)', background: 'rgba(124,58,237,0.03)' }}>
+            <p className="text-xs font-body" style={{ color: 'var(--text-muted)' }}>
+              Not sure which service you need?
+            </p>
+            <Link to="/book-a-call"
+              className="text-xs font-heading font-semibold px-3 py-1.5 rounded-full text-white transition-all"
+              style={{
+                background: 'linear-gradient(135deg, #7C3AED, #5B21B6)',
+                boxShadow: '0 2px 8px rgba(124,58,237,0.3)',
+              }}>
+              Book a free call
+            </Link>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+
+// ── Main Navbar ───────────────────────────────────────────────
 export default function Navbar() {
-  const [scrolled,  setScrolled]  = useState(false);
-  const [menuOpen,  setMenuOpen]  = useState(false);
+  const [scrolled,      setScrolled]      = useState(false);
+  const [menuOpen,      setMenuOpen]      = useState(false);
+  const [servicesOpen,  setServicesOpen]  = useState(false);
+  const [mobileServOpen,setMobileServOpen]= useState(false);
+  const servicesRef = useRef(null);
+  const location    = useLocation();
+
+  // Close dropdown on route change
+  useEffect(() => {
+    setServicesOpen(false);
+    setMenuOpen(false);
+  }, [location.pathname]);
 
   const handleScroll = useCallback(() => {
     setScrolled(window.scrollY > 40);
@@ -25,6 +187,17 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [handleScroll]);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handler = (e) => {
+      if (servicesRef.current && !servicesRef.current.contains(e.target)) {
+        setServicesOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
@@ -43,6 +216,8 @@ export default function Navbar() {
     }
   };
 
+  const isServicesActive = location.pathname.startsWith('/services');
+
   return (
     <>
       <motion.header
@@ -51,15 +226,14 @@ export default function Navbar() {
         transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? 'glass border-b border-dark-border shadow-[0_4px_30px_rgba(0,0,0,0.4)]'
+            ? 'bg-[#F8F7FF]/92 backdrop-blur-xl border-b shadow-[0_2px_20px_rgba(124,58,237,0.08)]'
             : 'bg-transparent'
         }`}
+        style={{ borderColor: 'var(--dark-border)' }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div
-            className="flex items-center justify-between"
-            style={{ height: 'clamp(70px, 12vw, 100px)' }}
-          >
+          <div className="flex items-center justify-between"
+            style={{ height: 'clamp(70px, 12vw, 100px)' }}>
 
             {/* Logo */}
             <Link to="/" className="flex items-center group flex-shrink-0">
@@ -72,65 +246,113 @@ export default function Navbar() {
               />
             </Link>
 
-            {/* Desktop nav links */}
+            {/* Desktop nav */}
             <nav className="hidden lg:flex items-center gap-1">
-              {NAV_LINKS.map(({ label, to }) => (
-                <NavLink
-                  key={to}
-                  to={to}
-                  onClick={(e) => handleHashLink(e, to)}
+
+              {/* Home */}
+              <NavLink
+                to="/"
+                style={{ position: 'relative', fontSize: 'clamp(0.8125rem, 1.2vw, 0.9375rem)', padding: 'clamp(0.5rem, 1vw, 0.625rem) clamp(0.75rem, 2vw, 1rem)' }}
+                className={({ isActive }) =>
+                  `font-body font-medium tracking-wide rounded-lg transition-all duration-200 ${
+                    isActive ? 'text-[#7C3AED] bg-purple-50' : 'text-[#4B4669] hover:text-[#1E1B2E] hover:bg-purple-50'
+                  }`
+                }
+              >
+                {({ isActive }) => (
+                  <>
+                    Home
+                    {isActive && (
+                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 rounded-full bg-[#7C3AED]"
+                        style={{ position: 'absolute', width: 'clamp(8px, 1.5vw, 20px)' }} />
+                    )}
+                  </>
+                )}
+              </NavLink>
+
+              {/* Services dropdown trigger */}
+              <div ref={servicesRef} className="relative">
+                <button
+                  onClick={() => setServicesOpen(o => !o)}
+                  className="flex items-center gap-1 font-body font-medium tracking-wide rounded-lg transition-all duration-200"
                   style={{
-                    position: 'relative',
                     fontSize: 'clamp(0.8125rem, 1.2vw, 0.9375rem)',
                     padding: 'clamp(0.5rem, 1vw, 0.625rem) clamp(0.75rem, 2vw, 1rem)',
+                    color: isServicesActive || servicesOpen ? '#7C3AED' : '#4B4669',
+                    background: isServicesActive || servicesOpen ? 'rgba(124,58,237,0.06)' : 'transparent',
+                    position: 'relative',
                   }}
-                  className={({ isActive }) =>
-                    `font-body font-medium tracking-wide rounded-lg transition-all duration-200
-                    ${isActive && !to.includes('#')
-                      ? 'text-orange-500 bg-orange-500/8'
-                      : 'text-light-dim hover:text-white hover:bg-white/5'
-                    }`
-                  }
+                  onMouseEnter={e => { if (!isServicesActive) e.currentTarget.style.background = 'rgba(124,58,237,0.04)'; }}
+                  onMouseLeave={e => { if (!isServicesActive && !servicesOpen) e.currentTarget.style.background = 'transparent'; }}
                 >
-                  {({ isActive }) => (
-                    <>
-                      {label}
-                      {isActive && !to.includes('#') && (
-                        <span
-                          className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 rounded-full bg-orange-500"
-                          style={{ position: 'absolute', width: 'clamp(8px, 1.5vw, 20px)' }}
-                        />
-                      )}
-                    </>
+                  Services
+                  <motion.span
+                    animate={{ rotate: servicesOpen ? 180 : 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <RiArrowDownSLine className="w-4 h-4" />
+                  </motion.span>
+                  {isServicesActive && (
+                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 rounded-full bg-[#7C3AED]"
+                      style={{ position: 'absolute', width: 'clamp(8px, 1.5vw, 20px)' }} />
                   )}
-                </NavLink>
-              ))}
+                </button>
+                <ServicesDropdown open={servicesOpen} />
+              </div>
+
+              {/* Portfolio */}
+              <NavLink
+                to="/portfolio"
+                style={{ position: 'relative', fontSize: 'clamp(0.8125rem, 1.2vw, 0.9375rem)', padding: 'clamp(0.5rem, 1vw, 0.625rem) clamp(0.75rem, 2vw, 1rem)' }}
+                className={({ isActive }) =>
+                  `font-body font-medium tracking-wide rounded-lg transition-all duration-200 ${
+                    isActive ? 'text-[#7C3AED] bg-purple-50' : 'text-[#4B4669] hover:text-[#1E1B2E] hover:bg-purple-50'
+                  }`
+                }
+              >
+                {({ isActive }) => (
+                  <>
+                    Portfolio
+                    {isActive && (
+                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 rounded-full bg-[#7C3AED]"
+                        style={{ position: 'absolute', width: 'clamp(8px, 1.5vw, 20px)' }} />
+                    )}
+                  </>
+                )}
+              </NavLink>
+
+              {/* Team */}
+              <NavLink
+                to="/team"
+                style={{ position: 'relative', fontSize: 'clamp(0.8125rem, 1.2vw, 0.9375rem)', padding: 'clamp(0.5rem, 1vw, 0.625rem) clamp(0.75rem, 2vw, 1rem)' }}
+                className={({ isActive }) =>
+                  `font-body font-medium tracking-wide rounded-lg transition-all duration-200 ${
+                    isActive ? 'text-[#7C3AED] bg-purple-50' : 'text-[#4B4669] hover:text-[#1E1B2E] hover:bg-purple-50'
+                  }`
+                }
+              >
+                {({ isActive }) => (
+                  <>
+                    Team
+                    {isActive && (
+                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 rounded-full bg-[#7C3AED]"
+                        style={{ position: 'absolute', width: 'clamp(8px, 1.5vw, 20px)' }} />
+                    )}
+                  </>
+                )}
+              </NavLink>
+
             </nav>
 
             {/* Desktop CTAs */}
             <div className="hidden lg:flex items-center gap-2 lg:gap-3 flex-shrink-0">
-              <Link
-                to="/book-a-call"
-                className="btn-secondary"
-                style={{
-                  fontSize: 'clamp(0.8125rem, 1.2vw, 0.9375rem)',
-                  padding: 'clamp(0.5rem, 0.8vw, 0.75rem) clamp(1rem, 2vw, 1.25rem)',
-                }}
-              >
+              <Link to="/book-a-call" className="btn-secondary"
+                style={{ fontSize: 'clamp(0.8125rem, 1.2vw, 0.9375rem)', padding: 'clamp(0.5rem, 0.8vw, 0.75rem) clamp(1rem, 2vw, 1.25rem)' }}>
                 Book a Call
               </Link>
-
-              {/* Get Started → WhatsApp */}
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
                 className="btn-primary group"
-                style={{
-                  fontSize: 'clamp(0.8125rem, 1.2vw, 0.9375rem)',
-                  padding: 'clamp(0.5rem, 0.8vw, 0.75rem) clamp(1rem, 2vw, 1.25rem)',
-                }}
-              >
+                style={{ fontSize: 'clamp(0.8125rem, 1.2vw, 0.9375rem)', padding: 'clamp(0.5rem, 0.8vw, 0.75rem) clamp(1rem, 2vw, 1.25rem)' }}>
                 Get Started
                 <RiArrowRightUpLine className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </a>
@@ -140,25 +362,16 @@ export default function Navbar() {
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Toggle menu"
-              className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-xl text-light-dim hover:text-white hover:bg-white/5 transition-colors"
+              className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-xl transition-colors"
+              style={{ color: '#4B4669' }}
             >
               <AnimatePresence mode="wait">
                 {menuOpen ? (
-                  <motion.span key="close"
-                    initial={{ rotate: -90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: 90, opacity: 0 }}
-                    transition={{ duration: 0.15 }}
-                  >
+                  <motion.span key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}>
                     <RiCloseLine className="w-6 h-6" />
                   </motion.span>
                 ) : (
-                  <motion.span key="menu"
-                    initial={{ rotate: 90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: -90, opacity: 0 }}
-                    transition={{ duration: 0.15 }}
-                  >
+                  <motion.span key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.15 }}>
                     <RiMenuLine className="w-6 h-6" />
                   </motion.span>
                 )}
@@ -168,87 +381,134 @@ export default function Navbar() {
         </div>
       </motion.header>
 
-      {/* Mobile drawer */}
+      {/* ── Mobile drawer ─────────────────────────────────────── */}
       <AnimatePresence>
         {menuOpen && (
           <>
-            <motion.div
-              key="backdrop"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+            <motion.div key="backdrop" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
               onClick={() => setMenuOpen(false)}
-              className="fixed inset-0 z-40 bg-dark/80 backdrop-blur-sm lg:hidden"
+              className="fixed inset-0 z-40 backdrop-blur-sm lg:hidden"
+              style={{ background: 'rgba(26,16,35,0.4)' }}
             />
 
-            <motion.div
-              key="drawer"
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
+            <motion.div key="drawer" initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 28, stiffness: 250 }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-[min(320px,90vw)] glass border-l border-dark-border flex flex-col lg:hidden"
+              className="fixed top-0 right-0 bottom-0 z-50 w-[min(320px,90vw)] flex flex-col lg:hidden"
+              style={{ background: '#F8F7FF', borderLeft: '1px solid var(--dark-border)', boxShadow: '-8px 0 32px rgba(124,58,237,0.1)' }}
             >
-              <div className="flex items-center justify-between p-5 border-b border-dark-border">
-                <Link to="/" onClick={() => setMenuOpen(false)} className="flex items-center">
-                  <img
-                    src={logo}
-                    alt="Proven Profit"
-                    className="h-16 w-auto object-contain"
-                    loading="eager"
-                  />
+              {/* Drawer header */}
+              <div className="flex items-center justify-between p-5 border-b" style={{ borderColor: 'var(--dark-border)' }}>
+                <Link to="/" onClick={() => setMenuOpen(false)}>
+                  <img src={logo} alt="Proven Profit" className="h-12 w-auto object-contain" loading="eager" />
                 </Link>
-                <button
-                  onClick={() => setMenuOpen(false)}
-                  className="w-8 h-8 flex items-center justify-center rounded-lg text-light-dim hover:text-white hover:bg-white/5"
-                >
+                <button onClick={() => setMenuOpen(false)}
+                  className="w-8 h-8 flex items-center justify-center rounded-lg transition-colors"
+                  style={{ color: '#4B4669' }}>
                   <RiCloseLine className="w-5 h-5" />
                 </button>
               </div>
 
-              <nav className="flex-1 px-4 py-6 space-y-1">
-                {NAV_LINKS.map(({ label, to }, i) => (
-                  <motion.div
-                    key={to}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.06 + 0.1 }}
+              <nav className="flex-1 px-4 py-4 space-y-1 overflow-y-auto">
+                {/* Home */}
+                <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.06 }}>
+                  <NavLink to="/" onClick={() => setMenuOpen(false)}
+                    className={({ isActive }) =>
+                      `flex items-center justify-between px-4 py-3 rounded-xl text-sm font-body font-medium transition-all ${
+                        isActive ? 'text-[#7C3AED] bg-purple-50' : 'text-[#4B4669] hover:text-[#1E1B2E] hover:bg-purple-50'
+                      }`
+                    }>
+                    Home <RiArrowRightUpLine className="w-4 h-4 opacity-40" />
+                  </NavLink>
+                </motion.div>
+
+                {/* Services accordion */}
+                <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.12 }}>
+                  <button
+                    onClick={() => setMobileServOpen(o => !o)}
+                    className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-body font-medium transition-all"
+                    style={{
+                      color: isServicesActive || mobileServOpen ? '#7C3AED' : '#4B4669',
+                      background: isServicesActive || mobileServOpen ? 'rgba(124,58,237,0.06)' : 'transparent',
+                    }}
                   >
-                    <NavLink
-                      to={to}
-                      onClick={(e) => handleHashLink(e, to)}
-                      className={({ isActive }) =>
-                        `flex items-center justify-between px-4 py-3.5 rounded-xl text-base font-body font-medium transition-all duration-200
-                        ${isActive && !to.includes('#')
-                          ? 'text-orange-500 bg-orange-500/10'
-                          : 'text-light-dim hover:text-white hover:bg-white/5'
-                        }`
-                      }
-                    >
-                      {label}
-                      <RiArrowRightUpLine className="w-4 h-4 opacity-40" />
-                    </NavLink>
-                  </motion.div>
-                ))}
+                    Services
+                    <motion.span animate={{ rotate: mobileServOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>
+                      <RiArrowDownSLine className="w-4 h-4" />
+                    </motion.span>
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {mobileServOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.22 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pl-4 pr-2 pb-2 space-y-0.5 mt-1">
+                          {SERVICE_ITEMS.map(({ icon: Icon, label, to, accent }) => (
+                            <Link
+                              key={to}
+                              to={to}
+                              onClick={() => setMenuOpen(false)}
+                              className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-body font-medium transition-all"
+                              style={{ color: '#4B4669' }}
+                              onMouseEnter={e => { e.currentTarget.style.background = accent + '0e'; e.currentTarget.style.color = accent; }}
+                              onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#4B4669'; }}
+                            >
+                              <span className="w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0"
+                                style={{ background: accent + '15' }}>
+                                <Icon className="w-3 h-3" style={{ color: accent }} />
+                              </span>
+                              {label}
+                            </Link>
+                          ))}
+                          <Link to="/services" onClick={() => setMenuOpen(false)}
+                            className="flex items-center gap-1.5 px-3 py-2 text-xs font-heading font-semibold mt-1"
+                            style={{ color: '#7C3AED' }}>
+                            View all services <RiArrowRightUpLine className="w-3 h-3" />
+                          </Link>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+
+                {/* Portfolio */}
+                <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.18 }}>
+                  <NavLink to="/portfolio" onClick={() => setMenuOpen(false)}
+                    className={({ isActive }) =>
+                      `flex items-center justify-between px-4 py-3 rounded-xl text-sm font-body font-medium transition-all ${
+                        isActive ? 'text-[#7C3AED] bg-purple-50' : 'text-[#4B4669] hover:text-[#1E1B2E] hover:bg-purple-50'
+                      }`
+                    }>
+                    Portfolio <RiArrowRightUpLine className="w-4 h-4 opacity-40" />
+                  </NavLink>
+                </motion.div>
+
+                {/* Team */}
+                <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.24 }}>
+                  <NavLink to="/team" onClick={() => setMenuOpen(false)}
+                    className={({ isActive }) =>
+                      `flex items-center justify-between px-4 py-3 rounded-xl text-sm font-body font-medium transition-all ${
+                        isActive ? 'text-[#7C3AED] bg-purple-50' : 'text-[#4B4669] hover:text-[#1E1B2E] hover:bg-purple-50'
+                      }`
+                    }>
+                    Team <RiArrowRightUpLine className="w-4 h-4 opacity-40" />
+                  </NavLink>
+                </motion.div>
               </nav>
 
-              <div className="p-4 border-t border-dark-border space-y-3">
-                <Link
-                  to="/book-a-call"
-                  onClick={() => setMenuOpen(false)}
-                  className="btn-secondary w-full justify-center flex"
-                >
+              {/* Drawer footer */}
+              <div className="p-4 space-y-3 border-t" style={{ borderColor: 'var(--dark-border)' }}>
+                <Link to="/book-a-call" onClick={() => setMenuOpen(false)}
+                  className="btn-secondary w-full justify-center flex">
                   Book a Call
                 </Link>
-
-                {/* Mobile Get Started → WhatsApp */}
-                <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
                   onClick={() => setMenuOpen(false)}
-                  className="btn-primary w-full justify-center flex"
-                >
+                  className="btn-primary w-full justify-center flex">
                   Get Started <RiArrowRightUpLine className="w-4 h-4" />
                 </a>
               </div>
