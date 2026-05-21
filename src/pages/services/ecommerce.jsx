@@ -653,7 +653,7 @@ export default function EcommercePage() {
                   fontSize: 72, lineHeight: 1, color: `${ACCENT}10`,
                   fontFamily: 'Georgia, serif', fontWeight: 900, userSelect: 'none',
                 }}>
-                  "
+                  {'"'}
                 </div>
 
                 <div style={{ display: 'flex', gap: 2, marginBottom: 14 }}>
@@ -713,7 +713,7 @@ export default function EcommercePage() {
           <div style={{ position: 'relative', zIndex: 1 }}>
             <SectionTag>Ready to Start?</SectionTag>
             <h2 style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.5rem)', fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.02em', marginBottom: 14 }}>
-              Let's build your store
+              Let us build your store
             </h2>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.7, marginBottom: 32, maxWidth: 440, margin: '0 auto 2rem', color: 'var(--text-muted)' }}>
               Book a free 20 minute strategy call. We will review your brand and recommend
