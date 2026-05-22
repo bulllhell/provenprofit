@@ -159,7 +159,7 @@ const SERVICES = [
 ];
 
 const PROCESS = [
-  { n: '01', title: 'Discovery Brief',   desc: 'You fill a detailed questionnaire about your vision, audience, competitors, and non-negotiables. No call needed to start.' },
+  { n: '01', title: 'Discovery Brief',   desc: 'You fill a detailed questionnaire about your vision, audience, competitors, and non negotiables. No call needed to start.' },
   { n: '02', title: 'Moodboard Review',  desc: 'We present a visual direction before any design work. You sign off on the feel before we commit to execution.' },
   { n: '03', title: 'Concept Delivery',  desc: 'Three distinct logo concepts land in your inbox. Each comes with rationale explaining the thinking behind it.' },
   { n: '04', title: 'Refine and Lock',   desc: 'You choose a direction. We refine, adjust, and push it until you love it. Revisions are built into every package.' },
