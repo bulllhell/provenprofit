@@ -74,7 +74,7 @@ const INSPO = [
     url:   'https://calpaktravel.com',
     desc:  'Aspirational travel world with colour selector, lifestyle photography and bundles.',
     color: '#10B981',
-    img:   'https://images.unsplash.com/photo-1639598003276-8a70fcaaad6c?q=80&w=1738&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    img:   'https://images.unsplash.com/photo-1639598003276-8a70fcaaad6c?q=80&w=1738&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D.',
     tag:   'Travel',
   },
   {
