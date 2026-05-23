@@ -6,7 +6,7 @@ import {
   RiComputerLine, RiLayoutLine, RiBrushLine, RiCodeLine,
   RiSmartphoneLine, RiSpeedLine, RiShoppingBag3Line,
   RiCheckLine, RiArrowRightUpLine, RiFireLine, RiTimeLine,
-  RiShieldCheckLine, RiStarFill, RiExternalLinkLine,
+  RiShieldCheckLine, RiStarFill,
   RiEyeLine, RiCloseLine,
   RiCursorLine, RiWindowLine, RiGlobalLine, RiDeviceLine,
   RiPaletteLine, RiCalendarLine, RiMoneyDollarCircleLine,
@@ -23,67 +23,39 @@ const ACCENTB = '#FB923C';
 const INSPO = [
   {
     label: 'Fashion Store',
-    url:   'https://dignitestore.com',
-    desc:  'Clean editorial fashion with bold typography and immersive product pages.',
+    img:   'https://res.cloudinary.com/dm2zp4jb1/image/upload/q_auto/f_auto/v1779554622/WhatsApp_Image_2026-05-22_at_23.00.56_1_wp2rrg.jpg',
     color: '#E879A0',
-    img:   'https://plus.unsplash.com/premium_photo-1661582261589-5ea03ada2c36?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     tag:   'Fashion',
   },
   {
     label: 'Gym and Fitness',
-    url:   'https://gymshark.com',
-    desc:  'Performance first layout with high energy visuals and fast product discovery.',
+    img:   'https://res.cloudinary.com/dm2zp4jb1/image/upload/q_auto/f_auto/v1779554621/WhatsApp_Image_2026-05-22_at_22.42.04_1_kdizre.jpg',
     color: '#3B82F6',
-    img:   'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=700&q=80',
     tag:   'Fitness',
   },
   {
     label: 'Sport and Outdoor',
-    url:   'https://us.oneill.com',
-    desc:  "Lifestyle brand energy with surf culture, seasonal drops and collection storytelling.",
+    img:   'https://res.cloudinary.com/dm2zp4jb1/image/upload/q_auto/f_auto/v1779554621/WhatsApp_Image_2026-05-22_at_22.42.03_4_uqorcn.jpg',
     color: '#F97316',
-    img:   'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=700&q=80',
     tag:   'Sport',
   },
   {
     label: 'Books and Stationery',
-    url:   'https://lebenskompass.eu',
-    desc:  'Warm editorial bookshop aesthetic with category browsing and community feel.',
+    img:   'https://res.cloudinary.com/dm2zp4jb1/image/upload/q_auto/f_auto/v1779554621/WhatsApp_Image_2026-05-22_at_22.42.04_fktaox.jpg',
     color: '#8B5CF6',
-    img:   'https://plus.unsplash.com/premium_photo-1681843672359-f51f0cefe0ca?q=80&w=2539&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     tag:   'Lifestyle',
   },
   {
     label: 'Phone and Tech Accessories',
-    url:   'https://eu.mous.co',
-    desc:  'Premium product photography, interactive features and conversion focused layout.',
+    img:   'https://res.cloudinary.com/dm2zp4jb1/image/upload/q_auto/f_auto/v1779554621/WhatsApp_Image_2026-05-22_at_22.42.03_3_jacrbd.jpg',
     color: '#6366F1',
-    img:   'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=700&q=80',
     tag:   'Tech',
   },
   {
     label: 'Beauty Store',
-    url:   'https://glamnetic.com',
-    desc:  'Feminine, vibrant brand world with before and after imagery and social proof.',
+    img:   'https://res.cloudinary.com/dm2zp4jb1/image/upload/q_auto/f_auto/v1779554621/WhatsApp_Image_2026-05-22_at_22.42.03_2_j4zj1d.jpg',
     color: '#EC4899',
-    img:   'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=700&q=80',
     tag:   'Beauty',
-  },
-  {
-    label: 'Travel Bags',
-    url:   'https://calpaktravel.com',
-    desc:  'Aspirational travel world with colour selector, lifestyle photography and bundles.',
-    color: '#10B981',
-    img:   'https://images.unsplash.com/photo-1639598003276-8a70fcaaad6c?q=80&w=1738&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D.',
-    tag:   'Travel',
-  },
-  {
-    label: 'Eyewear and Sunglasses',
-    url:   'https://blenderseyewear.com',
-    desc:  'Bold colour forward design with try on features and sport lifestyle positioning.',
-    color: '#F59E0B',
-    img:   'https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=700&q=80',
-    tag:   'Eyewear',
   },
 ];
 
@@ -497,7 +469,7 @@ export default function WebDesignPage() {
             </motion.p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: 16 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16 }}>
             {INSPO.map((site, i) => (
               <motion.div
                 key={site.label}
@@ -505,48 +477,33 @@ export default function WebDesignPage() {
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, margin: '-20px' }}
                 transition={{ delay: i * 0.06, duration: 0.5 }}
-                whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                onClick={() => window.open(site.url, '_blank', 'noopener')}
+                whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.2 } }}
                 style={{
                   position: 'relative', borderRadius: 18, overflow: 'hidden',
-                  cursor: 'pointer',
                   border: `1px solid ${site.color}25`,
                   boxShadow: '0 4px 18px rgba(0,0,0,0.06)',
                   transition: 'box-shadow 0.25s, border-color 0.25s',
                   background: '#fff',
+                  aspectRatio: (i === 0 || i === 3) ? '3/4' : '4/3',
                 }}
-                onMouseEnter={e => { e.currentTarget.style.boxShadow = `0 16px 44px ${site.color}20`; e.currentTarget.style.borderColor = `${site.color}50`; }}
+                onMouseEnter={e => { e.currentTarget.style.boxShadow = `0 16px 44px ${site.color}25`; e.currentTarget.style.borderColor = `${site.color}55`; }}
                 onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 4px 18px rgba(0,0,0,0.06)'; e.currentTarget.style.borderColor = `${site.color}25`; }}
               >
-                {/* Image */}
-                <div style={{ position: 'relative', height: 180, overflow: 'hidden' }}>
-                  <Img src={site.img} alt={`${site.label} website design inspiration`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                  <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.5) 100%)` }} />
-                  {/* Tag pill */}
-                  <div style={{ position: 'absolute', top: 12, left: 12, background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(6px)', borderRadius: 100, padding: '3px 10px', fontSize: 10, fontWeight: 700, color: site.color }}>
-                    {site.tag}
-                  </div>
-                  {/* External link icon */}
-                  <div style={{ position: 'absolute', top: 12, right: 12, width: 30, height: 30, borderRadius: 8, background: 'rgba(255,255,255,0.95)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <RiExternalLinkLine style={{ width: 14, height: 14, color: site.color }} />
-                  </div>
+                <Img
+                  src={site.img}
+                  alt={`${site.label} website design — work by Proven Profit`}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                />
+                {/* Gradient overlay at bottom */}
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 55%, rgba(0,0,0,0.6) 100%)', pointerEvents: 'none' }} />
+                {/* Tag pill top left */}
+                <div style={{ position: 'absolute', top: 12, left: 12, background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(6px)', borderRadius: 100, padding: '4px 12px', fontSize: 10, fontWeight: 700, color: site.color }}>
+                  {site.tag}
                 </div>
-
-                {/* Content */}
-                <div style={{ padding: '16px 18px 20px' }}>
-                  {/* Colour accent bar */}
-                  <div style={{ width: 28, height: 3, borderRadius: 100, background: site.color, marginBottom: 10 }} />
-                  <h3 style={{ fontSize: 14, fontWeight: 800, color: 'var(--text)', marginBottom: 6, lineHeight: 1.2 }}>{site.label}</h3>
-                  <p style={{ fontSize: 12, lineHeight: 1.65, color: 'var(--text-muted)', marginBottom: 12 }}>{site.desc}</p>
-                  <a
-                    href={site.url} target="_blank" rel="noopener noreferrer"
-                    onClick={e => e.stopPropagation()}
-                    style={{ display: 'inline-flex', alignItems: 'center', gap: 5, fontSize: 11, fontWeight: 700, color: site.color, textDecoration: 'none' }}
-                    onMouseEnter={e => e.currentTarget.style.opacity = '0.75'}
-                    onMouseLeave={e => e.currentTarget.style.opacity = '1'}
-                  >
-                    Visit site <RiExternalLinkLine style={{ width: 11, height: 11 }} />
-                  </a>
+                {/* Label bottom */}
+                <div style={{ position: 'absolute', bottom: 16, left: 16, right: 16 }}>
+                  <div style={{ width: 24, height: 3, borderRadius: 100, background: site.color, marginBottom: 6 }} />
+                  <p style={{ fontSize: 13, fontWeight: 800, color: '#fff', lineHeight: 1.2 }}>{site.label}</p>
                 </div>
               </motion.div>
             ))}
