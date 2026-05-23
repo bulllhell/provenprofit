@@ -27,8 +27,8 @@ const PROOF = [
 
 /* ── Unsplash explainer images ───────────────────────────── */
 const IMG = {
-  hero:    'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=1400&q=80',
-  search:  'https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=900&q=80',
+  hero:    'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?auto=format&fit=crop&w=1400&q=80',
+  search:  'https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?auto=format&fit=crop&w=900&q=80',
   local:   'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=80',
   results: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80',
 };
@@ -97,7 +97,7 @@ const SERVICES = [
     img: IMG.search,
     title: 'Google Search Ads',
     sub: 'Show up when people are ready to buy',
-    desc: 'We build campaigns that put your business at the top of Google the moment someone searches for exactly what you sell. Every keyword, every bid, every ad is engineered around one goal — profitable clicks from people with buying intent.',
+    desc: 'We build campaigns that put your business at the top of Google the moment someone searches for exactly what you sell. Every keyword, every bid, every ad is engineered around one goal: profitable clicks from people with buying intent.',
     tags: ['Keyword targeting', 'Bid management', 'Ad copywriting', 'Quality score'],
   },
   {
@@ -120,7 +120,7 @@ const SERVICES = [
 
 /* ── How it works ───────────────────────────────────────── */
 const PROCESS = [
-  { n: '01', title: 'Audit and Setup',      desc: 'We audit your existing account or build it from scratch. Tracking, billing, structure — all done right before a single penny is spent.' },
+  { n: '01', title: 'Audit and Setup',      desc: 'We audit your existing account or build it from scratch. Tracking, billing, structure. All done right before a single penny is spent.' },
   { n: '02', title: 'Research and Build',   desc: 'Keyword research, competitor analysis, audience mapping, ad copy. We build campaigns that match how your buyers actually search.' },
   { n: '03', title: 'Launch and Monitor',   desc: 'Campaigns go live. We watch performance daily, cut what wastes budget, and scale what converts.' },
   { n: '04', title: 'Report and Optimise',  desc: 'Regular reports show exactly where every dollar went. We adjust bids, test new angles, and compound the results every month.' },
@@ -130,7 +130,7 @@ const PROCESS = [
 const FAQS = [
   {
     q: 'Do I pay for the ad budget on top of your fee?',
-    a: 'Yes. Your management fee pays us to run the campaigns. Your ad budget goes directly to Google — we never touch it. This keeps things transparent and means every dollar you spend on ads actually goes to ads.',
+    a: 'Yes. Your management fee pays us to run the campaigns. Your ad budget goes directly to Google. We never touch it. This keeps things transparent and means every dollar you spend on ads actually goes to ads.',
   },
   {
     q: 'How much should I spend on ads?',
@@ -364,7 +364,7 @@ export default function GoogleAdsPage() {
                 style={{ fontSize: '1rem', lineHeight: 1.75, marginBottom: 28, color: 'var(--text-muted)', maxWidth: 480 }}
               >
                 We manage your Google Ads and Google My Business so your business
-                shows up first — in search results, on Google Maps, and in front of
+                shows up first in search results, on Google Maps, and in front of
                 buyers who are ready to spend right now. You keep your ad budget.
                 We make every dollar of it work harder.
               </motion.p>
@@ -486,7 +486,7 @@ export default function GoogleAdsPage() {
           >
             <RiMoneyDollarCircleLine style={{ width: 20, height: 20, color: ACCENT, flexShrink: 0 }} />
             <p style={{ fontSize: 14, fontWeight: 600, color: 'var(--text)', maxWidth: 680, lineHeight: 1.65 }}>
-              <span style={{ color: ACCENT, fontWeight: 800 }}>Your ad budget goes directly to Google — not through us.</span>
+              <span style={{ color: ACCENT, fontWeight: 800 }}>Your ad budget goes directly to Google. Not through us.</span>
               {' '}Our fee covers the management, strategy, and optimisation only.
               You stay in full control of your spend at all times.
             </p>
@@ -510,7 +510,7 @@ export default function GoogleAdsPage() {
               style={{ fontSize: 14, color: 'var(--text-muted)', maxWidth: 520, margin: '0 auto', lineHeight: 1.75 }}
             >
               Google owns the top of the funnel. Search ads, the map pack, and local listings
-              are where your buyers look first. We make sure they find you — not your competitor.
+              are where your buyers look first. We make sure they find you and not your competitor.
             </motion.p>
           </div>
 

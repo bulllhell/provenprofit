@@ -6,7 +6,7 @@ import {
   RiSmartphoneLine, RiSpeedLine, RiShieldCheckLine,
   RiPaletteLine, RiBarChart2Line, RiSettings3Line,
   RiStarFill, RiTimeLine, RiTeamLine, RiGlobalLine,
-  RiFireLine,
+  RiFireLine, RiExternalLinkLine, RiZoomInLine,
 } from 'react-icons/ri';
 
 const ACCENT  = '#F97316';
@@ -233,6 +233,75 @@ const TESTIMONIALS = [
   { name: 'Ella M.',   handle: 'Beauty Brand Founder',  stars: 5, text: 'Professional from start to finish. They understood exactly what we needed and delivered beyond expectations. Would 100% recommend.' },
   { name: 'Tosan B.',  handle: 'Clothing Store Owner',  stars: 5, text: 'Our conversion rate doubled after the redesign. The attention to detail on mobile is exceptional.' },
 ];
+/* ── Store inspiration — real world eCommerce benchmarks ─── */
+const INSPO = [
+  {
+    label: 'Fashion Store',
+    url:   'https://dignitestore.com',
+    desc:  'Clean editorial fashion with bold typography and immersive product storytelling.',
+    color: '#E879A0',
+    tag:   'Fashion',
+    img:   'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=700&q=80',
+  },
+  {
+    label: 'Gym and Fitness',
+    url:   'https://gymshark.com',
+    desc:  'High energy visuals and fast product discovery built for performance brands.',
+    color: '#3B82F6',
+    tag:   'Fitness',
+    img:   'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=700&q=80',
+  },
+  {
+    label: 'Sport and Outdoor',
+    url:   'https://us.oneill.com',
+    desc:  'Lifestyle brand energy with surf culture, seasonal drops and collection storytelling.',
+    color: '#F97316',
+    tag:   'Sport',
+    img:   'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=700&q=80',
+  },
+  {
+    label: 'Books and Stationery',
+    url:   'https://lebenskompass.eu',
+    desc:  'Warm editorial bookshop aesthetic with category browsing and community feel.',
+    color: '#8B5CF6',
+    tag:   'Lifestyle',
+    img:   'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=700&q=80',
+  },
+  {
+    label: 'Phone and Tech',
+    url:   'https://eu.mous.co',
+    desc:  'Premium product photography, interactive features and conversion focused layout.',
+    color: '#6366F1',
+    tag:   'Tech',
+    img:   'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=700&q=80',
+  },
+  {
+    label: 'Beauty Store',
+    url:   'https://glamnetic.com',
+    desc:  'Feminine, vibrant brand world with before and after imagery and social proof.',
+    color: '#EC4899',
+    tag:   'Beauty',
+    img:   'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=700&q=80',
+  },
+  {
+    label: 'Travel Bags',
+    url:   'https://calpaktravel.com',
+    desc:  'Aspirational travel world with colour selector, lifestyle photography and bundles.',
+    color: '#10B981',
+    tag:   'Travel',
+    img:   'https://images.unsplash.com/photo-1553531384-411a247ccd73?auto=format&fit=crop&w=700&q=80',
+  },
+  {
+    label: 'Eyewear and Sunglasses',
+    url:   'https://blenderseyewear.com',
+    desc:  'Bold colour forward design with try on features and sport lifestyle positioning.',
+    color: '#F59E0B',
+    tag:   'Eyewear',
+    img:   'https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=700&q=80',
+  },
+];
+
+
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -680,6 +749,96 @@ export default function EcommercePage() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+
+      {/* ── Store Inspiration ─────────────────────────────── */}
+      <section style={{ padding: '5rem 0' }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 1.5rem' }}>
+          <div style={{ textAlign: 'center', marginBottom: 52 }}>
+            <SectionTag>The Standard We Build Toward</SectionTag>
+            <motion.h2 initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              style={{ fontSize: 'clamp(1.7rem, 3vw, 2.5rem)', fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.02em', marginBottom: 12 }}>
+              Stores we study and build to match
+            </motion.h2>
+            <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
+              style={{ fontSize: 14, color: 'var(--text-muted)', maxWidth: 540, margin: '0 auto', lineHeight: 1.75 }}>
+              These are real brands at the top of their categories. We study what makes
+              each one convert, then bring that same level of craft to your store.
+              Click any card to visit the live site.
+            </motion.p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: 16 }}>
+            {INSPO.map((site, i) => (
+              <motion.div
+                key={site.label}
+                initial={{ opacity: 0, y: 24, scale: 0.96 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: '-20px' }}
+                transition={{ delay: i * 0.06, duration: 0.5 }}
+                whileHover={{ y: -8, transition: { duration: 0.2 } }}
+                onClick={() => window.open(site.url, '_blank', 'noopener')}
+                style={{
+                  position: 'relative', borderRadius: 18, overflow: 'hidden',
+                  cursor: 'pointer', background: '#fff',
+                  border: `1px solid ${site.color}25`,
+                  boxShadow: '0 4px 18px rgba(0,0,0,0.06)',
+                  transition: 'box-shadow 0.25s, border-color 0.25s',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.boxShadow = `0 16px 44px ${site.color}22`; e.currentTarget.style.borderColor = `${site.color}50`; }}
+                onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 4px 18px rgba(0,0,0,0.06)'; e.currentTarget.style.borderColor = `${site.color}25`; }}
+              >
+                {/* Image */}
+                <div style={{ position: 'relative', height: 176, overflow: 'hidden' }}>
+                  <img
+                    src={site.img}
+                    alt={`${site.label} eCommerce store inspiration`}
+                    crossOrigin="anonymous"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.5s ease' }}
+                    onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.06)'; }}
+                    onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)'; }}
+                  />
+                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.45) 100%)' }} />
+                  {/* Tag pill */}
+                  <div style={{ position: 'absolute', top: 12, left: 12, background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(6px)', borderRadius: 100, padding: '3px 10px', fontSize: 10, fontWeight: 700, color: site.color }}>
+                    {site.tag}
+                  </div>
+                  {/* External link icon */}
+                  <div style={{ position: 'absolute', top: 12, right: 12, width: 30, height: 30, borderRadius: 8, background: 'rgba(255,255,255,0.95)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <RiExternalLinkLine style={{ width: 14, height: 14, color: site.color }} />
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div style={{ padding: '16px 18px 20px' }}>
+                  <div style={{ width: 28, height: 3, borderRadius: 100, background: site.color, marginBottom: 10 }} />
+                  <h3 style={{ fontSize: 14, fontWeight: 800, color: 'var(--text)', marginBottom: 6, lineHeight: 1.2 }}>{site.label}</h3>
+                  <p style={{ fontSize: 12, lineHeight: 1.65, color: 'var(--text-muted)', marginBottom: 12 }}>{site.desc}</p>
+                  <a
+                    href={site.url} target="_blank" rel="noopener noreferrer"
+                    onClick={e => e.stopPropagation()}
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: 5, fontSize: 11, fontWeight: 700, color: site.color, textDecoration: 'none' }}
+                    onMouseEnter={e => e.currentTarget.style.opacity = '0.7'}
+                    onMouseLeave={e => e.currentTarget.style.opacity = '1'}
+                  >
+                    Visit site <RiExternalLinkLine style={{ width: 11, height: 11 }} />
+                  </a>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* CTA below grid */}
+          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            style={{ textAlign: 'center', marginTop: 48 }}>
+            <p style={{ fontSize: 15, color: 'var(--text-muted)', marginBottom: 16, lineHeight: 1.65 }}>
+              Your store deserves to sit at this level.{' '}
+              <span style={{ color: 'var(--text)', fontWeight: 800 }}>Let us build it.</span>
+            </p>
+          </motion.div>
         </div>
       </section>
 

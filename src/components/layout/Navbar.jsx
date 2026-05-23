@@ -6,7 +6,7 @@ import {
   RiMenuLine, RiCloseLine, RiArrowRightUpLine,
   RiArrowDownSLine, RiShoppingBag3Line, RiPaletteLine,
   RiInstagramLine, RiSearchLine, RiMailLine,
-  RiAdvertisementLine, RiGlobalLine, RiFilter3Line,
+  RiAdvertisementLine, RiGlobalLine,
 } from 'react-icons/ri';
 
 // ── Service dropdown items ────────────────────────────────────
@@ -60,19 +60,6 @@ const SERVICE_ITEMS = [
     to:    '/services/web-design',
     accent: '#0081FB',
   },
-  {
-    icon: RiFilter3Line,
-    label: 'Sales Funnel Creation',
-    sub:   'High-converting funnel builds',
-    to:    '/services/funnels',
-    accent: '#34D399',
-  },
-];
-
-// ── Top-level nav links ───────────────────────────────────────
-const NAV_LINKS = [
-  { label: 'Home',      to: '/'          },
-  { label: 'Portfolio', to: '/portfolio' },
 ];
 
 const WHATSAPP_URL = 'https://wa.me/2348059846912';
@@ -101,27 +88,42 @@ function ServicesDropdown({ open }) {
               style={{ color: 'var(--text-muted)' }}>
               Our Services
             </p>
-            <Link to="/services"
-              className="text-xs font-body font-semibold flex items-center gap-1 transition-colors hover:opacity-80"
-              style={{ color: '#7C3AED' }}>
-              View all <RiArrowRightUpLine className="w-3 h-3" />
-            </Link>
           </div>
 
           {/* Grid */}
           <div className="p-3 grid grid-cols-2 gap-1">
+            {/* All Services — always first */}
+            <Link
+              to="/services"
+              className="col-span-2 flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-150 mb-1"
+              style={{
+                background: 'rgba(124,58,237,0.06)',
+                border: '1px solid rgba(124,58,237,0.15)',
+                color: '#7C3AED',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(124,58,237,0.12)'; }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(124,58,237,0.06)'; }}
+            >
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+                style={{ background: 'rgba(124,58,237,0.15)' }}>
+                <RiGlobalLine className="w-4 h-4" style={{ color: '#7C3AED' }} />
+              </div>
+              <div>
+                <p className="text-xs font-heading font-bold" style={{ color: '#7C3AED' }}>All Services</p>
+                <p className="text-[10px] font-body mt-0.5" style={{ color: 'rgba(124,58,237,0.7)' }}>
+                  Browse everything we offer
+                </p>
+              </div>
+              <RiArrowRightUpLine className="w-3.5 h-3.5 ml-auto" style={{ color: '#7C3AED' }} />
+            </Link>
             {SERVICE_ITEMS.map(({ icon: Icon, label, sub, to, accent }) => (
               <Link
                 key={to}
                 to={to}
                 className="flex items-start gap-3 px-3 py-3 rounded-xl transition-all duration-150 group"
                 style={{ color: 'var(--text)' }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.background = accent + '0e';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.background = 'transparent';
-                }}
+                onMouseEnter={e => { e.currentTarget.style.background = accent + '0e'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
               >
                 <div
                   className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5"
@@ -166,14 +168,15 @@ function ServicesDropdown({ open }) {
 
 // ── Main Navbar ───────────────────────────────────────────────
 export default function Navbar() {
-  const [scrolled,      setScrolled]      = useState(false);
-  const [menuOpen,      setMenuOpen]      = useState(false);
-  const [servicesOpen,  setServicesOpen]  = useState(false);
-  const [mobileServOpen,setMobileServOpen]= useState(false);
+  const [scrolled,       setScrolled]       = useState(false);
+  const [menuOpen,       setMenuOpen]       = useState(false);
+  const [servicesOpen,   setServicesOpen]   = useState(false);
+  const [mobileServOpen, setMobileServOpen] = useState(false);
   const servicesRef = useRef(null);
+  const hoverTimer  = useRef(null);
   const location    = useLocation();
 
-  // Close dropdown on route change
+  // Close everything on route change
   useEffect(() => {
     setServicesOpen(false);
     setMenuOpen(false);
@@ -204,16 +207,13 @@ export default function Navbar() {
     return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
 
-  const handleHashLink = (e, to) => {
-    if (to.startsWith('/#')) {
-      e.preventDefault();
-      setMenuOpen(false);
-      const id = to.replace('/#', '');
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      setMenuOpen(false);
-    }
+  // Hover open / close with small delay so dropdown doesn't flicker
+  const handleServicesMouseEnter = () => {
+    clearTimeout(hoverTimer.current);
+    setServicesOpen(true);
+  };
+  const handleServicesMouseLeave = () => {
+    hoverTimer.current = setTimeout(() => setServicesOpen(false), 120);
   };
 
   const isServicesActive = location.pathname.startsWith('/services');
@@ -246,7 +246,7 @@ export default function Navbar() {
               />
             </Link>
 
-            {/* Desktop nav */}
+            {/* ── Desktop nav ──────────────────────────────── */}
             <nav className="hidden lg:flex items-center gap-1">
 
               {/* Home */}
@@ -270,8 +270,13 @@ export default function Navbar() {
                 )}
               </NavLink>
 
-              {/* Services dropdown trigger */}
-              <div ref={servicesRef} className="relative">
+              {/* ── Services — click toggles dropdown listing all services ── */}
+              <div
+                ref={servicesRef}
+                className="relative"
+                onMouseEnter={handleServicesMouseEnter}
+                onMouseLeave={handleServicesMouseLeave}
+              >
                 <button
                   onClick={() => setServicesOpen(o => !o)}
                   className="flex items-center gap-1 font-body font-medium tracking-wide rounded-lg transition-all duration-200"
@@ -281,14 +286,15 @@ export default function Navbar() {
                     color: isServicesActive || servicesOpen ? '#7C3AED' : '#4B4669',
                     background: isServicesActive || servicesOpen ? 'rgba(124,58,237,0.06)' : 'transparent',
                     position: 'relative',
+                    border: 'none',
+                    cursor: 'pointer',
                   }}
-                  onMouseEnter={e => { if (!isServicesActive) e.currentTarget.style.background = 'rgba(124,58,237,0.04)'; }}
-                  onMouseLeave={e => { if (!isServicesActive && !servicesOpen) e.currentTarget.style.background = 'transparent'; }}
                 >
                   Services
                   <motion.span
                     animate={{ rotate: servicesOpen ? 180 : 0 }}
                     transition={{ duration: 0.2 }}
+                    style={{ display: 'flex', alignItems: 'center' }}
                   >
                     <RiArrowDownSLine className="w-4 h-4" />
                   </motion.span>
@@ -297,6 +303,7 @@ export default function Navbar() {
                       style={{ position: 'absolute', width: 'clamp(8px, 1.5vw, 20px)' }} />
                   )}
                 </button>
+
                 <ServicesDropdown open={servicesOpen} />
               </div>
 
@@ -409,6 +416,7 @@ export default function Navbar() {
               </div>
 
               <nav className="flex-1 px-4 py-4 space-y-1 overflow-y-auto">
+
                 {/* Home */}
                 <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.06 }}>
                   <NavLink to="/" onClick={() => setMenuOpen(false)}
@@ -421,7 +429,7 @@ export default function Navbar() {
                   </NavLink>
                 </motion.div>
 
-                {/* Services accordion */}
+                {/* ── Services — link to /services + accordion for sub pages ── */}
                 <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.12 }}>
                   <button
                     onClick={() => setMobileServOpen(o => !o)}
@@ -429,6 +437,8 @@ export default function Navbar() {
                     style={{
                       color: isServicesActive || mobileServOpen ? '#7C3AED' : '#4B4669',
                       background: isServicesActive || mobileServOpen ? 'rgba(124,58,237,0.06)' : 'transparent',
+                      border: 'none',
+                      cursor: 'pointer',
                     }}
                   >
                     Services
@@ -437,6 +447,7 @@ export default function Navbar() {
                     </motion.span>
                   </button>
 
+                  {/* Expandable sub-list */}
                   <AnimatePresence initial={false}>
                     {mobileServOpen && (
                       <motion.div
@@ -447,6 +458,20 @@ export default function Navbar() {
                         className="overflow-hidden"
                       >
                         <div className="pl-4 pr-2 pb-2 space-y-0.5 mt-1">
+                          {/* All Services first */}
+                          <Link
+                            to="/services"
+                            onClick={() => setMenuOpen(false)}
+                            className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-body font-bold transition-all"
+                            style={{ color: '#7C3AED', background: 'rgba(124,58,237,0.06)' }}
+                          >
+                            <span className="w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0"
+                              style={{ background: 'rgba(124,58,237,0.15)' }}>
+                              <RiGlobalLine className="w-3 h-3" style={{ color: '#7C3AED' }} />
+                            </span>
+                            All Services
+                            <RiArrowRightUpLine className="w-3 h-3 ml-auto" style={{ color: '#7C3AED' }} />
+                          </Link>
                           {SERVICE_ITEMS.map(({ icon: Icon, label, to, accent }) => (
                             <Link
                               key={to}
@@ -464,11 +489,7 @@ export default function Navbar() {
                               {label}
                             </Link>
                           ))}
-                          <Link to="/services" onClick={() => setMenuOpen(false)}
-                            className="flex items-center gap-1.5 px-3 py-2 text-xs font-heading font-semibold mt-1"
-                            style={{ color: '#7C3AED' }}>
-                            View all services <RiArrowRightUpLine className="w-3 h-3" />
-                          </Link>
+
                         </div>
                       </motion.div>
                     )}
@@ -498,6 +519,7 @@ export default function Navbar() {
                     Team <RiArrowRightUpLine className="w-4 h-4 opacity-40" />
                   </NavLink>
                 </motion.div>
+
               </nav>
 
               {/* Drawer footer */}
