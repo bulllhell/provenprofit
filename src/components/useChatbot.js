@@ -51,8 +51,7 @@ IMPORTANT RULES:
 - WhatsApp: +234 805 984 6912
 - Book a call page: /book-a-call on the website`;
 
-const BASE_URL = import.meta.env.VITE_API_URL || 'https://provenprofit-production.up.railway.app';
-const API_URL  = `${BASE_URL}/api/chat`;
+const API_URL = 'https://provenprofit-production.up.railway.app/api/chat';
 
 export function useChatbot() {
   const [messages, setMessages] = useState([
