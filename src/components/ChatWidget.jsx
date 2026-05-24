@@ -118,8 +118,8 @@ export default function ChatWidget() {
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
             style={{
-              position: 'fixed', bottom: 88, right: 20, zIndex: 9998,
-              width: 'min(360px, calc(100vw - 40px))',
+              position: 'fixed', bottom: 90, right: 16, zIndex: 99998,
+              width: 'min(360px, calc(100vw - 32px))',
               borderRadius: 20,
               overflow: 'hidden',
               boxShadow: '0 20px 60px rgba(0,0,0,0.18), 0 4px 16px rgba(0,0,0,0.10)',
@@ -262,7 +262,7 @@ export default function ChatWidget() {
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.94 }}
         style={{
-          position: 'fixed', bottom: 20, right: 20, zIndex: 9999,
+          position: 'fixed', bottom: 24, right: 16, zIndex: 99999,
           width: 56, height: 56, borderRadius: '50%',
           background: open ? '#1E1B2E' : `linear-gradient(135deg, ${ACCENT}, ${ACCENTB})`,
           border: 'none', cursor: 'pointer',
