@@ -4,6 +4,12 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server: {
+    proxy: {
+      '/api/chat': {
+        target: 'http://localhost:3001',
+        changeOrigin: true,
+      },
+    },
     headers: {
       'Content-Security-Policy': [
         "default-src 'self'",
@@ -11,7 +17,7 @@ export default defineConfig({
         "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
         "font-src 'self' https://fonts.gstatic.com",
         "img-src 'self' data: blob: https://images.unsplash.com https://res.cloudinary.com https://plus.unsplash.com",
-        "connect-src 'self' https://images.unsplash.com https://res.cloudinary.com",
+        "connect-src 'self' https://images.unsplash.com https://res.cloudinary.com https://api.anthropic.com http://localhost:3001",
       ].join('; '),
     },
   },
