@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback } from 'react';
 
 const SYSTEM_PROMPT = `You are the Proven Profit Brand assistant. You are a friendly, knowledgeable sales helper on the Proven Profit website. You help visitors understand services, recommend the right package, and guide them toward booking a free call or messaging on WhatsApp.
 
@@ -49,9 +49,10 @@ IMPORTANT RULES:
 - Be warm, confident, and direct. Not salesy or pushy.
 - Do NOT use dashes or hyphens in your responses.
 - WhatsApp: +234 805 984 6912
-- Book a call: /book-a-call on the website`;
+- Book a call page: /book-a-call on the website`;
 
-const API_URL = import.meta.env.VITE_CHAT_API_URL || '/api/chat';
+const BASE_URL = import.meta.env.VITE_API_URL || 'https://provenprofit-production.up.railway.app';
+const API_URL  = `${BASE_URL}/api/chat`;
 
 export function useChatbot() {
   const [messages, setMessages] = useState([
@@ -60,14 +61,14 @@ export function useChatbot() {
       content: 'Hey! Welcome to Proven Profit. What are you looking to grow today? Your store, your brand, or your online presence?',
     },
   ]);
-  const [input, setInput] = useState('');
+  const [input,   setInput]   = useState('');
   const [loading, setLoading] = useState(false);
 
   const sendMessage = useCallback(async (text) => {
     const userText = (text || input).trim();
     if (!userText || loading) return;
 
-    const userMsg = { role: 'user', content: userText };
+    const userMsg     = { role: 'user', content: userText };
     const nextMessages = [...messages, userMsg];
 
     setMessages(nextMessages);
@@ -75,15 +76,16 @@ export function useChatbot() {
     setLoading(true);
 
     try {
-      const apiMessages = nextMessages.map(m => ({ role: m.role, content: m.content }));
-
       const res = await fetch(API_URL, {
-        method: 'POST',
+        method:  'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: apiMessages, system: SYSTEM_PROMPT }),
+        body:    JSON.stringify({
+          messages: nextMessages.map(m => ({ role: m.role, content: m.content })),
+          system:   SYSTEM_PROMPT,
+        }),
       });
 
-      const data = await res.json();
+      const data  = await res.json();
       const reply = data.content || 'Sorry, something went wrong. Please try again.';
 
       setMessages(prev => [...prev, { role: 'assistant', content: reply }]);
