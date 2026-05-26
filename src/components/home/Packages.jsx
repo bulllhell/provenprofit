@@ -42,7 +42,7 @@ function CheckoutModal({ pkg, onClose }) {
   return (
     <AnimatePresence>
       <motion.div
-        initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+        initial={{ opacity: 1 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
         onClick={onClose}
         className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm"
       />
@@ -150,7 +150,7 @@ function PackageCard({ pkg, index, type, onSelect }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 1, y: 0 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-30px' }}
       transition={{ delay: index * 0.08, duration: 0.45 }}
@@ -257,7 +257,7 @@ export default function Packages() {
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-4">
-        <motion.div initial={{ opacity: 0, y: -10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+        <motion.div initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           className="text-center mb-8">
           <span className="section-tag">Packages and Pricing</span>
           <h2 className="font-heading text-3xl sm:text-4xl font-extrabold mt-3 mb-2" style={{ color: 'var(--text)' }}>
@@ -268,7 +268,7 @@ export default function Packages() {
           </p>
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+        <motion.div initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           transition={{ delay: 0.1 }} className="flex justify-center gap-2 mb-8">
           {[
             { id: 'ecommerce', label: 'eCommerce',    icon: RiShoppingBag3Line },
@@ -288,7 +288,7 @@ export default function Packages() {
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
-            initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
+            initial={{ opacity: 1, y: 0 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
           >
@@ -298,7 +298,7 @@ export default function Packages() {
           </motion.div>
         </AnimatePresence>
 
-        <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
+        <motion.p initial={{ opacity: 1 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
           className="text-center text-xs mt-8" style={{ color: 'var(--text-muted)', opacity: 0.6 }}>
           All prices in USD.{' '}
           {activeTab === 'social' && 'Monthly plans can be cancelled anytime. '}

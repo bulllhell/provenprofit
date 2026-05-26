@@ -12,7 +12,7 @@ import {
 function StatPill({ icon: Icon, value, label, delay, className }) {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.8, y: 20 }}
+      initial={{ opacity: 1, scale: 1, y: 0 }}
       animate={{ opacity: 1, scale: 1, y: [0, -10, 0] }}
       transition={{
         opacity: { delay, duration: 0.5 },
@@ -113,7 +113,7 @@ export default function Hero() {
         <div className="flex flex-col items-center text-center">
 
           <motion.div
-            initial={{ opacity: 0, y: -16 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
             className="section-tag mb-6 sm:mb-8 lg:mb-10 group cursor-default"
@@ -124,7 +124,7 @@ export default function Hero() {
 
           {/* Visible h1 for SEO — always in DOM, just animates in */}
           <motion.h1
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.7 }}
             className="font-heading font-extrabold max-w-5xl leading-[1.0] tracking-tight"
@@ -155,7 +155,7 @@ export default function Hero() {
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
             className="mt-4 sm:mt-6 lg:mt-8 font-body leading-relaxed px-2 sm:px-0"
@@ -174,7 +174,7 @@ export default function Hero() {
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.55 }}
             className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 lg:gap-5 mt-8 sm:mt-10 lg:mt-12"
@@ -198,7 +198,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0 }}
+            initial={{ opacity: 1 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.75 }}
             className="flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-6 gap-y-2 mt-6 sm:mt-8 lg:mt-10"
@@ -223,7 +223,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 40, scale: 0.95 }}
+            initial={{ opacity: 1, y: 0, scale: 1 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ delay: 0.5, duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="relative mt-10 sm:mt-14 lg:mt-20 w-full"
@@ -354,7 +354,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.button
-            initial={{ opacity: 0 }}
+            initial={{ opacity: 1 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.3 }}
             onClick={() => scrollTo('trustbar')}

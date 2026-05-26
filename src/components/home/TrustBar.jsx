@@ -125,7 +125,7 @@ export default function TrustBar() {
       {/* Stats strip */}
       <div className="relative z-10 max-w-5xl mx-auto px-4">
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 1, y: 0 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
@@ -141,7 +141,7 @@ export default function TrustBar() {
           {STATS.map(({ value, label }, i) => (
             <motion.div
               key={label}
-              initial={{ opacity: 0 }}
+              initial={{ opacity: 1 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.07 }}
@@ -171,7 +171,7 @@ export default function TrustBar() {
 
         {/* Trust avatars */}
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={{ opacity: 1 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}

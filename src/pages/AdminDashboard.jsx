@@ -271,7 +271,7 @@ export default function AdminDashboard() {
                   <motion.div
                     key={b.id}
                     layout
-                    initial={{ opacity: 0, y: 12 }}
+                    initial={{ opacity: 1, y: 0 }}
                     animate={{ opacity: 1, y: 0 }}
                     className="rounded-2xl overflow-hidden"
                     style={{

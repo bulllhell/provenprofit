@@ -127,7 +127,7 @@ const VALUES = [
 function CEOCard() {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 32 }}
+      initial={{ opacity: 1, y: 0 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -204,7 +204,7 @@ function TeamCard({ member, index }) {
   const { name, role, title, bio, img, accent, icon: Icon } = member;
   return (
     <motion.div
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 1, y: 0 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-30px' }}
       transition={{ delay: index * 0.08, duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -249,15 +249,15 @@ export default function Team() {
           <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle, rgba(124,58,237,0.07) 1px, transparent 1px)', backgroundSize: '48px 48px', maskImage: 'radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 100%)' }} />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} className="flex justify-center mb-5">
+          <motion.div initial={{ opacity: 1, y: 0 }} animate={{ opacity: 1, y: 0 }} className="flex justify-center mb-5">
             <span className="section-tag">Proven Profit Marketing Agency</span>
           </motion.div>
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
+          <motion.h1 initial={{ opacity: 1, y: 0 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
             className="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-5" style={{ color: 'var(--text)' }}>
             Built to grow{' '}
             <span className="text-gradient">your brand</span>
           </motion.h1>
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
+          <motion.p initial={{ opacity: 1 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
             className="text-sm sm:text-base font-body max-w-2xl mx-auto leading-relaxed" style={{ color: 'var(--text-muted)' }}>
             We are a full service digital marketing agency helping brands across the US, Canada, the UK,
             Australia, Europe and Nigeria build a real online presence, drive consistent sales, and grow
@@ -278,11 +278,11 @@ export default function Team() {
               About Us
               <style>{`@keyframes pdot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}`}</style>
             </motion.span>
-            <motion.h2 initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            <motion.h2 initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               className="font-heading text-3xl sm:text-4xl font-extrabold mb-6" style={{ color: 'var(--text)', letterSpacing: '-0.02em' }}>
               Why brands choose Proven Profit Marketing Agency
             </motion.h2>
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
+            <motion.div initial={{ opacity: 1 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
               style={{ maxWidth: 780, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 16 }}>
               <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-muted)', fontSize: 15 }}>
                 Proven Profit Marketing Agency was built out of frustration. Frustration watching great
@@ -309,7 +309,7 @@ export default function Team() {
           </div>
 
           {/* Mission statement */}
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          <motion.div initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             style={{ borderRadius: 24, padding: 'clamp(2rem,4vw,3.5rem)', marginBottom: 52, background: 'linear-gradient(135deg, #7C3AED, #5B21B6)', position: 'relative', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', top: 0, right: 0, width: 400, height: 400, borderRadius: '50%', background: 'rgba(249,115,22,0.18)', filter: 'blur(80px)', pointerEvents: 'none' }} />
             <div style={{ position: 'absolute', bottom: 0, left: 0, width: 300, height: 300, borderRadius: '50%', background: 'rgba(255,255,255,0.05)', filter: 'blur(60px)', pointerEvents: 'none' }} />
@@ -338,7 +338,7 @@ export default function Team() {
           </motion.div>
 
           {/* Our story — two column */}
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          <motion.div initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             style={{ borderRadius: 24, padding: 'clamp(2rem,4vw,3rem)', marginBottom: 52, background: '#fff', border: '1px solid rgba(0,0,0,0.07)' }}>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 40, alignItems: 'center' }}>
               <div>
@@ -366,7 +366,7 @@ export default function Team() {
                   { n: '04', title: 'We went global', desc: 'Today we serve brands in Nigeria, the US, the UK, Canada, Australia and Europe. Different markets, same standard of work.' },
                 ].map((step, i) => (
                   <motion.div key={step.n}
-                    initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
+                    initial={{ opacity: 1, x: 0 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
                     style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
                     <div style={{ width: 36, height: 36, borderRadius: 10, background: 'linear-gradient(135deg, #F97316, #FB923C)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 800, fontSize: 11, flexShrink: 0 }}>
                       {step.n}
@@ -392,7 +392,7 @@ export default function Team() {
                 const Icon = v.icon;
                 return (
                   <motion.div key={v.title}
-                    initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '-20px' }} transition={{ delay: i * 0.08, duration: 0.5 }}
                     style={{ borderRadius: 18, padding: '22px 22px 24px', background: '#fff', border: '1px solid rgba(0,0,0,0.07)', transition: 'box-shadow 0.25s, border-color 0.25s, transform 0.25s' }}
                     onMouseEnter={e => { e.currentTarget.style.borderColor=`${v.color}35`; e.currentTarget.style.boxShadow=`0 8px 32px ${v.color}14`; e.currentTarget.style.transform='translateY(-4px)'; }}
@@ -410,7 +410,7 @@ export default function Team() {
           </div>
 
           {/* Stats strip */}
-          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          <motion.div initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             style={{ borderRadius: 20, padding: '2.5rem 2rem', background: 'linear-gradient(135deg, #7C3AED08, #F9731608)', border: '1px solid rgba(124,58,237,0.12)', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', gap: 28 }}>
             {[
               { v: '120+', l: 'Brands Served',       c: '#7C3AED' },
@@ -442,14 +442,14 @@ export default function Team() {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="flex justify-center mb-4">
+            <motion.div initial={{ opacity: 1 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="flex justify-center mb-4">
               <span className="section-tag">Our Team</span>
             </motion.div>
-            <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            <motion.p initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               className="font-heading text-3xl sm:text-4xl font-extrabold" style={{ color: 'var(--text)', letterSpacing: '-0.02em' }}>
               The people behind your growth
             </motion.p>
-            <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
+            <motion.p initial={{ opacity: 1 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
               className="mt-3 text-sm font-body max-w-lg mx-auto leading-relaxed" style={{ color: 'var(--text-muted)' }}>
               A dedicated team of specialists united by one goal: to build, grow, and scale your brand.
             </motion.p>
@@ -464,7 +464,7 @@ export default function Team() {
 
       {/* ── Bottom CTA ───────────────────────────────────── */}
       <section className="py-20 px-4">
-        <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+        <motion.div initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           className="max-w-3xl mx-auto rounded-3xl p-10 sm:p-14 text-center relative overflow-hidden"
           style={{ background: 'linear-gradient(145deg, #FAF8FF, #F1EEF9)', border: '1px solid var(--dark-border)', boxShadow: '0 8px 40px rgba(124,58,237,0.08)' }}>
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-80 h-24 bg-purple-600/8 blur-[50px] pointer-events-none" />

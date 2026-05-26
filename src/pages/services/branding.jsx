@@ -321,7 +321,7 @@ function Lightbox({ images, initial, onClose }) {
   const cur = images[idx];
   return (
     <motion.div
-      initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+      initial={{ opacity: 1 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
       style={{
         position: 'fixed', inset: 0, zIndex: 1000,
         background: 'rgba(0,0,0,0.92)', backdropFilter: 'blur(14px)',
@@ -448,7 +448,7 @@ export default function BrandingPage() {
 
             {/* Left */}
             <div>
-              <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} style={{ marginBottom: 18 }}>
+              <motion.div initial={{ opacity: 1, y: 0 }} animate={{ opacity: 1, y: 0 }} style={{ marginBottom: 18 }}>
                 <span style={{
                   display: 'inline-flex', alignItems: 'center', gap: 8,
                   padding: '7px 18px', borderRadius: 100,
@@ -461,7 +461,7 @@ export default function BrandingPage() {
               </motion.div>
 
               <motion.h1
-                initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 1, y: 0 }} animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', fontWeight: 800, lineHeight: 1.08, letterSpacing: '-0.025em', marginBottom: 18, color: 'var(--text)' }}
               >
@@ -479,7 +479,7 @@ export default function BrandingPage() {
               </motion.h1>
 
               <motion.p
-                initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
+                initial={{ opacity: 1 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
                 style={{ fontSize: '1rem', lineHeight: 1.75, marginBottom: 28, color: 'var(--text-muted)', maxWidth: 460 }}
               >
                 We design brand identities that stop the scroll, hold attention, and make customers
@@ -487,7 +487,7 @@ export default function BrandingPage() {
               </motion.p>
 
               <motion.div
-                initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
+                initial={{ opacity: 1, y: 0 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
                 style={{ display: 'flex', flexWrap: 'wrap', gap: 12, marginBottom: 32 }}
               >
                 <a href="#packages"
@@ -504,7 +504,7 @@ export default function BrandingPage() {
               </motion.div>
 
               {/* Trust row */}
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.45 }}
+              <motion.div initial={{ opacity: 1 }} animate={{ opacity: 1 }} transition={{ delay: 0.45 }}
                 style={{ display: 'flex', flexWrap: 'wrap', gap: 20 }}>
                 {[
                   { label: '80+ brands built' },
@@ -610,13 +610,13 @@ export default function BrandingPage() {
           <div style={{ textAlign: 'center', marginBottom: 56 }}>
             <SectionTag>What We Build</SectionTag>
             <motion.h2
-              initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.02em', marginBottom: 12 }}
             >
               Branding is not a logo.<br />It is a feeling you engineer.
             </motion.h2>
             <motion.p
-              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
+              initial={{ opacity: 1 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
               style={{ fontSize: 14, color: 'var(--text-muted)', maxWidth: 520, margin: '0 auto', lineHeight: 1.75 }}
             >
               When people see your brand and immediately feel "this is exactly for me" — that is
@@ -631,7 +631,7 @@ export default function BrandingPage() {
               return (
                 <motion.div
                   key={s.title}
-                  initial={{ opacity: 0, y: 36 }}
+                  initial={{ opacity: 1, y: 0 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-40px' }}
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -717,13 +717,13 @@ export default function BrandingPage() {
           <div style={{ textAlign: 'center', marginBottom: 52 }}>
             <SectionTag>Our Work</SectionTag>
             <motion.h2
-              initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.02em', marginBottom: 12 }}
             >
               Brands we have built
             </motion.h2>
             <motion.p
-              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
+              initial={{ opacity: 1 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
               style={{ fontSize: 14, color: 'var(--text-muted)', maxWidth: 420, margin: '0 auto', lineHeight: 1.7 }}
             >
               Click any piece to see it full size. Every project here started with a brief and
@@ -816,7 +816,7 @@ export default function BrandingPage() {
           <div style={{ textAlign: 'center', marginBottom: 52 }}>
             <SectionTag>The Process</SectionTag>
             <motion.h2
-              initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.02em' }}
             >
               Zero confusion from brief to files
@@ -826,7 +826,7 @@ export default function BrandingPage() {
             {PROCESS.map((p, i) => (
               <motion.div
                 key={p.n}
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 1, y: 0 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
@@ -867,13 +867,13 @@ export default function BrandingPage() {
           <div style={{ textAlign: 'center', marginBottom: 52 }}>
             <SectionTag>Pricing</SectionTag>
             <motion.h2
-              initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.02em', marginBottom: 8 }}
             >
               Pick your brand level
             </motion.h2>
             <motion.p
-              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
+              initial={{ opacity: 1 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
               style={{ fontSize: 13, color: 'var(--text-muted)', maxWidth: 380, margin: '0 auto' }}
             >
               One time investment. You own every file, every source, forever.
@@ -885,7 +885,7 @@ export default function BrandingPage() {
               <TiltCard
                 key={pkg.id}
                 intensity={pkg.badge === 'Most Popular' ? 4 : 6}
-                initial={{ opacity: 0, y: 28 }}
+                initial={{ opacity: 1, y: 0 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.55 }}
@@ -938,7 +938,7 @@ export default function BrandingPage() {
                     <div style={{ display: 'flex', alignItems: 'flex-end', gap: 4, marginBottom: 6 }}>
                       <span style={{ fontSize: 14, color: 'var(--text-muted)', marginBottom: 5 }}>$</span>
                       <motion.span
-                        initial={{ opacity: 0, y: 8 }}
+                        initial={{ opacity: 1, y: 0 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: i * 0.1 + 0.3 }}
@@ -959,7 +959,7 @@ export default function BrandingPage() {
                     {pkg.features.map((f, fi) => (
                       <motion.li
                         key={f}
-                        initial={{ opacity: 0, x: -10 }}
+                        initial={{ opacity: 1, x: 0 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: i * 0.08 + fi * 0.04 }}
@@ -1013,7 +1013,7 @@ export default function BrandingPage() {
 
           {/* Trust strip */}
           <motion.div
-            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
+            initial={{ opacity: 1 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
             style={{ marginTop: 36, display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 24 }}
           >
             {[
@@ -1037,7 +1037,7 @@ export default function BrandingPage() {
           <div style={{ textAlign: 'center', marginBottom: 48 }}>
             <SectionTag>Client Words</SectionTag>
             <motion.h2
-              initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.4rem)', fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.02em' }}
             >
               Brands that now own their space
@@ -1048,7 +1048,7 @@ export default function BrandingPage() {
             {TESTIMONIALS.map(({ name, role, text, stars }, i) => (
               <motion.div
                 key={name}
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 1, y: 0 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.12 }}
@@ -1108,7 +1108,7 @@ export default function BrandingPage() {
       {/* ── FINAL CTA ─────────────────────────────────────── */}
       <section style={{ padding: '5rem 1rem 6rem' }}>
         <motion.div
-          initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           style={{
             maxWidth: 760, margin: '0 auto', borderRadius: 28,

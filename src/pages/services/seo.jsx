@@ -285,7 +285,7 @@ export default function SeoPage() {
 
             {/* Left text */}
             <div>
-              <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} style={{ marginBottom: 18 }}>
+              <motion.div initial={{ opacity: 1, y: 0 }} animate={{ opacity: 1, y: 0 }} style={{ marginBottom: 18 }}>
                 <span style={{
                   display: 'inline-flex', alignItems: 'center', gap: 8,
                   padding: '7px 18px', borderRadius: 100,
@@ -298,7 +298,7 @@ export default function SeoPage() {
               </motion.div>
 
               <motion.h1
-                initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 1, y: 0 }} animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', fontWeight: 800, lineHeight: 1.08, letterSpacing: '-0.025em', marginBottom: 18, color: 'var(--text)' }}
               >
@@ -315,7 +315,7 @@ export default function SeoPage() {
               </motion.h1>
 
               <motion.p
-                initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
+                initial={{ opacity: 1 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
                 style={{ fontSize: '1rem', lineHeight: 1.7, marginBottom: 28, color: 'var(--text-muted)', maxWidth: 480 }}
               >
                 We engineer organic search growth that compounds. No tricks, no fluff. Just the
@@ -324,7 +324,7 @@ export default function SeoPage() {
               </motion.p>
 
               <motion.div
-                initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
+                initial={{ opacity: 1, y: 0 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
                 style={{ display: 'flex', flexWrap: 'wrap', gap: 12, marginBottom: 32 }}
               >
                 <Link to="/book-a-call" className="btn-primary group" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
@@ -339,7 +339,7 @@ export default function SeoPage() {
               </motion.div>
 
               {/* Stats */}
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.45 }}
+              <motion.div initial={{ opacity: 1 }} animate={{ opacity: 1 }} transition={{ delay: 0.45 }}
                 style={{ display: 'flex', flexWrap: 'wrap', gap: 20 }}>
                 <StatPill icon={RiLineChartLine} target={312} suffix="%" label=" avg traffic lift" prefix="+" />
                 <StatPill icon={RiTrophyLine}    target={94}  suffix=""  label=" page one rankings" />
@@ -431,7 +431,7 @@ export default function SeoPage() {
       <section style={{ padding: '2rem 0 4rem' }}>
         <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 1.5rem' }}>
           <motion.p
-            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
+            initial={{ opacity: 1 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
             style={{
               textAlign: 'center', fontSize: 11, letterSpacing: '0.22em',
               textTransform: 'uppercase', fontWeight: 700, color: 'var(--text-muted)', marginBottom: 24,
@@ -443,7 +443,7 @@ export default function SeoPage() {
             {['Ahrefs', 'SEMrush', 'Google Search Console', 'Screaming Frog', 'Surfer', 'Clearscope'].map((tool, i) => (
               <motion.span
                 key={tool}
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 1, y: 0 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
@@ -463,13 +463,13 @@ export default function SeoPage() {
           <div style={{ textAlign: 'center', marginBottom: 56 }}>
             <SectionTag>The Four Pillars</SectionTag>
             <motion.h2
-              initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.02em', marginBottom: 12 }}
             >
               How real SEO actually works
             </motion.h2>
             <motion.p
-              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
+              initial={{ opacity: 1 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
               style={{ fontSize: 14, color: 'var(--text-muted)', maxWidth: 540, margin: '0 auto', lineHeight: 1.7 }}
             >
               SEO is not a single trick or a hidden button. It is four disciplines working in concert.
@@ -485,7 +485,7 @@ export default function SeoPage() {
               return (
                 <motion.div
                   key={p.n}
-                  initial={{ opacity: 0, y: 36 }}
+                  initial={{ opacity: 1, y: 0 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-50px' }}
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -563,7 +563,7 @@ export default function SeoPage() {
                       {p.bullets.map((b, bi) => (
                         <motion.li
                           key={b}
-                          initial={{ opacity: 0, x: -10 }}
+                          initial={{ opacity: 1, x: 0 }}
                           whileInView={{ opacity: 1, x: 0 }}
                           viewport={{ once: true }}
                           transition={{ delay: bi * 0.06 }}
@@ -593,7 +593,7 @@ export default function SeoPage() {
           <div style={{ textAlign: 'center', marginBottom: 52 }}>
             <SectionTag>The Process</SectionTag>
             <motion.h2
-              initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.02em' }}
             >
               Ninety days from audit to ascent
@@ -604,7 +604,7 @@ export default function SeoPage() {
             {PROCESS.map((p, i) => (
               <motion.div
                 key={p.step}
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 1, y: 0 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
@@ -654,7 +654,7 @@ export default function SeoPage() {
           <div style={{ textAlign: 'center', marginBottom: 52 }}>
             <SectionTag>Real Results</SectionTag>
             <motion.h2
-              initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.02em' }}
             >
               Receipts, not promises
@@ -665,7 +665,7 @@ export default function SeoPage() {
             {CASE_STUDIES.map((cs, i) => (
               <motion.div
                 key={cs.brand}
-                initial={{ opacity: 0, y: 28 }}
+                initial={{ opacity: 1, y: 0 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.12, duration: 0.55 }}
@@ -732,7 +732,7 @@ export default function SeoPage() {
       <section style={{ padding: '5rem 0' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 1.5rem' }}>
           <motion.div
-            initial={{ opacity: 0, y: 28 }}
+            initial={{ opacity: 1, y: 0 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
@@ -759,7 +759,7 @@ export default function SeoPage() {
               minHeight: 360, maxWidth: 620,
             }}>
               <motion.span
-                initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
+                initial={{ opacity: 1 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
                 style={{
                   display: 'inline-flex', alignItems: 'center', gap: 7, alignSelf: 'flex-start',
                   padding: '5px 14px', borderRadius: 100, marginBottom: 18,
@@ -813,7 +813,7 @@ export default function SeoPage() {
           <div style={{ textAlign: 'center', marginBottom: 44 }}>
             <SectionTag>FAQ</SectionTag>
             <motion.h2
-              initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.4rem)', fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.02em' }}
             >
               Things people ask before signing
@@ -826,7 +826,7 @@ export default function SeoPage() {
               return (
                 <motion.div
                   key={f.q}
-                  initial={{ opacity: 0, y: 14 }}
+                  initial={{ opacity: 1, y: 0 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.06 }}
@@ -883,7 +883,7 @@ export default function SeoPage() {
       {/* ── FINAL CTA ─────────────────────────────────────── */}
       <section style={{ paddingBottom: '6rem', padding: '5rem 1rem 6rem' }}>
         <motion.div
-          initial={{ opacity: 0, y: 32 }}
+          initial={{ opacity: 1, y: 0 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}

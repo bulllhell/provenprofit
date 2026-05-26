@@ -74,7 +74,7 @@ export default function Services() {
 
           <div>
             <motion.div
-              initial={{ opacity: 0, y: -10 }}
+              initial={{ opacity: 1, y: 0 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="flex mb-4"
@@ -83,7 +83,7 @@ export default function Services() {
             </motion.div>
 
             <motion.h2
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 1, y: 0 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
@@ -102,7 +102,7 @@ export default function Services() {
           </div>
 
           <motion.div
-            initial={{ opacity: 0, x: 16 }}
+            initial={{ opacity: 1, x: 0 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
@@ -133,7 +133,7 @@ export default function Services() {
 
         {/* Bottom CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 1, y: 0 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}

@@ -34,7 +34,7 @@ function Message({ msg, isLast }) {
   const isBot = msg.role === 'assistant';
   return (
     <motion.div
-      initial={{ opacity: 0, y: 10 }}
+      initial={{ opacity: 1, y: 0 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.25 }}
       style={{ display: 'flex', gap: 8, alignItems: 'flex-end', flexDirection: isBot ? 'row' : 'row-reverse' }}
@@ -179,7 +179,7 @@ export default function ChatWidget() {
               {/* Quick replies — only show at start */}
               {showQuick && messages.length === 1 && !loading && (
                 <motion.div
-                  initial={{ opacity: 0, y: 8 }}
+                  initial={{ opacity: 1, y: 0 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
                   style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 4 }}

@@ -196,7 +196,7 @@ function ServiceCard({ svc, index }) {
   return (
     <motion.div
       id={id}
-      initial={{ opacity: 0, y: 32 }}
+      initial={{ opacity: 1, y: 0 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ delay: (index % 3) * 0.1, duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -394,7 +394,7 @@ export default function ServicesPage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             className="flex justify-center mb-5"
           >
@@ -402,7 +402,7 @@ export default function ServicesPage() {
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
             className="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-5"
@@ -413,7 +413,7 @@ export default function ServicesPage() {
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0 }}
+            initial={{ opacity: 1 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
             className="text-sm sm:text-base font-body max-w-xl mx-auto leading-relaxed"
@@ -466,7 +466,7 @@ export default function ServicesPage() {
         <AnimatePresence mode="wait">
           <motion.div
             key={activeFilter}
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
@@ -482,7 +482,7 @@ export default function ServicesPage() {
       {/* ── Bottom CTA ───────────────────────────── */}
       <section className="pb-20 px-4">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 1, y: 0 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="max-w-3xl mx-auto rounded-3xl p-10 sm:p-14 text-center relative overflow-hidden"

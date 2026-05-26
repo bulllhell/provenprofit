@@ -78,7 +78,7 @@ function VideoCard({ video, isActive, onClick }) {
     <motion.div
       layout
       onClick={onClick}
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 1, y: 0 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
@@ -184,7 +184,7 @@ function VideoCard({ video, isActive, onClick }) {
       <AnimatePresence>
         {isActive && (
           <motion.div
-            initial={{ opacity: 0, y: 8 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 8 }}
             className="absolute bottom-0 left-0 right-0 p-3 z-20 pointer-events-auto"
@@ -268,7 +268,7 @@ export default function VideoReviews() {
         {/* Header */}
         <div className="text-center mb-6 sm:mb-10">
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 1, y: 0 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="flex justify-center mb-4"
@@ -277,7 +277,7 @@ export default function VideoReviews() {
           </motion.div>
 
           <motion.h2
-            initial={{ opacity: 0, y: 14 }}
+            initial={{ opacity: 1, y: 0 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
@@ -289,7 +289,7 @@ export default function VideoReviews() {
           </motion.h2>
 
           <motion.p
-            initial={{ opacity: 0 }}
+            initial={{ opacity: 1 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
@@ -314,7 +314,7 @@ export default function VideoReviews() {
 
         {/* Tap hint */}
         <motion.p
-          initial={{ opacity: 0 }}
+          initial={{ opacity: 1 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}

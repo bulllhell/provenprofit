@@ -269,7 +269,7 @@ function Lightbox({ items, startIndex, onClose }) {
   return (
     <AnimatePresence>
       <motion.div
-        initial={{ opacity: 0 }}
+        initial={{ opacity: 1 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         className="fixed inset-0 z-[999] flex items-center justify-center p-4"
@@ -338,7 +338,7 @@ function Lightbox({ items, startIndex, onClose }) {
             <AnimatePresence mode="wait">
               <motion.div
                 key={current}
-                initial={{ opacity: 0, x: 30 }}
+                initial={{ opacity: 1, x: 0 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -30 }}
                 transition={{ duration: 0.22 }}
@@ -434,7 +434,7 @@ function ResultCard({ item, index, onOpen }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 28 }}
+      initial={{ opacity: 1, y: 0 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ delay: (index % 4) * 0.1, duration: 0.5 }}
@@ -581,7 +581,7 @@ function StoreCard({ store, index }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 28 }}
+      initial={{ opacity: 1, y: 0 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ delay: (index % 3) * 0.09, duration: 0.5 }}
@@ -770,11 +770,11 @@ export default function PortfolioPage() {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} className="flex justify-center mb-5">
+          <motion.div initial={{ opacity: 1, y: 0 }} animate={{ opacity: 1, y: 0 }} className="flex justify-center mb-5">
             <span className="section-tag">Our Work</span>
           </motion.div>
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
             className="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-5"
@@ -784,7 +784,7 @@ export default function PortfolioPage() {
             <span className="text-gradient">actually convert</span>
           </motion.h1>
           <motion.p
-            initial={{ opacity: 0 }}
+            initial={{ opacity: 1 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
             className="text-sm sm:text-base font-body max-w-xl mx-auto leading-relaxed mb-8"
@@ -796,7 +796,7 @@ export default function PortfolioPage() {
 
           {/* Stats */}
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
             className="flex flex-wrap items-center justify-center gap-8 mb-5"
@@ -814,7 +814,7 @@ export default function PortfolioPage() {
           </motion.div>
 
           {/* Instagram CTA */}
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}>
+          <motion.div initial={{ opacity: 1 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}>
             <a
               href="https://www.instagram.com/proven_profit_?igsh=NjRmN3ZkdnphdWI="
               target="_blank"
@@ -836,7 +836,7 @@ export default function PortfolioPage() {
       {/* ── Results section ────────────────────────────── */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-4">
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 1, y: 0 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mb-5"
@@ -902,7 +902,7 @@ export default function PortfolioPage() {
         <AnimatePresence mode="wait">
           <motion.div
             key={activeFilter}
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.22 }}
@@ -918,7 +918,7 @@ export default function PortfolioPage() {
       {/* ── Instagram proof strip ──────────────────────── */}
       <section className="pb-5 px-4">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 1, y: 0 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="max-w-4xl mx-auto rounded-2xl p-8 sm:p-10 flex flex-col sm:flex-row items-center gap-6"
@@ -957,7 +957,7 @@ export default function PortfolioPage() {
       {/* ── Bottom CTA ─────────────────────────────────── */}
       <section className="pb-10 px-4">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 1, y: 0 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="max-w-3xl mx-auto rounded-3xl p-8 sm:p-10 text-center relative overflow-hidden"

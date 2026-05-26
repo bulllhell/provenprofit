@@ -231,7 +231,7 @@ function DotGrid() {
 function StatCard({ icon: Icon, display, label, color, delay }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }} transition={{ delay, duration: 0.5 }}
       whileHover={{ y: -4, transition: { duration: 0.2 } }}
       style={{ borderRadius: 16, padding: '22px 20px', background: '#fff', border: `1px solid ${color}20`, textAlign: 'center', boxShadow: `0 4px 20px ${color}10` }}
@@ -266,7 +266,7 @@ export default function SocialMediaPage() {
 
             {/* Left text */}
             <div>
-              <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} style={{ marginBottom: 18 }}>
+              <motion.div initial={{ opacity: 1, y: 0 }} animate={{ opacity: 1, y: 0 }} style={{ marginBottom: 18 }}>
                 <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '7px 18px', borderRadius: 100, background: `${ACCENT}14`, border: `1px solid ${ACCENT}30`, color: ACCENT, fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase' }}>
                   <RiFireLine style={{ width: 14, height: 14 }} />
                   Social Media Service
@@ -274,7 +274,7 @@ export default function SocialMediaPage() {
               </motion.div>
 
               <motion.h1
-                initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 1, y: 0 }} animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', fontWeight: 800, lineHeight: 1.08, letterSpacing: '-0.025em', marginBottom: 18, color: 'var(--text)' }}
               >
@@ -286,14 +286,14 @@ export default function SocialMediaPage() {
                 <style>{`@keyframes shimmer{0%{background-position:0% center}100%{background-position:200% center}}`}</style>
               </motion.h1>
 
-              <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
+              <motion.p initial={{ opacity: 1 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
                 style={{ fontSize: '1rem', lineHeight: 1.75, marginBottom: 28, color: 'var(--text-muted)', maxWidth: 480 }}>
                 We run your Meta Ads, create your content, and manage your social presence
                 end to end. Three disciplines working together so your brand grows its
                 audience, earns trust, and turns followers into paying customers.
               </motion.p>
 
-              <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
+              <motion.div initial={{ opacity: 1, y: 0 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
                 style={{ display: 'flex', flexWrap: 'wrap', gap: 12, marginBottom: 32 }}>
                 <a href="#packages" onClick={e => { e.preventDefault(); document.getElementById('packages')?.scrollIntoView({ behavior: 'smooth' }); }}
                   className="btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
@@ -303,7 +303,7 @@ export default function SocialMediaPage() {
               </motion.div>
 
               {/* Platform icons */}
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.45 }}
+              <motion.div initial={{ opacity: 1 }} animate={{ opacity: 1 }} transition={{ delay: 0.45 }}
                 style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
                 {[
                   { icon: RiInstagramLine, label: 'Instagram', color: '#E1306C' },
@@ -370,7 +370,7 @@ export default function SocialMediaPage() {
       {/* ── AD BUDGET NOTICE ──────────────────────────────── */}
       <section style={{ padding: '2rem 1.5rem', background: `${ACCENT}08`, borderTop: `1px solid ${ACCENT}18`, borderBottom: `1px solid ${ACCENT}18` }}>
         <div style={{ maxWidth: 860, margin: '0 auto' }}>
-          <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          <motion.div initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: 8, textAlign: 'center' }}>
             <RiMoneyDollarCircleLine style={{ width: 20, height: 20, color: ACCENT, flexShrink: 0 }} />
             <p style={{ fontSize: 14, fontWeight: 600, color: 'var(--text)', maxWidth: 660, lineHeight: 1.65 }}>
@@ -386,11 +386,11 @@ export default function SocialMediaPage() {
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 1.5rem' }}>
           <div style={{ textAlign: 'center', marginBottom: 56 }}>
             <SectionTag>What We Do</SectionTag>
-            <motion.h2 initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            <motion.h2 initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.02em', marginBottom: 12 }}>
               Three disciplines. One strategy.
             </motion.h2>
-            <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
+            <motion.p initial={{ opacity: 1 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
               style={{ fontSize: 14, color: 'var(--text-muted)', maxWidth: 520, margin: '0 auto', lineHeight: 1.75 }}>
               Most agencies do one of these. We do all three and make them work together —
               because paid ads, organic content, and community management compound when they
@@ -404,7 +404,7 @@ export default function SocialMediaPage() {
               const reverse = i % 2 === 1;
               return (
                 <motion.div key={s.title}
-                  initial={{ opacity: 0, y: 36 }} whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-40px' }}
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                   style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 44, alignItems: 'center', direction: reverse ? 'rtl' : 'ltr' }}
@@ -441,11 +441,11 @@ export default function SocialMediaPage() {
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 1.5rem' }}>
           <div style={{ textAlign: 'center', marginBottom: 48 }}>
             <SectionTag>Real Results</SectionTag>
-            <motion.h2 initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            <motion.h2 initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.02em', marginBottom: 12 }}>
               Numbers from live campaigns
             </motion.h2>
-            <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
+            <motion.p initial={{ opacity: 1 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
               style={{ fontSize: 14, color: 'var(--text-muted)', maxWidth: 420, margin: '0 auto', lineHeight: 1.7 }}>
               Real dashboards, real accounts, real returns. Click any image to view it full size.
             </motion.p>
@@ -492,7 +492,7 @@ export default function SocialMediaPage() {
         <div style={{ maxWidth: 1000, margin: '0 auto', padding: '0 1.5rem' }}>
           <div style={{ textAlign: 'center', marginBottom: 48 }}>
             <SectionTag>How We Work</SectionTag>
-            <motion.h2 initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            <motion.h2 initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.02em' }}>
               Strategy before a single post goes live
             </motion.h2>
@@ -500,7 +500,7 @@ export default function SocialMediaPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16 }}>
             {PROCESS.map((p, i) => (
               <motion.div key={p.n}
-                initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
+                initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
                 whileHover={{ y: -6, transition: { duration: 0.2 } }}
                 style={{ position: 'relative', borderRadius: 18, padding: '22px 20px', background: '#fff', border: '1px solid rgba(0,0,0,0.07)', overflow: 'hidden' }}
               >
@@ -519,11 +519,11 @@ export default function SocialMediaPage() {
         <div style={{ maxWidth: 1050, margin: '0 auto', padding: '0 1.5rem' }}>
           <div style={{ textAlign: 'center', marginBottom: 52 }}>
             <SectionTag>Pricing</SectionTag>
-            <motion.h2 initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            <motion.h2 initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.02em', marginBottom: 8 }}>
               Pick your social level
             </motion.h2>
-            <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
+            <motion.p initial={{ opacity: 1 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
               style={{ fontSize: 13, color: 'var(--text-muted)', maxWidth: 420, margin: '0 auto', lineHeight: 1.7 }}>
               Monthly retainer. Cancel with 30 days notice. Ad budget is always separate and goes directly to Meta.
             </motion.p>
@@ -532,7 +532,7 @@ export default function SocialMediaPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20, alignItems: 'start' }}>
             {PACKAGES.map((pkg, i) => (
               <TiltCard key={pkg.id} intensity={pkg.badge === 'Most Popular' ? 4 : 6}
-                initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.55 }}
                 style={{ position: 'relative', borderRadius: 22, overflow: 'hidden', display: 'flex', flexDirection: 'column', background: pkg.badge === 'Most Popular' ? 'linear-gradient(145deg, #FFF7ED, #FFF3E6)' : '#fff', border: pkg.badge === 'Most Popular' ? `1.5px solid ${pkg.color}45` : '1px solid rgba(0,0,0,0.08)', boxShadow: pkg.badge === 'Most Popular' ? `0 8px 44px ${pkg.color}18` : '0 2px 14px rgba(0,0,0,0.05)' }}
               >
@@ -555,7 +555,7 @@ export default function SocialMediaPage() {
                   <div style={{ marginBottom: 6, paddingBottom: 18, borderBottom: '1px solid rgba(0,0,0,0.07)' }}>
                     <div style={{ display: 'flex', alignItems: 'flex-end', gap: 3, marginBottom: 6 }}>
                       <span style={{ fontSize: 14, color: 'var(--text-muted)', marginBottom: 7 }}>$</span>
-                      <motion.span initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 + 0.3 }}
+                      <motion.span initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 + 0.3 }}
                         style={{ fontSize: 42, fontWeight: 900, lineHeight: 1, letterSpacing: '-0.03em', color: pkg.color }}>
                         {pkg.price}
                       </motion.span>
@@ -566,7 +566,7 @@ export default function SocialMediaPage() {
 
                   <ul style={{ display: 'flex', flexDirection: 'column', gap: 9, marginBottom: pkg.notIncluded.length > 0 ? 14 : 22, flex: 1 }}>
                     {pkg.features.map((f, fi) => (
-                      <motion.li key={f} initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 + fi * 0.04 }}
+                      <motion.li key={f} initial={{ opacity: 1, x: 0 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 + fi * 0.04 }}
                         style={{ display: 'flex', alignItems: 'flex-start', gap: 8, fontSize: 12, color: 'var(--text-muted)' }}>
                         <div style={{ width: 16, height: 16, borderRadius: 5, marginTop: 1, flexShrink: 0, background: `${pkg.color}18`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                           <RiCheckLine style={{ width: 11, height: 11, color: pkg.color }} />
@@ -599,7 +599,7 @@ export default function SocialMediaPage() {
             ))}
           </div>
 
-          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
+          <motion.div initial={{ opacity: 1 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
             style={{ marginTop: 36, display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 24 }}>
             {[
               { icon: RiShieldCheckLine,       text: 'No lock in contracts' },
@@ -620,7 +620,7 @@ export default function SocialMediaPage() {
         <div style={{ maxWidth: 980, margin: '0 auto', padding: '0 1.5rem' }}>
           <div style={{ textAlign: 'center', marginBottom: 48 }}>
             <SectionTag>Client Words</SectionTag>
-            <motion.h2 initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            <motion.h2 initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.4rem)', fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.02em' }}>
               Brands that now own their feed
             </motion.h2>
@@ -628,7 +628,7 @@ export default function SocialMediaPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 18 }}>
             {TESTIMONIALS.map(({ name, role, text, stars }, i) => (
               <motion.div key={name}
-                initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.12 }}
+                initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.12 }}
                 whileHover={{ y: -6, transition: { duration: 0.2 } }}
                 style={{ borderRadius: 18, padding: 24, background: '#fff', border: '1px solid rgba(0,0,0,0.07)', position: 'relative', overflow: 'hidden', transition: 'box-shadow 0.25s, border-color 0.25s' }}
                 onMouseEnter={e => { e.currentTarget.style.boxShadow=`0 8px 36px rgba(249,115,22,0.10)`; e.currentTarget.style.borderColor=`${ACCENT}30`; }}
@@ -658,7 +658,7 @@ export default function SocialMediaPage() {
 
       {/* ── FINAL CTA ─────────────────────────────────────── */}
       <section style={{ padding: '5rem 1rem 6rem' }}>
-        <motion.div initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
+        <motion.div initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
           style={{ maxWidth: 760, margin: '0 auto', borderRadius: 28, padding: 'clamp(2.5rem, 5vw, 4rem)', textAlign: 'center', position: 'relative', overflow: 'hidden', background: 'linear-gradient(145deg, #FFF7ED, #FFF3E6)', border: `1px solid ${ACCENT}20`, boxShadow: `0 12px 56px ${ACCENT}12` }}>
           <motion.div animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.8, 0.5] }} transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
             style={{ position: 'absolute', top: '-30%', left: '50%', transform: 'translateX(-50%)', width: 400, height: 200, borderRadius: '50%', background: `${ACCENT}14`, filter: 'blur(40px)', pointerEvents: 'none' }} />
@@ -687,7 +687,7 @@ export default function SocialMediaPage() {
       {/* ── LIGHTBOX ──────────────────────────────────────── */}
       <AnimatePresence>
         {lightbox !== null && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+          <motion.div initial={{ opacity: 1 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             style={{ position: 'fixed', inset: 0, zIndex: 1000, background: 'rgba(0,0,0,0.92)', backdropFilter: 'blur(14px)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem' }}
             onClick={() => setLightbox(null)}
           >

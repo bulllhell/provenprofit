@@ -316,13 +316,13 @@ export default function EcommercePage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 52, alignItems: 'center' }}>
 
             <div>
-              <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} style={{ marginBottom: 18 }}>
+              <motion.div initial={{ opacity: 1, y: 0 }} animate={{ opacity: 1, y: 0 }} style={{ marginBottom: 18 }}>
                 <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '7px 18px', borderRadius: 100, background: `${ACCENT}14`, border: `1px solid ${ACCENT}30`, color: ACCENT, fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase' }}>
                   <RiShoppingBag3Line style={{ width: 14, height: 14 }} /> eCommerce Service
                 </span>
               </motion.div>
 
-              <motion.h1 initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              <motion.h1 initial={{ opacity: 1, y: 0 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', fontWeight: 800, lineHeight: 1.08, letterSpacing: '-0.025em', marginBottom: 18, color: 'var(--text)' }}>
                 eCommerce stores that{' '}
                 <span style={{ background: `linear-gradient(135deg, ${ACCENT} 0%, ${ACCENTB} 50%, #FCD34D 100%)`, backgroundSize: '200% auto', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', animation: 'shimmer 3s linear infinite' }}>
@@ -331,14 +331,14 @@ export default function EcommercePage() {
                 <style>{`@keyframes shimmer{0%{background-position:0% center}100%{background-position:200% center}}`}</style>
               </motion.h1>
 
-              <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
+              <motion.p initial={{ opacity: 1 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
                 style={{ fontSize: '1rem', lineHeight: 1.75, marginBottom: 28, color: 'var(--text-muted)', maxWidth: 480 }}>
                 We build high converting Shopify and WooCommerce stores from the ground up.
                 Mobile first, blazing fast, and engineered to turn visitors into paying customers
                 from the very first day you go live.
               </motion.p>
 
-              <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
+              <motion.div initial={{ opacity: 1, y: 0 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
                 style={{ display: 'flex', flexWrap: 'wrap', gap: 12, marginBottom: 32 }}>
                 <Link to="/book-a-call" className="btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
                   Get a Free Strategy Call <RiArrowRightUpLine style={{ width: 16, height: 16 }} />
@@ -348,7 +348,7 @@ export default function EcommercePage() {
                 </a>
               </motion.div>
 
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.45 }}
+              <motion.div initial={{ opacity: 1 }} animate={{ opacity: 1 }} transition={{ delay: 0.45 }}
                 style={{ display: 'flex', flexWrap: 'wrap', gap: 20 }}>
                 <StatPill icon={RiShoppingBag3Line} target={120} suffix="+" label=" stores built" />
                 <StatPill icon={RiStarFill}         target={5}   suffix=""  label=" star rated" />
@@ -404,11 +404,11 @@ export default function EcommercePage() {
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 1.5rem' }}>
           <div style={{ textAlign: 'center', marginBottom: 56 }}>
             <SectionTag>What We Build</SectionTag>
-            <motion.h2 initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            <motion.h2 initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.02em', marginBottom: 12 }}>
               Four things every great store needs
             </motion.h2>
-            <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
+            <motion.p initial={{ opacity: 1 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
               style={{ fontSize: 14, color: 'var(--text-muted)', maxWidth: 520, margin: '0 auto', lineHeight: 1.75 }}>
               A store is not just a website. It is a sales machine that runs 24 hours a day.
               These are the four foundations we build into every project without exception.
@@ -421,7 +421,7 @@ export default function EcommercePage() {
               const reverse = i % 2 === 1;
               return (
                 <motion.div key={s.title}
-                  initial={{ opacity: 0, y: 36 }} whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-40px' }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                   style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 44, alignItems: 'center', direction: reverse ? 'rtl' : 'ltr' }}
                 >
@@ -457,7 +457,7 @@ export default function EcommercePage() {
         <div style={{ maxWidth: 800, margin: '0 auto', padding: '0 1.5rem' }}>
           <div style={{ textAlign: 'center', marginBottom: 52 }}>
             <SectionTag>How It Works</SectionTag>
-            <motion.h2 initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            <motion.h2 initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.02em' }}>
               From idea to live store
             </motion.h2>
@@ -473,7 +473,7 @@ export default function EcommercePage() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
               {PROCESS.map(({ n, title, desc }, i) => (
                 <motion.div key={n}
-                  initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 1, x: 0 }} whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: '-20px' }} transition={{ delay: i * 0.12, duration: 0.5 }}
                   style={{ display: 'flex', alignItems: 'flex-start', gap: 20 }}>
                   <motion.div whileHover={{ scale: 1.1, rotate: 5 }} transition={{ type: 'spring', stiffness: 400 }}
@@ -498,11 +498,11 @@ export default function EcommercePage() {
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 1.5rem' }}>
           <div style={{ textAlign: 'center', marginBottom: 52 }}>
             <SectionTag>Pricing</SectionTag>
-            <motion.h2 initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            <motion.h2 initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.02em', marginBottom: 8 }}>
               Choose your package
             </motion.h2>
-            <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
+            <motion.p initial={{ opacity: 1 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
               style={{ fontSize: 13, color: 'var(--text-muted)', maxWidth: 340, margin: '0 auto' }}>
               All prices in USD. One time payment. No hidden fees.
             </motion.p>
@@ -511,7 +511,7 @@ export default function EcommercePage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 18, alignItems: 'start' }}>
             {PACKAGES.map((pkg, i) => (
               <TiltCard key={pkg.name} intensity={pkg.badge === 'Most Popular' ? 5 : 7}
-                initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-20px' }} transition={{ delay: i * 0.1, duration: 0.55 }}
                 style={{ position: 'relative', borderRadius: 20, overflow: 'hidden', display: 'flex', flexDirection: 'column', background: pkg.badge === 'Most Popular' ? 'linear-gradient(145deg, #FFF7ED, #FFF3E6)' : '#fff', border: pkg.badge === 'Most Popular' ? `1.5px solid ${pkg.color}45` : '1px solid rgba(0,0,0,0.08)', boxShadow: pkg.badge === 'Most Popular' ? `0 8px 40px ${pkg.color}18` : '0 2px 14px rgba(0,0,0,0.05)' }}
               >
@@ -538,7 +538,7 @@ export default function EcommercePage() {
                     ) : (
                       <div style={{ display: 'flex', alignItems: 'flex-end', gap: 3 }}>
                         <span style={{ fontSize: 14, color: 'var(--text-muted)', marginBottom: 4 }}>$</span>
-                        <motion.span initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 + 0.3 }}
+                        <motion.span initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 + 0.3 }}
                           style={{ fontSize: 34, fontWeight: 800, lineHeight: 1, color: pkg.color, letterSpacing: '-0.03em' }}>
                           {pkg.price.toLocaleString()}
                         </motion.span>
@@ -555,7 +555,7 @@ export default function EcommercePage() {
 
                   <ul style={{ display: 'flex', flexDirection: 'column', gap: 9, marginBottom: pkg.notIncluded.length > 0 ? 14 : 20, flex: 1 }}>
                     {pkg.features.map((f, fi) => (
-                      <motion.li key={f} initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 + fi * 0.04 }}
+                      <motion.li key={f} initial={{ opacity: 1, x: 0 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 + fi * 0.04 }}
                         style={{ display: 'flex', alignItems: 'flex-start', gap: 8, fontSize: 12, color: 'var(--text-muted)' }}>
                         <RiCheckLine style={{ width: 13, height: 13, flexShrink: 0, marginTop: 2, color: pkg.color }} />
                         {f}
@@ -603,7 +603,7 @@ export default function EcommercePage() {
         <div style={{ maxWidth: 980, margin: '0 auto', padding: '0 1.5rem' }}>
           <div style={{ textAlign: 'center', marginBottom: 48 }}>
             <SectionTag>Client Reviews</SectionTag>
-            <motion.h2 initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            <motion.h2 initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.4rem)', fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.02em' }}>
               What our clients say
             </motion.h2>
@@ -611,7 +611,7 @@ export default function EcommercePage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 18 }}>
             {TESTIMONIALS.map(({ name, handle, text, stars }, i) => (
               <motion.div key={name}
-                initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.12 }}
+                initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.12 }}
                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
                 style={{ borderRadius: 18, padding: 24, background: '#fff', border: '1px solid rgba(0,0,0,0.07)', position: 'relative', overflow: 'hidden', transition: 'box-shadow 0.25s, border-color 0.25s' }}
                 onMouseEnter={e => { e.currentTarget.style.boxShadow=`0 8px 36px rgba(249,115,22,0.10)`; e.currentTarget.style.borderColor=`${ACCENT}30`; }}
@@ -643,11 +643,11 @@ export default function EcommercePage() {
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 1.5rem' }}>
           <div style={{ textAlign: 'center', marginBottom: 52 }}>
             <SectionTag>The Standard We Build Toward</SectionTag>
-            <motion.h2 initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            <motion.h2 initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               style={{ fontSize: 'clamp(1.7rem, 3vw, 2.5rem)', fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.02em', marginBottom: 12 }}>
               Stores we study and build to match
             </motion.h2>
-            <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
+            <motion.p initial={{ opacity: 1 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
               style={{ fontSize: 14, color: 'var(--text-muted)', maxWidth: 540, margin: '0 auto', lineHeight: 1.75 }}>
               These are real brands at the top of their categories. We study what makes
               each one convert and bring that same level of craft to your store.
@@ -692,7 +692,7 @@ export default function EcommercePage() {
             ))}
           </div>
 
-          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          <motion.div initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             style={{ textAlign: 'center', marginTop: 48 }}>
             <p style={{ fontSize: 15, color: 'var(--text-muted)', marginBottom: 16, lineHeight: 1.65 }}>
               Your store deserves to sit at this level.{' '}
@@ -706,7 +706,7 @@ export default function EcommercePage() {
           FINAL CTA
       ══════════════════════════════════════════════════ */}
       <section style={{ padding: '5rem 1rem 6rem' }}>
-        <motion.div initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
+        <motion.div initial={{ opacity: 1, y: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
           style={{ maxWidth: 700, margin: '0 auto', borderRadius: 28, padding: 'clamp(2.5rem, 5vw, 4rem)', textAlign: 'center', position: 'relative', overflow: 'hidden', background: 'linear-gradient(145deg, #FFF7ED, #FFF3E6)', border: `1px solid ${ACCENT}20`, boxShadow: `0 12px 56px ${ACCENT}12` }}>
           <motion.div animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.8, 0.5] }} transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
             style={{ position: 'absolute', top: '-30%', left: '50%', transform: 'translateX(-50%)', width: 400, height: 200, borderRadius: '50%', background: `${ACCENT}14`, filter: 'blur(40px)', pointerEvents: 'none' }} />

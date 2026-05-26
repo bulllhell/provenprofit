@@ -109,7 +109,7 @@ const FAQS = [
 function FAQItem({ item, isOpen, onToggle, accent }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 16 }}
+      initial={{ opacity: 1, y: 0 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       className="rounded-2xl overflow-hidden"
@@ -197,7 +197,7 @@ export default function FAQ() {
         {/* Header */}
         <div className="text-center mb-12">
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 1, y: 0 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="flex justify-center mb-4"
@@ -206,7 +206,7 @@ export default function FAQ() {
           </motion.div>
 
           <motion.h2
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 1, y: 0 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
@@ -218,7 +218,7 @@ export default function FAQ() {
           </motion.h2>
 
           <motion.p
-            initial={{ opacity: 0 }}
+            initial={{ opacity: 1 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
@@ -232,7 +232,7 @@ export default function FAQ() {
 
         {/* Category filter — scrollable on mobile, wrapped on desktop */}
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 1, y: 0 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
@@ -277,7 +277,7 @@ export default function FAQ() {
         <AnimatePresence mode="wait">
           <motion.div
             key={activeCategory}
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
@@ -297,7 +297,7 @@ export default function FAQ() {
 
         {/* Bottom CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 1, y: 0 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}

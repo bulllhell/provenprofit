@@ -221,7 +221,7 @@ export default function Navbar() {
   return (
     <>
       <motion.header
-        initial={{ y: -80, opacity: 0 }}
+        initial={{ y: 0, opacity: 1 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -392,7 +392,7 @@ export default function Navbar() {
       <AnimatePresence>
         {menuOpen && (
           <>
-            <motion.div key="backdrop" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+            <motion.div key="backdrop" initial={{ opacity: 1 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
               onClick={() => setMenuOpen(false)}
               className="fixed inset-0 z-40 backdrop-blur-sm lg:hidden"
               style={{ background: 'rgba(26,16,35,0.4)' }}
@@ -418,7 +418,7 @@ export default function Navbar() {
               <nav className="flex-1 px-4 py-4 space-y-1 overflow-y-auto">
 
                 {/* Home */}
-                <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.06 }}>
+                <motion.div initial={{ opacity: 1, x: 0 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.06 }}>
                   <NavLink to="/" onClick={() => setMenuOpen(false)}
                     className={({ isActive }) =>
                       `flex items-center justify-between px-4 py-3 rounded-xl text-sm font-body font-medium transition-all ${
@@ -430,7 +430,7 @@ export default function Navbar() {
                 </motion.div>
 
                 {/* ── Services : link to /services + accordion for sub pages ── */}
-                <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.12 }}>
+                <motion.div initial={{ opacity: 1, x: 0 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.12 }}>
                   <button
                     onClick={() => setMobileServOpen(o => !o)}
                     className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-body font-medium transition-all"
@@ -497,7 +497,7 @@ export default function Navbar() {
                 </motion.div>
 
                 {/* Portfolio */}
-                <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.18 }}>
+                <motion.div initial={{ opacity: 1, x: 0 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.18 }}>
                   <NavLink to="/portfolio" onClick={() => setMenuOpen(false)}
                     className={({ isActive }) =>
                       `flex items-center justify-between px-4 py-3 rounded-xl text-sm font-body font-medium transition-all ${
@@ -509,7 +509,7 @@ export default function Navbar() {
                 </motion.div>
 
                 {/* About Us */}
-                <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.24 }}>
+                <motion.div initial={{ opacity: 1, x: 0 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.24 }}>
                   <NavLink to="/about" onClick={() => setMenuOpen(false)}
                     className={({ isActive }) =>
                       `flex items-center justify-between px-4 py-3 rounded-xl text-sm font-body font-medium transition-all ${

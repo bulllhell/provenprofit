@@ -46,7 +46,7 @@ export default function AboutCEO() {
 
           {/* LEFT — Image */}
           <motion.div
-            initial={{ opacity: 0, x: -32 }}
+            initial={{ opacity: 1, x: 0 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -160,7 +160,7 @@ export default function AboutCEO() {
 
           {/* RIGHT — Content */}
           <motion.div
-            initial={{ opacity: 0, x: 32 }}
+            initial={{ opacity: 1, x: 0 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -212,7 +212,7 @@ export default function AboutCEO() {
               {STATS.map(({ value, label }, i) => (
                 <motion.div
                   key={label}
-                  initial={{ opacity: 0, y: 12 }}
+                  initial={{ opacity: 1, y: 0 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 + i * 0.08 }}

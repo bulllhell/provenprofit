@@ -193,7 +193,7 @@ export default function BookCall() {
 
             {/* ── Left ── */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 1, x: 0 }} animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
               className="lg:sticky lg:top-28 flex flex-col gap-8"
             >
@@ -264,7 +264,7 @@ export default function BookCall() {
 
             {/* ── Right: Form ── */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 1, x: 0 }} animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.3, ease: [0.4, 0, 0.2, 1] }}
             >
               <div className="rounded-3xl overflow-hidden shadow-xl"
@@ -283,7 +283,7 @@ export default function BookCall() {
                     {isSuccess ? (
                       <SuccessScreen key="success" name={form.name.split(' ')[0]} onReset={handleReset} />
                     ) : (
-                      <motion.form key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                      <motion.form key="form" initial={{ opacity: 1 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                         onSubmit={handleSubmit} className="flex flex-col gap-5">
 
                         {/* Name + Email */}

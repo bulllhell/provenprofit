@@ -37,7 +37,7 @@ export default function AdminLogin() {
       style={{ background: 'var(--light)' }}
     >
       <motion.div
-        initial={{ opacity: 0, y: 24 }}
+        initial={{ opacity: 1, y: 0 }}
         animate={{ opacity: 1, y: 0 }}
         className="w-full max-w-sm"
       >
