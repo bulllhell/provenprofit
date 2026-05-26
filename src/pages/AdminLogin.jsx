@@ -43,7 +43,7 @@ export default function AdminLogin() {
       >
         {/* Logo */}
         <div className="flex justify-center mb-8">
-          <img src={logo} alt="Proven Profit" className="h-10 w-auto object-contain" />
+          <img src={logo} alt="Proven Profit Marketing Agency" className="h-10 w-auto object-contain" />
         </div>
 
         {/* Card */}

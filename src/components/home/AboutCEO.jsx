@@ -112,7 +112,7 @@ export default function AboutCEO() {
             >
               <img
                 src="/images/bosP.jpg"
-                alt="Proven Profit CEO"
+                alt="Proven Profit Marketing Agency CEO"
                 className="w-full h-full object-cover"
               />
               <div
@@ -121,7 +121,7 @@ export default function AboutCEO() {
               />
               <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
                 <div className="font-heading text-2xl font-bold text-white">Olatunbosun</div>
-                <div className="text-sm text-orange-400 mt-1">Founder & CEO, Proven Profit Marketing</div>
+                <div className="text-sm text-orange-400 mt-1">Founder & CEO, Proven Profit Marketing Agency Marketing</div>
                 <div className="flex items-center gap-3 mt-5">
                   <a href="https://www.instagram.com/proven_profit_?igsh=YzljYTk1ODg3Zg==" target="_blank" rel="noopener noreferrer"
                     className="w-11 h-11 rounded-xl bg-white/10 hover:bg-pink-500 transition-all duration-300 flex items-center justify-center text-white">
@@ -182,13 +182,13 @@ export default function AboutCEO() {
             <div className="relative mb-6 pl-5" style={{ borderLeft: '2px solid rgba(124,58,237,0.35)' }}>
               <RiDoubleQuotesL className="absolute -top-1 -left-1 w-4 h-4" style={{ color: 'rgba(124,58,237,0.35)' }} />
               <p className="font-body text-sm sm:text-base leading-relaxed italic" style={{ color: 'var(--text-muted)' }}>
-                "I started Proven Profit because I was tired of seeing great brands fail online not because of their
+                "I started Proven Profit Marketing Agency because I was tired of seeing great brands fail online not because of their
                 products, but because of poor execution. Every store we build, every campaign we run it's personal."
               </p>
             </div>
 
             <p className="text-sm sm:text-base font-body leading-relaxed mb-7" style={{ color: 'var(--text-muted)' }}>
-              Proven Profit Marketing was founded with one mission to help ambitious brands across the US, Canada,
+              Proven Profit Marketing Agency Marketing was founded with one mission to help ambitious brands across the US, Canada,
               Australia and Europe build a real, profitable online presence. From Shopify store builds to full-scale
               social media management and brand identity, we deliver end-to-end digital growth strategies that move the needle.
             </p>

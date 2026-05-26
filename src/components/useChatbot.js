@@ -71,7 +71,7 @@ export function useChatbot() {
   const clearChat = useCallback(() => {
     setMessages([{
       role: 'assistant',
-      content: 'Hey! Welcome to Proven Profit. What are you looking to grow today? Your store, your brand, or your online presence?',
+      content: 'Hey! Welcome to Proven Profit Marketing Agency. What are you looking to grow today? Your store, your brand, or your online presence?',
     }]);
     setInput('');
   }, []);

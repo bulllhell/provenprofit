@@ -143,7 +143,7 @@ export default function ChatWidget() {
                   <div style={{ position: 'absolute', bottom: 0, right: 0, width: 10, height: 10, borderRadius: '50%', background: '#10B981', border: '2px solid white' }} />
                 </div>
                 <div>
-                  <p style={{ fontSize: 14, fontWeight: 700, color: '#fff', margin: 0, lineHeight: 1.2 }}>Proven Profit</p>
+                  <p style={{ fontSize: 14, fontWeight: 700, color: '#fff', margin: 0, lineHeight: 1.2 }}>Proven Profit Marketing Agency</p>
                   <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.8)', margin: 0 }}>AI Assistant • Online now</p>
                 </div>
               </div>
@@ -250,7 +250,7 @@ export default function ChatWidget() {
 
             {/* Footer */}
             <div style={{ padding: '6px 14px 10px', background: '#fff', textAlign: 'center' }}>
-              <p style={{ fontSize: 10, color: '#9CA3AF', margin: 0 }}>Powered by Proven Profit AI</p>
+              <p style={{ fontSize: 10, color: '#9CA3AF', margin: 0 }}>Powered by Proven Profit Marketing Agency AI</p>
             </div>
           </motion.div>
         )}

@@ -225,7 +225,7 @@ export default function FAQ() {
             className="mt-4 text-sm font-body leading-relaxed max-w-xl mx-auto"
             style={{ color: 'var(--text-muted)' }}
           >
-            Everything you need to know about working with Proven Profit Marketing.
+            Everything you need to know about working with Proven Profit Marketing Agency Marketing.
             Still have a question? Reach out anytime.
           </motion.p>
         </div>

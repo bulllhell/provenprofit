@@ -66,7 +66,7 @@ export default function App() {
           <Route
             index
             element={
-              <Page seo={{ title: 'Proven Profit Brand | High-Converting Websites', description: 'We build modern websites, funnels, and systems that convert visitors into paying customers.', url: 'https://www.provenprofitbrand.com/' }}>
+              <Page seo={{ title: 'Proven Profit Marketing Agency | eCommerce & Digital Marketing', description: 'We build high-converting Shopify stores, run Google and Facebook Ads, manage SEO, social media, and email marketing for brands worldwide.', url: 'https://www.provenprofitbrand.com/' }}>
                 <Home />
               </Page>
             }
@@ -75,7 +75,7 @@ export default function App() {
           <Route
             path="portfolio"
             element={
-              <Page seo={{ title: 'Portfolio | Proven Profit Brand', description: 'See our past high-converting website projects and digital systems.', url: 'https://www.provenprofitbrand.com/portfolio' }}>
+              <Page seo={{ title: 'Portfolio | Proven Profit Marketing Agency', description: 'See our past high-converting Shopify stores, websites, and digital marketing results.', url: 'https://www.provenprofitbrand.com/portfolio' }}>
                 <Portfolio />
               </Page>
             }
@@ -84,7 +84,7 @@ export default function App() {
           <Route
             path="services"
             element={
-              <Page seo={{ title: 'Services | Web Development & Funnels', description: 'Website design, funnels, automation, and conversion systems.', url: 'https://www.provenprofitbrand.com/services' }}>
+              <Page seo={{ title: 'Services | Proven Profit Marketing Agency', description: 'Shopify stores, web design, Google Ads, SEO, social media management, branding and email marketing.', url: 'https://www.provenprofitbrand.com/services' }}>
                 <Services />
               </Page>
             }
@@ -93,7 +93,7 @@ export default function App() {
           <Route
             path="book-a-call"
             element={
-              <Page seo={{ title: 'Book a Call | Proven Profit Brand', description: 'Schedule a strategy call to grow your business online.', url: 'https://www.provenprofitbrand.com/book-a-call' }}>
+              <Page seo={{ title: 'Book a Free Call | Proven Profit Marketing Agency', description: 'Schedule a free strategy call to grow your business online.', url: 'https://www.provenprofitbrand.com/book-a-call' }}>
                 <BookCall />
               </Page>
             }
@@ -102,7 +102,7 @@ export default function App() {
           <Route
             path="thank-you"
             element={
-              <Page seo={{ title: 'Thank You', description: 'We have received your request.', url: 'https://www.provenprofitbrand.com/thank-you' }}>
+              <Page seo={{ title: 'Thank You | Proven Profit Marketing Agency', description: 'We have received your request and will be in touch shortly.', url: 'https://www.provenprofitbrand.com/thank-you' }}>
                 <ThankYou />
               </Page>
             }
@@ -111,21 +111,21 @@ export default function App() {
           <Route
             path="team"
             element={
-              <Page seo={{ title: 'Our Team | Proven Profit Brand', description: 'Meet the team building high-performance digital systems.', url: 'https://www.provenprofitbrand.com/team' }}>
+              <Page seo={{ title: 'Our Team | Proven Profit Marketing Agency', description: 'Meet the team behind Proven Profit Marketing Agency.', url: 'https://www.provenprofitbrand.com/team' }}>
                 <Team />
               </Page>
             }
           />
 
           {/* ── Service pages ── */}
-          <Route path="services/ecommerce"       element={<Page seo={{ title: 'eCommerce Store Design | Proven Profit', description: 'Shopify and WooCommerce store design built to convert.', url: 'https://www.provenprofitbrand.com/services/ecommerce' }}><SvcEcommerce /></Page>} />
-          <Route path="services/branding"        element={<Page seo={{ title: 'Branding | Proven Profit', description: 'Brand identity, logo and visual system.', url: 'https://www.provenprofitbrand.com/services/branding' }}><SvcBranding /></Page>} />
-          <Route path="services/social-media"    element={<Page seo={{ title: 'Social Media Management | Proven Profit', description: 'Instagram, TikTok, Meta Ads management.', url: 'https://www.provenprofitbrand.com/services/social-media' }}><SvcSocialMedia /></Page>} />
-          <Route path="services/seo"             element={<Page seo={{ title: 'SEO | Proven Profit', description: 'Organic growth and search engine rankings.', url: 'https://www.provenprofitbrand.com/services/seo' }}><SvcSeo /></Page>} />
-          <Route path="services/email-marketing" element={<Page seo={{ title: 'Email Marketing & Klaviyo | Proven Profit', description: 'Email flows, campaigns and Klaviyo automations.', url: 'https://www.provenprofitbrand.com/services/email-marketing' }}><SvcEmail /></Page>} />
-          <Route path="services/google-ads"      element={<Page seo={{ title: 'Google Ads & Google My Business | Proven Profit', description: 'Paid search and local visibility.', url: 'https://www.provenprofitbrand.com/services/google-ads' }}><SvcGoogleAds /></Page>} />
-          <Route path="services/web-design"      element={<Page seo={{ title: 'Web Design | Proven Profit', description: 'Custom websites and landing pages.', url: 'https://www.provenprofitbrand.com/services/web-design' }}><SvcWebDesign /></Page>} />
-          <Route path="services/funnels"         element={<Page seo={{ title: 'Sales Funnel Creation | Proven Profit', description: 'High-converting funnel builds.', url: 'https://www.provenprofitbrand.com/services/funnels' }}><SvcFunnels /></Page>} />
+          <Route path="services/ecommerce"       element={<Page seo={{ title: 'eCommerce Store Design | Proven Profit Marketing Agency', description: 'Shopify and WooCommerce store design built to convert visitors into paying customers.', url: 'https://www.provenprofitbrand.com/services/ecommerce' }}><SvcEcommerce /></Page>} />
+          <Route path="services/branding"        element={<Page seo={{ title: 'Branding & Logo Design | Proven Profit Marketing Agency', description: 'Brand identity, logo design and complete visual systems for modern businesses.', url: 'https://www.provenprofitbrand.com/services/branding' }}><SvcBranding /></Page>} />
+          <Route path="services/social-media"    element={<Page seo={{ title: 'Social Media Management & Meta Ads | Proven Profit Marketing Agency', description: 'Instagram, TikTok and Facebook Ads management that grows your brand and drives sales.', url: 'https://www.provenprofitbrand.com/services/social-media' }}><SvcSocialMedia /></Page>} />
+          <Route path="services/seo"             element={<Page seo={{ title: 'SEO Services | Proven Profit Marketing Agency', description: 'Organic search growth, keyword rankings and technical SEO that compounds over time.', url: 'https://www.provenprofitbrand.com/services/seo' }}><SvcSeo /></Page>} />
+          <Route path="services/email-marketing" element={<Page seo={{ title: 'Email Marketing & Klaviyo Flows | Proven Profit Marketing Agency', description: 'Email automation, Klaviyo flows and campaigns that earn revenue every day.', url: 'https://www.provenprofitbrand.com/services/email-marketing' }}><SvcEmail /></Page>} />
+          <Route path="services/google-ads"      element={<Page seo={{ title: 'Google Ads & Google My Business | Proven Profit Marketing Agency', description: 'Paid search campaigns and local visibility management that puts you in front of buyers.', url: 'https://www.provenprofitbrand.com/services/google-ads' }}><SvcGoogleAds /></Page>} />
+          <Route path="services/web-design"      element={<Page seo={{ title: 'Web Design | Proven Profit Marketing Agency', description: 'Custom websites and landing pages designed to convert visitors into customers.', url: 'https://www.provenprofitbrand.com/services/web-design' }}><SvcWebDesign /></Page>} />
+          <Route path="services/funnels"         element={<Page seo={{ title: 'Sales Funnel Creation | Proven Profit Marketing Agency', description: 'High-converting sales funnel builds that turn traffic into revenue.', url: 'https://www.provenprofitbrand.com/services/funnels' }}><SvcFunnels /></Page>} />
 
         </Route>
 
@@ -145,7 +145,7 @@ export default function App() {
         <Route
           path="*"
           element={
-            <Page seo={{ title: 'Page Not Found', description: 'This page does not exist.', url: 'https://www.provenprofitbrand.com/' }}>
+            <Page seo={{ title: 'Page Not Found | Proven Profit Marketing Agency', description: 'This page does not exist.', url: 'https://www.provenprofitbrand.com/' }}>
               <NotFound />
             </Page>
           }

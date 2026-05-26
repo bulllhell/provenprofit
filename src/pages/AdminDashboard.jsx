@@ -138,7 +138,7 @@ export default function AdminDashboard() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src={logo} alt="Proven Profit" className="h-8 w-auto object-contain" />
+            <img src={logo} alt="Proven Profit Marketing Agency" className="h-8 w-auto object-contain" />
             <span
               className="text-xs font-heading font-bold uppercase tracking-widest px-2.5 py-1 rounded-full"
               style={{ background: 'rgba(124,58,237,0.08)', color: '#7C3AED' }}

@@ -8,7 +8,7 @@ const FLW_SECRET = process.env.FLW_SECRET_KEY
 const FLW_BASE   = 'https://api.flutterwave.com/v3'
 
 const BRAND = {
-  name:        'Proven Profit Marketing',
+  name:        'Proven Profit Marketing Agency Marketing',
   email:       'info@provenprofitmarketing.com',
   instagram:   'https://www.instagram.com/proven_profit_',
   whatsapp:    'https://wa.me/message/322ETXOWGEWVG1',
@@ -222,7 +222,7 @@ function paymentConfirmHtml({ firstName, packageName, packageType, businessName,
     <div style="font-family:sans-serif;max-width:540px;margin:0 auto;background:#F8F7FF;padding:32px;border-radius:16px">
       <div style="background:linear-gradient(135deg,#7C3AED,#5B21B6,#F97316);padding:36px 32px;border-radius:12px;text-align:center;margin-bottom:28px">
         <h1 style="color:#fff;margin:0;font-size:24px">Payment Confirmed!</h1>
-        <p style="color:rgba(255,255,255,0.80);margin:10px 0 0;font-size:15px">Proven Profit Marketing</p>
+        <p style="color:rgba(255,255,255,0.80);margin:10px 0 0;font-size:15px">Proven Profit Marketing Agency Marketing</p>
       </div>
       <p style="color:#1E1B2E;font-size:15px">Hi ${firstName},</p>
       <p style="color:#4B4669;font-size:14px;line-height:1.7">
@@ -244,7 +244,7 @@ function paymentConfirmHtml({ firstName, packageName, packageType, businessName,
       </p>
       <p style="color:#4B4669;font-size:14px;margin-top:28px">
         Talk soon,<br/>
-        <strong>The Proven Profit Team</strong>
+        <strong>The Proven Profit Marketing Agency Team</strong>
       </p>
       <div style="margin-top:32px;padding-top:20px;border-top:1px solid #E2D9F3">
         <a href="${BRAND.instagram}" style="color:#7C3AED;font-size:12px;margin-right:16px">Instagram</a>
@@ -261,7 +261,7 @@ function bookingConfirmHtml(firstName, service) {
     <div style="font-family:sans-serif;max-width:540px;margin:0 auto;background:#F8F7FF;padding:32px;border-radius:16px">
       <div style="background:linear-gradient(135deg,#7C3AED,#5B21B6,#F97316);padding:36px 32px;border-radius:12px;text-align:center;margin-bottom:28px">
         <h1 style="color:#fff;margin:0;font-size:24px">Request Received!</h1>
-        <p style="color:rgba(255,255,255,0.80);margin:10px 0 0;font-size:15px">Proven Profit Marketing</p>
+        <p style="color:rgba(255,255,255,0.80);margin:10px 0 0;font-size:15px">Proven Profit Marketing Agency Marketing</p>
       </div>
       <p style="color:#1E1B2E;font-size:15px">Hi ${firstName},</p>
       <p style="color:#4B4669;font-size:14px;line-height:1.7">
@@ -277,7 +277,7 @@ function bookingConfirmHtml(firstName, service) {
       </div>
       <p style="color:#4B4669;font-size:14px;margin-top:28px">
         Talk soon,<br/>
-        <strong>The Proven Profit Team</strong>
+        <strong>The Proven Profit Marketing Agency Team</strong>
       </p>
       <div style="margin-top:32px;padding-top:20px;border-top:1px solid #E2D9F3">
         <a href="${BRAND.instagram}" style="color:#7C3AED;font-size:12px;margin-right:16px">Instagram</a>

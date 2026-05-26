@@ -155,7 +155,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1 space-y-5">
             <Link to="/" className="flex items-center">
-              <img src={logo} alt="Proven Profit" className="h-9 w-auto object-contain" loading="lazy" />
+              <img src={logo} alt="Proven Profit Marketing Agency" className="h-9 w-auto object-contain" loading="lazy" />
             </Link>
             <p className="text-sm leading-relaxed font-body" style={{ color: 'rgba(255,255,255,0.45)' }}>
               A results-driven digital agency specialising in Shopify stores, eCommerce growth, and social media management for brands across the US, Canada, Australia, and Europe.
@@ -247,7 +247,7 @@ export default function Footer() {
           style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
           <p className="text-xs font-body text-center sm:text-left"
             style={{ color: 'rgba(255,255,255,0.3)' }}>
-            {year} Proven Profit Marketing. All rights reserved. Built with{' '}
+            {year} Proven Profit Marketing Agency Marketing. All rights reserved. Built with{' '}
             <span className="text-orange-500">&#9829;</span> for brands that mean business.
           </p>
           <div className="flex items-center gap-5">

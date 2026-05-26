@@ -239,7 +239,7 @@ export default function Navbar() {
             <Link to="/" className="flex items-center group flex-shrink-0">
               <img
                 src={logo}
-                alt="Proven Profit"
+                alt="Proven Profit Marketing Agency"
                 className="h-auto w-auto object-contain group-hover:opacity-90 transition-opacity duration-200"
                 style={{ maxHeight: 'clamp(70px, 12vw, 120px)' }}
                 loading="eager"
@@ -406,7 +406,7 @@ export default function Navbar() {
               {/* Drawer header */}
               <div className="flex items-center justify-between p-5 border-b" style={{ borderColor: 'var(--dark-border)' }}>
                 <Link to="/" onClick={() => setMenuOpen(false)}>
-                  <img src={logo} alt="Proven Profit" className="h-12 w-auto object-contain" loading="eager" />
+                  <img src={logo} alt="Proven Profit Marketing Agency" className="h-12 w-auto object-contain" loading="eager" />
                 </Link>
                 <button onClick={() => setMenuOpen(false)}
                   className="w-8 h-8 flex items-center justify-center rounded-lg transition-colors"
