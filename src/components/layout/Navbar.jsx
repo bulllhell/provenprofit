@@ -92,7 +92,7 @@ function ServicesDropdown({ open }) {
 
           {/* Grid */}
           <div className="p-3 grid grid-cols-2 gap-1">
-            {/* All Services — always first */}
+            {/* All Services : always first */}
             <Link
               to="/services"
               className="col-span-2 flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-150 mb-1"
@@ -239,7 +239,7 @@ export default function Navbar() {
             <Link to="/" className="flex items-center group flex-shrink-0">
               <img
                 src={logo}
-                alt="Proven Profit Marketing Agency"
+                alt="Proven Profit"
                 className="h-auto w-auto object-contain group-hover:opacity-90 transition-opacity duration-200"
                 style={{ maxHeight: 'clamp(70px, 12vw, 120px)' }}
                 loading="eager"
@@ -270,7 +270,7 @@ export default function Navbar() {
                 )}
               </NavLink>
 
-              {/* ── Services — click toggles dropdown listing all services ── */}
+              {/* ── Services : click toggles dropdown listing all services ── */}
               <div
                 ref={servicesRef}
                 className="relative"
@@ -328,9 +328,9 @@ export default function Navbar() {
                 )}
               </NavLink>
 
-              {/* Team */}
+              {/* About Us */}
               <NavLink
-                to="/team"
+                to="/about"
                 style={{ position: 'relative', fontSize: 'clamp(0.8125rem, 1.2vw, 0.9375rem)', padding: 'clamp(0.5rem, 1vw, 0.625rem) clamp(0.75rem, 2vw, 1rem)' }}
                 className={({ isActive }) =>
                   `font-body font-medium tracking-wide rounded-lg transition-all duration-200 ${
@@ -340,7 +340,7 @@ export default function Navbar() {
               >
                 {({ isActive }) => (
                   <>
-                    Team
+                    About Us
                     {isActive && (
                       <span className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 rounded-full bg-[#7C3AED]"
                         style={{ position: 'absolute', width: 'clamp(8px, 1.5vw, 20px)' }} />
@@ -406,7 +406,7 @@ export default function Navbar() {
               {/* Drawer header */}
               <div className="flex items-center justify-between p-5 border-b" style={{ borderColor: 'var(--dark-border)' }}>
                 <Link to="/" onClick={() => setMenuOpen(false)}>
-                  <img src={logo} alt="Proven Profit Marketing Agency" className="h-12 w-auto object-contain" loading="eager" />
+                  <img src={logo} alt="Proven Profit" className="h-12 w-auto object-contain" loading="eager" />
                 </Link>
                 <button onClick={() => setMenuOpen(false)}
                   className="w-8 h-8 flex items-center justify-center rounded-lg transition-colors"
@@ -429,7 +429,7 @@ export default function Navbar() {
                   </NavLink>
                 </motion.div>
 
-                {/* ── Services — link to /services + accordion for sub pages ── */}
+                {/* ── Services : link to /services + accordion for sub pages ── */}
                 <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.12 }}>
                   <button
                     onClick={() => setMobileServOpen(o => !o)}
@@ -508,15 +508,15 @@ export default function Navbar() {
                   </NavLink>
                 </motion.div>
 
-                {/* Team */}
+                {/* About Us */}
                 <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.24 }}>
-                  <NavLink to="/team" onClick={() => setMenuOpen(false)}
+                  <NavLink to="/about" onClick={() => setMenuOpen(false)}
                     className={({ isActive }) =>
                       `flex items-center justify-between px-4 py-3 rounded-xl text-sm font-body font-medium transition-all ${
                         isActive ? 'text-[#7C3AED] bg-purple-50' : 'text-[#4B4669] hover:text-[#1E1B2E] hover:bg-purple-50'
                       }`
                     }>
-                    Team <RiArrowRightUpLine className="w-4 h-4 opacity-40" />
+                    About Us <RiArrowRightUpLine className="w-4 h-4 opacity-40" />
                   </NavLink>
                 </motion.div>
 

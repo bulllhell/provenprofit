@@ -31,7 +31,7 @@ const Portfolio = lazy(() => import('./pages/Portfolio'));
 const Services  = lazy(() => import('./pages/Services'));
 const BookCall  = lazy(() => import('./pages/BookCall'));
 const ThankYou  = lazy(() => import('./pages/ThankYou'));
-const Team      = lazy(() => import('./pages/Team'));
+const About     = lazy(() => import('./pages/About'));
 
 const NotFound       = lazy(() => import('./pages/NotFound'));
 const AdminLogin     = lazy(() => import('./pages/AdminLogin'));
@@ -66,7 +66,7 @@ export default function App() {
           <Route
             index
             element={
-              <Page seo={{ title: 'Proven Profit Marketing Agency | eCommerce & Digital Marketing', description: 'We build high-converting Shopify stores, run Google and Facebook Ads, manage SEO, social media, and email marketing for brands worldwide.', url: 'https://www.provenprofitbrand.com/' }}>
+              <Page seo={{ title: 'Proven Profit Marketing Agency | eCommerce & Digital Marketing', description: 'We build high converting Shopify stores, run Google and Facebook Ads, manage SEO, social media, and email marketing for brands worldwide.', url: 'https://www.provenprofitbrand.com/' }}>
                 <Home />
               </Page>
             }
@@ -75,7 +75,7 @@ export default function App() {
           <Route
             path="portfolio"
             element={
-              <Page seo={{ title: 'Portfolio | Proven Profit Marketing Agency', description: 'See our past high-converting Shopify stores, websites, and digital marketing results.', url: 'https://www.provenprofitbrand.com/portfolio' }}>
+              <Page seo={{ title: 'Portfolio | Proven Profit Marketing Agency', description: 'See our past high converting Shopify stores, websites, and digital marketing results.', url: 'https://www.provenprofitbrand.com/portfolio' }}>
                 <Portfolio />
               </Page>
             }
@@ -109,10 +109,10 @@ export default function App() {
           />
 
           <Route
-            path="team"
+            path="about"
             element={
-              <Page seo={{ title: 'Our Team | Proven Profit Marketing Agency', description: 'Meet the team behind Proven Profit Marketing Agency.', url: 'https://www.provenprofitbrand.com/team' }}>
-                <Team />
+              <Page seo={{ title: 'About Us | Proven Profit Marketing Agency', description: 'Learn about Proven Profit Marketing Agency, our mission, our story, and the team behind your brand growth.', url: 'https://www.provenprofitbrand.com/about' }}>
+                <About />
               </Page>
             }
           />
@@ -125,7 +125,7 @@ export default function App() {
           <Route path="services/email-marketing" element={<Page seo={{ title: 'Email Marketing & Klaviyo Flows | Proven Profit Marketing Agency', description: 'Email automation, Klaviyo flows and campaigns that earn revenue every day.', url: 'https://www.provenprofitbrand.com/services/email-marketing' }}><SvcEmail /></Page>} />
           <Route path="services/google-ads"      element={<Page seo={{ title: 'Google Ads & Google My Business | Proven Profit Marketing Agency', description: 'Paid search campaigns and local visibility management that puts you in front of buyers.', url: 'https://www.provenprofitbrand.com/services/google-ads' }}><SvcGoogleAds /></Page>} />
           <Route path="services/web-design"      element={<Page seo={{ title: 'Web Design | Proven Profit Marketing Agency', description: 'Custom websites and landing pages designed to convert visitors into customers.', url: 'https://www.provenprofitbrand.com/services/web-design' }}><SvcWebDesign /></Page>} />
-          <Route path="services/funnels"         element={<Page seo={{ title: 'Sales Funnel Creation | Proven Profit Marketing Agency', description: 'High-converting sales funnel builds that turn traffic into revenue.', url: 'https://www.provenprofitbrand.com/services/funnels' }}><SvcFunnels /></Page>} />
+          <Route path="services/funnels"         element={<Page seo={{ title: 'Sales Funnel Creation | Proven Profit Marketing Agency', description: 'High converting sales funnel builds that turn traffic into revenue.', url: 'https://www.provenprofitbrand.com/services/funnels' }}><SvcFunnels /></Page>} />
 
         </Route>
 
