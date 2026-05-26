@@ -247,7 +247,7 @@ export default function Footer() {
           style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
           <p className="text-xs font-body text-center sm:text-left"
             style={{ color: 'rgba(255,255,255,0.3)' }}>
-            {year} Proven Profit Marketing Agency Marketing. All rights reserved. Built with{' '}
+            {year} Proven Profit Marketing Agency. All rights reserved. Built with{' '}
             <span className="text-orange-500">&#9829;</span> for brands that mean business.
           </p>
           <div className="flex items-center gap-5">

@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 
 export default function SEO({
-  title = "Proven Profit Marketing Agency Marketing Agency | High-Converting Websites",
+  title = "Proven Profit Marketing Agency Agency | High-Converting Websites",
   description = "We build modern websites, funnels, and systems that help businesses grow and convert more customers.",
   url = "https://www.provenprofitbrand.com",
   image = "https://www.provenprofitbrand.com/og-image.png"

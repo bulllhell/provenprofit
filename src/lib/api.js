@@ -1,5 +1,5 @@
 /**
- * Proven Profit Marketing Agency Marketing — API base URL
+ * Proven Profit Marketing Agency — API base URL
  *
  * Rules for VITE_API_URL in your .env / Vercel dashboard:
  *   VITE_API_URL=https://provenprofit-production.up.railway.app
@@ -39,4 +39,4 @@ function resolveApiUrl() {
 export const API_URL = resolveApiUrl()
 
 // Always log so it's visible in browser DevTools console
-console.log(`[Proven Profit Marketing Agency Marketing] API →`, API_URL)
+console.log(`[Proven Profit Marketing Agency] API →`, API_URL)

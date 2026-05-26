@@ -89,13 +89,13 @@ const VALUES = [
     icon: RiRocketLine,
     color: '#F97316',
     title: 'Results First',
-    desc: 'Everything we do is measured against one thing — does it move the needle for your business. We do not believe in vanity metrics or work that looks good but earns nothing.',
+    desc: 'Everything we do is measured against one thing: does it move the needle for your business. We do not believe in vanity metrics or work that looks good but earns nothing.',
   },
   {
     icon: RiHeartLine,
     color: '#E1306C',
     title: 'We Care Deeply',
-    desc: 'Your brand is not a number in our spreadsheet. We treat every project like it is our own business. When you win, we feel it. That is not a slogan — that is just how we operate.',
+    desc: 'Your brand is not a number in our spreadsheet. We treat every project like it is our own business. When you win, we feel it. That is not a slogan. That is just how we operate.',
   },
   {
     icon: RiLightbulbLine,
@@ -250,30 +250,28 @@ export default function Team() {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} className="flex justify-center mb-5">
-            <span className="section-tag">Our Team</span>
+            <span className="section-tag">Proven Profit Marketing Agency</span>
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
             className="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-5" style={{ color: 'var(--text)' }}>
-            The people behind{' '}
-            <span className="text-gradient">your growth</span>
+            Built to grow{' '}
+            <span className="text-gradient">your brand</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
-            className="text-sm sm:text-base font-body max-w-xl mx-auto leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-            A dedicated team of specialists united by one goal: to build, grow, and scale your brand.
+            className="text-sm sm:text-base font-body max-w-2xl mx-auto leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+            We are a full service digital marketing agency helping brands across the US, Canada, the UK,
+            Australia, Europe and Nigeria build a real online presence, drive consistent sales, and grow
+            into something they are proud of.
           </motion.p>
         </div>
-      </section>
-
-      {/* ── CEO ──────────────────────────────────────────── */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-        <CEOCard />
       </section>
 
       {/* ── About Us ─────────────────────────────────────── */}
       <section style={{ padding: '5rem 0', background: '#F1EEF9' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 1.5rem' }}>
 
-          <div style={{ textAlign: 'center', marginBottom: 52 }}>
+          {/* Header */}
+          <div style={{ textAlign: 'center', marginBottom: 56 }}>
             <motion.span initial={{ opacity: 0, scale: 0.85 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
               style={{ display: 'inline-flex', alignItems: 'center', gap: 7, padding: '5px 14px', borderRadius: 100, background: 'rgba(249,115,22,0.1)', border: '1px solid rgba(249,115,22,0.25)', color: '#F97316', fontSize: 10, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 16 }}>
               <span style={{ width: 5, height: 5, borderRadius: '50%', background: '#F97316', boxShadow: '0 0 6px #F97316', animation: 'pdot 2s ease-in-out infinite' }} />
@@ -281,74 +279,159 @@ export default function Team() {
               <style>{`@keyframes pdot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}`}</style>
             </motion.span>
             <motion.h2 initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-              className="font-heading text-3xl sm:text-4xl font-extrabold mb-4" style={{ color: 'var(--text)', letterSpacing: '-0.02em' }}>
-              Why brands choose Proven Profit
+              className="font-heading text-3xl sm:text-4xl font-extrabold mb-6" style={{ color: 'var(--text)', letterSpacing: '-0.02em' }}>
+              Why brands choose Proven Profit Marketing Agency
             </motion.h2>
-            <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
-              className="font-body text-sm leading-relaxed max-w-2xl mx-auto" style={{ color: 'var(--text-muted)' }}>
-              We are not a generic agency that takes your money and sends a monthly report.
-              We are a hands on team that treats your brand like our own business and stays
-              accountable to real results every single month.
-            </motion.p>
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
+              style={{ maxWidth: 780, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 16 }}>
+              <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-muted)', fontSize: 15 }}>
+                Proven Profit Marketing Agency was built out of frustration. Frustration watching great
+                products go unnoticed because the brands behind them could not crack the code of digital
+                marketing. Frustration seeing business owners get burned by agencies that overpromised,
+                underdelivered, and disappeared after cashing the invoice. We started this agency with one
+                simple belief: every serious brand deserves a team that fights as hard for their business
+                as they do.
+              </p>
+              <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-muted)', fontSize: 15 }}>
+                We are not a faceless agency with hundreds of clients and a junior account manager handling
+                your brand. We are a tight, dedicated team of specialists developers, designers, content
+                creators, SEO experts, and paid media strategists who work together on every project. When
+                you come to us, you get the whole team, not just one person.
+              </p>
+              <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-muted)', fontSize: 15 }}>
+                Over five years we have helped over 120 brands across the US, Canada, the UK, Australia,
+                Europe, and Nigeria build a real online presence. From complete Shopify store builds that
+                went live and started converting on day one, to Google Ads campaigns that returned four
+                times the ad spend, to social media strategies that turned unknown brands into recognisable
+                names in their category. The work speaks for itself.
+              </p>
+            </motion.div>
           </div>
 
           {/* Mission statement */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            style={{ borderRadius: 24, padding: 'clamp(2rem,4vw,3rem)', marginBottom: 52, background: 'linear-gradient(135deg, #7C3AED, #5B21B6)', position: 'relative', overflow: 'hidden' }}>
-            <div style={{ position: 'absolute', top: 0, right: 0, width: 300, height: 300, borderRadius: '50%', background: 'rgba(249,115,22,0.15)', filter: 'blur(60px)', pointerEvents: 'none' }} />
-            <div style={{ position: 'absolute', bottom: 0, left: 0, width: 200, height: 200, borderRadius: '50%', background: 'rgba(255,255,255,0.05)', filter: 'blur(40px)', pointerEvents: 'none' }} />
-            <div style={{ position: 'relative', zIndex: 1, maxWidth: 700 }}>
-              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: 12 }}>Our Mission</p>
-              <h3 style={{ fontSize: 'clamp(1.4rem, 3vw, 2rem)', fontWeight: 800, color: '#fff', lineHeight: 1.3, marginBottom: 16, letterSpacing: '-0.02em' }}>
-                To make serious digital marketing accessible to every brand that is ready to grow.
+            style={{ borderRadius: 24, padding: 'clamp(2rem,4vw,3.5rem)', marginBottom: 52, background: 'linear-gradient(135deg, #7C3AED, #5B21B6)', position: 'relative', overflow: 'hidden' }}>
+            <div style={{ position: 'absolute', top: 0, right: 0, width: 400, height: 400, borderRadius: '50%', background: 'rgba(249,115,22,0.18)', filter: 'blur(80px)', pointerEvents: 'none' }} />
+            <div style={{ position: 'absolute', bottom: 0, left: 0, width: 300, height: 300, borderRadius: '50%', background: 'rgba(255,255,255,0.05)', filter: 'blur(60px)', pointerEvents: 'none' }} />
+            <div style={{ position: 'relative', zIndex: 1 }}>
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)', marginBottom: 14 }}>Our Mission</p>
+              <h3 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', fontWeight: 800, color: '#fff', lineHeight: 1.25, marginBottom: 20, letterSpacing: '-0.02em', maxWidth: 700 }}>
+                To make world class digital marketing accessible to every brand that is serious about growth.
               </h3>
-              <p style={{ fontSize: 14, lineHeight: 1.75, color: 'rgba(255,255,255,0.75)' }}>
-                Too many great products fail because they cannot get seen online. We exist to change that.
-                Whether you are just starting out or ready to scale past seven figures, we have the team,
-                the tools, and the track record to make it happen.
-              </p>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20 }}>
+                <p style={{ fontSize: 14, lineHeight: 1.8, color: 'rgba(255,255,255,0.78)' }}>
+                  Too many great products fail not because they are bad but because they cannot get seen.
+                  The barrier between a great product and a profitable brand is almost always marketing.
+                  We remove that barrier. Whether you are launching your first Shopify store or scaling
+                  an established business past seven figures, we have the exact skills, tools, and
+                  experience to move you forward.
+                </p>
+                <p style={{ fontSize: 14, lineHeight: 1.8, color: 'rgba(255,255,255,0.78)' }}>
+                  We do not sell packages and disappear. We build relationships. Our average client has
+                  been with us for over a year because the results keep coming and the communication
+                  never drops off. We show up every month with new ideas, honest reports, and a clear
+                  plan for what comes next. That is what separates us from every other agency
+                  competing for your budget.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Our story — two column */}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            style={{ borderRadius: 24, padding: 'clamp(2rem,4vw,3rem)', marginBottom: 52, background: '#fff', border: '1px solid rgba(0,0,0,0.07)' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 40, alignItems: 'center' }}>
+              <div>
+                <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#F97316', marginBottom: 12 }}>Our Story</p>
+                <h3 style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.8rem)', fontWeight: 800, color: 'var(--text)', lineHeight: 1.3, marginBottom: 16, letterSpacing: '-0.02em' }}>
+                  Started from a laptop. Built into a full service agency.
+                </h3>
+                <p style={{ fontSize: 14, lineHeight: 1.8, color: 'var(--text-muted)', marginBottom: 14 }}>
+                  Proven Profit started as one person managing Shopify stores and running ads for small
+                  eCommerce brands. The results were good. The demand grew. Over time the team grew too.
+                  A developer joined. Then a content creator. Then a designer, a video editor, an SEO
+                  specialist. Each person was brought in because they were simply the best at what they do.
+                </p>
+                <p style={{ fontSize: 14, lineHeight: 1.8, color: 'var(--text-muted)' }}>
+                  Today Proven Profit Marketing Agency is a full service digital team serving brands
+                  across six countries. The mission has never changed. We are here to help brands that
+                  are serious about growth stop guessing and start winning online.
+                </p>
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+                {[
+                  { n: '01', title: 'We started with eCommerce', desc: 'Shopify and WooCommerce store builds were our foundation. We learned conversion optimisation, product page design, and checkout flows from the ground up.' },
+                  { n: '02', title: 'We added paid media', desc: 'Google Ads and Meta Ads came next. We managed real budgets, tested real audiences, and learned what actually drives return on ad spend at scale.' },
+                  { n: '03', title: 'We grew into a full agency', desc: 'SEO, branding, email marketing, social media management — each service was added because our clients needed it and we refused to send them somewhere else.' },
+                  { n: '04', title: 'We went global', desc: 'Today we serve brands in Nigeria, the US, the UK, Canada, Australia and Europe. Different markets, same standard of work.' },
+                ].map((step, i) => (
+                  <motion.div key={step.n}
+                    initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
+                    style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
+                    <div style={{ width: 36, height: 36, borderRadius: 10, background: 'linear-gradient(135deg, #F97316, #FB923C)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 800, fontSize: 11, flexShrink: 0 }}>
+                      {step.n}
+                    </div>
+                    <div>
+                      <p style={{ fontSize: 13, fontWeight: 700, color: 'var(--text)', marginBottom: 4 }}>{step.title}</p>
+                      <p style={{ fontSize: 12, lineHeight: 1.65, color: 'var(--text-muted)' }}>{step.desc}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </motion.div>
 
           {/* Values grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 18 }}>
-            {VALUES.map((v, i) => {
-              const Icon = v.icon;
-              return (
-                <motion.div key={v.title}
-                  initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-20px' }} transition={{ delay: i * 0.08, duration: 0.5 }}
-                  style={{ borderRadius: 18, padding: '22px 22px 24px', background: '#fff', border: '1px solid rgba(0,0,0,0.07)', transition: 'box-shadow 0.25s, border-color 0.25s, transform 0.25s' }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor=`${v.color}35`; e.currentTarget.style.boxShadow=`0 8px 32px ${v.color}14`; e.currentTarget.style.transform='translateY(-4px)'; }}
-                  onMouseLeave={e => { e.currentTarget.style.borderColor='rgba(0,0,0,0.07)'; e.currentTarget.style.boxShadow='none'; e.currentTarget.style.transform='translateY(0)'; }}
-                >
-                  <div style={{ width: 44, height: 44, borderRadius: 12, background: `${v.color}14`, border: `1px solid ${v.color}25`, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 14 }}>
-                    <Icon style={{ width: 20, height: 20, color: v.color }} />
-                  </div>
-                  <h4 className="font-heading font-bold text-sm mb-2" style={{ color: 'var(--text)' }}>{v.title}</h4>
-                  <p className="font-body text-xs leading-relaxed" style={{ color: 'var(--text-muted)' }}>{v.desc}</p>
-                </motion.div>
-              );
-            })}
+          <div style={{ marginBottom: 52 }}>
+            <div style={{ textAlign: 'center', marginBottom: 36 }}>
+              <h3 className="font-heading text-2xl font-extrabold" style={{ color: 'var(--text)', letterSpacing: '-0.02em' }}>What we stand for</h3>
+              <p className="font-body text-sm mt-2" style={{ color: 'var(--text-muted)' }}>The principles that guide every decision we make for your brand.</p>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 18 }}>
+              {VALUES.map((v, i) => {
+                const Icon = v.icon;
+                return (
+                  <motion.div key={v.title}
+                    initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-20px' }} transition={{ delay: i * 0.08, duration: 0.5 }}
+                    style={{ borderRadius: 18, padding: '22px 22px 24px', background: '#fff', border: '1px solid rgba(0,0,0,0.07)', transition: 'box-shadow 0.25s, border-color 0.25s, transform 0.25s' }}
+                    onMouseEnter={e => { e.currentTarget.style.borderColor=`${v.color}35`; e.currentTarget.style.boxShadow=`0 8px 32px ${v.color}14`; e.currentTarget.style.transform='translateY(-4px)'; }}
+                    onMouseLeave={e => { e.currentTarget.style.borderColor='rgba(0,0,0,0.07)'; e.currentTarget.style.boxShadow='none'; e.currentTarget.style.transform='translateY(0)'; }}
+                  >
+                    <div style={{ width: 44, height: 44, borderRadius: 12, background: `${v.color}14`, border: `1px solid ${v.color}25`, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 14 }}>
+                      <Icon style={{ width: 20, height: 20, color: v.color }} />
+                    </div>
+                    <h4 className="font-heading font-bold text-sm mb-2" style={{ color: 'var(--text)' }}>{v.title}</h4>
+                    <p className="font-body text-xs leading-relaxed" style={{ color: 'var(--text-muted)' }}>{v.desc}</p>
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
 
           {/* Stats strip */}
           <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            style={{ marginTop: 52, borderRadius: 20, padding: '2rem', background: '#fff', border: '1px solid rgba(0,0,0,0.07)', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', gap: 24 }}>
+            style={{ borderRadius: 20, padding: '2.5rem 2rem', background: 'linear-gradient(135deg, #7C3AED08, #F9731608)', border: '1px solid rgba(124,58,237,0.12)', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', gap: 28 }}>
             {[
-              { v: '120+', l: 'Brands Served',      c: '#7C3AED' },
-              { v: '5',    l: 'Years of Experience', c: '#F97316' },
-              { v: '$2M+', l: 'Revenue Generated',   c: '#10B981' },
-              { v: '98%',  l: 'Client Retention',    c: '#0EA5E9' },
-              { v: '5★',   l: 'Average Rating',      c: '#F59E0B' },
+              { v: '120+', l: 'Brands Served',       c: '#7C3AED' },
+              { v: '5yrs', l: 'In Business',          c: '#F97316' },
+              { v: '$2M+', l: 'Revenue Generated',    c: '#10B981' },
+              { v: '98%',  l: 'Client Retention',     c: '#0EA5E9' },
+              { v: '5★',   l: 'Average Rating',       c: '#F59E0B' },
+              { v: '6',    l: 'Countries Served',     c: '#EC4899' },
             ].map(({ v, l, c }) => (
               <div key={l} style={{ textAlign: 'center' }}>
-                <p style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 900, color: c, lineHeight: 1, letterSpacing: '-0.02em' }}>{v}</p>
-                <p style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 4, fontWeight: 600 }}>{l}</p>
+                <p style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', fontWeight: 900, color: c, lineHeight: 1, letterSpacing: '-0.02em' }}>{v}</p>
+                <p style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 6, fontWeight: 600 }}>{l}</p>
               </div>
             ))}
           </motion.div>
         </div>
+      </section>
+
+      {/* ── CEO ──────────────────────────────────────────── */}
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
+        <CEOCard />
       </section>
 
       {/* ── Team Members ─────────────────────────────────── */}
@@ -359,13 +442,16 @@ export default function Team() {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-              className="font-heading text-2xl sm:text-3xl font-extrabold" style={{ color: 'var(--text)' }}>
-              Meet the specialists
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="flex justify-center mb-4">
+              <span className="section-tag">Our Team</span>
+            </motion.div>
+            <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              className="font-heading text-3xl sm:text-4xl font-extrabold" style={{ color: 'var(--text)', letterSpacing: '-0.02em' }}>
+              The people behind your growth
             </motion.p>
             <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
-              className="mt-2 text-sm font-body" style={{ color: 'var(--text-muted)' }}>
-              Every member of this team is a dedicated expert in their craft.
+              className="mt-3 text-sm font-body max-w-lg mx-auto leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+              A dedicated team of specialists united by one goal: to build, grow, and scale your brand.
             </motion.p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
