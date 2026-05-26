@@ -71,6 +71,25 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{ background: 'var(--light)' }}
     >
+      {/* ── Static SEO content — invisible to users, readable by Google ── */}
+      <div aria-hidden="false" style={{
+        position: 'absolute', left: '-9999px', top: 'auto',
+        width: 1, height: 1, overflow: 'hidden',
+      }}>
+        <h1>Proven Profit Marketing Agency</h1>
+        <h2>We Build Your eCommerce Store, Social Media, Brand Identity and Online Business That Converts</h2>
+        <p>
+          Proven Profit Marketing Agency builds high converting eCommerce stores, manages social media,
+          runs Google Ads and Facebook Ads, handles SEO, creates brand identities, and sets up email
+          marketing for serious brands across the US, Canada, Australia and Europe.
+          120 plus stores built. Real results. 5 star rated agency.
+        </p>
+        <p>Verified Results. 5 Star Rated Agency. Fast Turnaround.</p>
+        <a href="/book-a-call">Book a Free Call</a>
+        <a href="/portfolio">See Our Work</a>
+        <a href="/services">Our Services</a>
+      </div>
+
       <div className="absolute inset-0 bg-hero-mesh pointer-events-none" />
 
       <motion.div style={{ y, opacity }} className="absolute inset-0 pointer-events-none">
@@ -84,7 +103,7 @@ export default function Hero() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: `radial-gradient(circle, rgba(124,58,237,0.10) 1px, transparent 1px)`,
+          backgroundImage: 'radial-gradient(circle, rgba(124,58,237,0.10) 1px, transparent 1px)',
           backgroundSize: '48px 48px',
           maskImage: 'radial-gradient(ellipse 80% 60% at 50% 50%, black 40%, transparent 100%)',
         }}
@@ -103,6 +122,7 @@ export default function Hero() {
             eCommerce · Social Media · Brand Scaling
           </motion.div>
 
+          {/* Visible h1 for SEO — always in DOM, just animates in */}
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -116,8 +136,13 @@ export default function Hero() {
             We Build Your{' '}
             <br className="hidden sm:block" />
             <span className="relative inline-block">
-              <span className="text-gradient">{displayed}</span>
-              <span className="inline-block w-0.5 h-[0.85em] bg-purple-600 ml-1 align-middle animate-pulse" />
+              <span className="text-gradient">
+                {displayed || 'eCommerce Store'}
+              </span>
+              <span
+                className="inline-block w-0.5 h-[0.85em] bg-purple-600 ml-1 align-middle animate-pulse"
+                aria-hidden="true"
+              />
             </span>
             <br />
             <span className="relative">
@@ -140,10 +165,10 @@ export default function Hero() {
               maxWidth: 'clamp(280px, 90vw, 500px)',
             }}
           >
-            eCommerce stores, social media management, and brand scaling 
+            eCommerce stores, social media management, and brand scaling
             built for serious brands across the{' '}
             <span className="font-semibold" style={{ color: 'var(--text)' }}>
-              US, Canada, Australia & Europe
+              US, Canada, Australia and Europe
             </span>.{' '}
             120+ stores. Real results.
           </motion.p>
@@ -180,7 +205,7 @@ export default function Hero() {
           >
             {[
               { icon: RiShieldCheckLine, text: 'Verified Results' },
-              { icon: RiStarSLine,       text: '5-Star Rated Agency' },
+              { icon: RiStarSLine,       text: '5 Star Rated Agency' },
               { icon: RiFlashlightLine,  text: 'Fast Turnaround' },
             ].map(({ icon: Icon, text }) => (
               <span
@@ -213,6 +238,7 @@ export default function Hero() {
                 borderColor: 'var(--dark-border)',
               }}
             >
+              {/* Browser chrome bar */}
               <div
                 className="flex items-center gap-2 px-3 sm:px-4 py-2.5 sm:py-3 border-b"
                 style={{ borderColor: 'var(--dark-border)', background: 'rgba(124,58,237,0.04)' }}
@@ -234,6 +260,7 @@ export default function Hero() {
                 </div>
               </div>
 
+              {/* Dashboard content */}
               <div className="p-3 sm:p-4 lg:p-6 grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3 lg:gap-4 min-h-[140px] sm:min-h-[240px] lg:min-h-[320px]">
                 <div className="hidden sm:block col-span-1 space-y-1.5 sm:space-y-2">
                   {['Dashboard', 'Stores', 'Analytics', 'Campaigns', 'Settings'].map((item, i) => (
@@ -254,9 +281,9 @@ export default function Hero() {
                 <div className="col-span-2 space-y-2 sm:space-y-3">
                   <div className="grid grid-cols-3 gap-1.5 sm:gap-2 lg:gap-3">
                     {[
-                      { v: '$4.2M', l: 'Revenue', color: 'var(--orange)'  },
-                      { v: '1,847', l: 'Orders',  color: 'var(--purple)'  },
-                      { v: '+34%',  l: 'Growth',  color: '#16a34a'        },
+                      { v: '$4.2M', l: 'Revenue', color: 'var(--orange)' },
+                      { v: '1,847', l: 'Orders',  color: 'var(--purple)' },
+                      { v: '+34%',  l: 'Growth',  color: '#16a34a'       },
                     ].map(({ v, l, color }) => (
                       <div
                         key={l}
@@ -265,19 +292,13 @@ export default function Hero() {
                       >
                         <div
                           className="font-heading font-bold"
-                          style={{
-                            color,
-                            fontSize: 'clamp(0.875rem, 2vw, 1.125rem)',
-                          }}
+                          style={{ color, fontSize: 'clamp(0.875rem, 2vw, 1.125rem)' }}
                         >
                           {v}
                         </div>
                         <div
                           className="font-body mt-0.5"
-                          style={{
-                            color: 'var(--text-muted)',
-                            fontSize: 'clamp(0.65rem, 1vw, 0.75rem)',
-                          }}
+                          style={{ color: 'var(--text-muted)', fontSize: 'clamp(0.65rem, 1vw, 0.75rem)' }}
                         >
                           {l}
                         </div>
@@ -307,10 +328,7 @@ export default function Hero() {
                     </div>
                     <div
                       className="font-body mt-1 sm:mt-1.5"
-                      style={{
-                        color: 'var(--text-muted)',
-                        fontSize: 'clamp(0.65rem, 1vw, 0.75rem)',
-                      }}
+                      style={{ color: 'var(--text-muted)', fontSize: 'clamp(0.65rem, 1vw, 0.75rem)' }}
                     >
                       Monthly Revenue Growth
                     </div>
