@@ -127,7 +127,7 @@ function CursorGlow() {
 function SectionTag({ children }) {
   return (
     <motion.span
-      initial={{ opacity: 0, scale: 0.85 }}
+      initial={{ opacity: 1, scale: 1 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4 }}
@@ -349,7 +349,7 @@ export default function SeoPage() {
 
             {/* Right image card */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.92, rotate: 2 }}
+              initial={{ opacity: 1, scale: 1, rotate: 0 }}
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
               transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               style={{ position: 'relative' }}

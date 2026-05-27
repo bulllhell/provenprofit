@@ -63,7 +63,7 @@ export default function AboutCEO() {
 
             {/* Floating Revenue Card */}
             <motion.div
-              initial={{ opacity: 0, y: 20, x: -20 }}
+              initial={{ opacity: 1, y: 0, x: 0 }}
               whileInView={{ opacity: 1, y: 0, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.45 }}
@@ -85,7 +85,7 @@ export default function AboutCEO() {
 
             {/* Floating Stores Card */}
             <motion.div
-              initial={{ opacity: 0, y: 20, x: 20 }}
+              initial={{ opacity: 1, y: 0, x: 0 }}
               whileInView={{ opacity: 1, y: 0, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.6 }}
@@ -145,7 +145,7 @@ export default function AboutCEO() {
 
             {/* Experience badge */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
+              initial={{ opacity: 1, scale: 1 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.75, type: 'spring', stiffness: 200 }}

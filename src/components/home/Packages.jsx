@@ -47,7 +47,7 @@ function CheckoutModal({ pkg, onClose }) {
         className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm"
       />
       <motion.div
-        initial={{ opacity: 0, scale: 0.93, y: 30 }}
+        initial={{ opacity: 1, scale: 1, y: 0 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.93 }}
         onClick={e => e.stopPropagation()}

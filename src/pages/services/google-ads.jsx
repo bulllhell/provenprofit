@@ -212,7 +212,7 @@ function CursorGlow() {
 function SectionTag({ children }) {
   return (
     <motion.span
-      initial={{ opacity: 0, scale: 0.85 }}
+      initial={{ opacity: 1, scale: 1 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4 }}
@@ -394,7 +394,7 @@ export default function GoogleAdsPage() {
 
             {/* Right — hero image with floating cards */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.92 }}
+              initial={{ opacity: 1, scale: 1 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.25, duration: 0.8 }}
               style={{ position: 'relative' }}
@@ -612,7 +612,7 @@ export default function GoogleAdsPage() {
             {PROOF.map((img, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, scale: 0.94 }}
+                initial={{ opacity: 1, scale: 1 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: '-20px' }}
                 transition={{ delay: i * 0.07, duration: 0.5 }}
@@ -1032,7 +1032,7 @@ export default function GoogleAdsPage() {
 
             <motion.div
               key={lightbox}
-              initial={{ opacity: 0, scale: 0.92 }}
+              initial={{ opacity: 1, scale: 1 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3 }}
               onClick={e => e.stopPropagation()}

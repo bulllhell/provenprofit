@@ -259,7 +259,7 @@ function CursorGlow() {
 
 function SectionTag({ children }) {
   return (
-    <motion.span initial={{ opacity: 0, scale: 0.85 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.4 }}
+    <motion.span initial={{ opacity: 1, scale: 1 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.4 }}
       style={{ display: 'inline-flex', alignItems: 'center', gap: 7, padding: '5px 14px', borderRadius: 100, background: `${ACCENT}12`, border: `1px solid ${ACCENT}28`, color: ACCENT, fontSize: 10, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 16 }}>
       <span style={{ width: 5, height: 5, borderRadius: '50%', background: ACCENT, boxShadow: `0 0 6px ${ACCENT}`, animation: 'pdot 2s ease-in-out infinite' }} />
       {children}
@@ -358,7 +358,7 @@ export default function EcommercePage() {
             </div>
 
             {/* Hero image with floating cards */}
-            <motion.div initial={{ opacity: 0, scale: 0.92 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.25, duration: 0.8 }} style={{ position: 'relative' }}>
+            <motion.div initial={{ opacity: 1, scale: 1 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.25, duration: 0.8 }} style={{ position: 'relative' }}>
               <TiltCard intensity={4} style={{ borderRadius: 24, overflow: 'hidden', boxShadow: `0 28px 70px rgba(249,115,22,0.18)`, border: `1px solid ${ACCENT}22` }}>
                 <Img src={IMG.hero} alt="eCommerce store dashboard showing sales and orders" style={{ width: '100%', height: 380, objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', bottom: 20, left: 20, right: 20, background: 'rgba(255,255,255,0.96)', backdropFilter: 'blur(10px)', borderRadius: 14, padding: '12px 16px', boxShadow: '0 8px 28px rgba(0,0,0,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -658,7 +658,7 @@ export default function EcommercePage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: 16 }}>
             {INSPO.map((site, i) => (
               <motion.div key={site.label}
-                initial={{ opacity: 0, y: 24, scale: 0.96 }} whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                initial={{ opacity: 1, y: 0, scale: 1 }} whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, margin: '-20px' }} transition={{ delay: i * 0.06, duration: 0.5 }}
                 whileHover={{ y: -8, transition: { duration: 0.2 } }}
                 onClick={() => window.open(site.url, '_blank', 'noopener')}

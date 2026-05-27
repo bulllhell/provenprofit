@@ -298,7 +298,7 @@ function Lightbox({ items, startIndex, onClose }) {
 
         {/* Card */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.93, y: 20 }}
+          initial={{ opacity: 1, scale: 1, y: 0 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.93 }}
           transition={{ type: 'spring', stiffness: 300, damping: 28 }}

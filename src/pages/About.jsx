@@ -272,7 +272,7 @@ export default function Team() {
 
           {/* Header */}
           <div style={{ textAlign: 'center', marginBottom: 56 }}>
-            <motion.span initial={{ opacity: 0, scale: 0.85 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
+            <motion.span initial={{ opacity: 1, scale: 1 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
               style={{ display: 'inline-flex', alignItems: 'center', gap: 7, padding: '5px 14px', borderRadius: 100, background: 'rgba(249,115,22,0.1)', border: '1px solid rgba(249,115,22,0.25)', color: '#F97316', fontSize: 10, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 16 }}>
               <span style={{ width: 5, height: 5, borderRadius: '50%', background: '#F97316', boxShadow: '0 0 6px #F97316', animation: 'pdot 2s ease-in-out infinite' }} />
               About Us

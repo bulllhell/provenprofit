@@ -193,7 +193,7 @@ function CursorGlow() {
 function SectionTag({ children }) {
   return (
     <motion.span
-      initial={{ opacity: 0, scale: 0.85 }} whileInView={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 1, scale: 1 }} whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }} transition={{ duration: 0.4 }}
       style={{ display: 'inline-flex', alignItems: 'center', gap: 7, padding: '5px 14px', borderRadius: 100, background: `${ACCENT}12`, border: `1px solid ${ACCENT}28`, color: ACCENT, fontSize: 10, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 16 }}
     >
@@ -318,7 +318,7 @@ export default function SocialMediaPage() {
             </div>
 
             {/* Right hero image */}
-            <motion.div initial={{ opacity: 0, scale: 0.92 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.25, duration: 0.8 }} style={{ position: 'relative' }}>
+            <motion.div initial={{ opacity: 1, scale: 1 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.25, duration: 0.8 }} style={{ position: 'relative' }}>
               <TiltCard intensity={4} style={{ borderRadius: 24, overflow: 'hidden', boxShadow: '0 28px 70px rgba(236,72,153,0.18)', border: '1px solid rgba(236,72,153,0.2)' }}>
                 <Img src={IMG.hero} alt="Social media analytics dashboard showing engagement and follower growth" style={{ width: '100%', height: 380, objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', bottom: 20, left: 20, right: 20, background: 'rgba(255,255,255,0.96)', backdropFilter: 'blur(10px)', borderRadius: 14, padding: '12px 16px', boxShadow: '0 8px 28px rgba(0,0,0,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -454,7 +454,7 @@ export default function SocialMediaPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: 14 }}>
             {PROOF.map((img, i) => (
               <motion.div key={i}
-                initial={{ opacity: 0, scale: 0.94 }} whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 1, scale: 1 }} whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: '-20px' }} transition={{ delay: i * 0.06, duration: 0.5 }}
                 whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
                 onClick={() => setLightbox(i)}
@@ -702,7 +702,7 @@ export default function SocialMediaPage() {
               style={{ position: 'fixed', right: 16, top: '50%', transform: 'translateY(-50%)', zIndex: 1001, width: 44, height: 44, borderRadius: 12, background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.15)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', fontSize: 24 }}>
               {'›'}
             </button>
-            <motion.div key={lightbox} initial={{ opacity: 0, scale: 0.92 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.3 }}
+            <motion.div key={lightbox} initial={{ opacity: 1, scale: 1 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.3 }}
               onClick={e => e.stopPropagation()}
               style={{ position: 'relative', maxWidth: 900, width: '100%', borderRadius: 18, overflow: 'hidden', boxShadow: '0 40px 100px rgba(0,0,0,0.7)' }}
             >

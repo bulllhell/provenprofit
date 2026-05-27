@@ -64,7 +64,7 @@ const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.1 } } }
 function SuccessScreen({ name, onReset }) {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
+      initial={{ opacity: 1, scale: 1 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
       className="flex flex-col items-center text-center gap-6 py-10"

@@ -220,7 +220,7 @@ function CursorGlow() {
 function SectionTag({ children }) {
   return (
     <motion.span
-      initial={{ opacity: 0, scale: 0.85 }}
+      initial={{ opacity: 1, scale: 1 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4 }}
@@ -375,7 +375,7 @@ function Lightbox({ images, initial, onClose }) {
       {/* Image */}
       <motion.div
         key={idx}
-        initial={{ opacity: 0, scale: 0.92 }}
+        initial={{ opacity: 1, scale: 1 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.3 }}
         onClick={e => e.stopPropagation()}
@@ -521,7 +521,7 @@ export default function BrandingPage() {
 
             {/* Right — hero image collage */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.92 }}
+              initial={{ opacity: 1, scale: 1 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.25, duration: 0.8 }}
               style={{ position: 'relative' }}
@@ -740,7 +740,7 @@ export default function BrandingPage() {
             {PORTFOLIO.map((img, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, scale: 0.94 }}
+                initial={{ opacity: 1, scale: 1 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: '-20px' }}
                 transition={{ delay: i * 0.06, duration: 0.5 }}
