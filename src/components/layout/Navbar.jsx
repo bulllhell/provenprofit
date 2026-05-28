@@ -70,7 +70,7 @@ function ServicesDropdown({ open }) {
     <AnimatePresence>
       {open && (
         <motion.div
-          initial={{ opacity: 1, y: 0, scale: 1 }}
+          initial={{ opacity: 0, y: 8, scale: 0.97 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 8, scale: 0.97 }}
           transition={{ duration: 0.18, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -220,14 +220,11 @@ export default function Navbar() {
 
   return (
     <>
-      <motion.header
-        initial={{ y: 0, opacity: 1 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+      <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
             ? 'bg-[#F8F7FF]/92 backdrop-blur-xl border-b shadow-[0_2px_20px_rgba(124,58,237,0.08)]'
-            : 'bg-transparent'
+            : 'bg-[#F8F7FF]/80 backdrop-blur-md'
         }`}
         style={{ borderColor: 'var(--dark-border)' }}
       >
@@ -374,11 +371,11 @@ export default function Navbar() {
             >
               <AnimatePresence mode="wait">
                 {menuOpen ? (
-                  <motion.span key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}>
+                  <motion.span key="close" initial={{ rotate: 0, opacity: 1 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}>
                     <RiCloseLine className="w-6 h-6" />
                   </motion.span>
                 ) : (
-                  <motion.span key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.15 }}>
+                  <motion.span key="menu" initial={{ rotate: 0, opacity: 1 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.15 }}>
                     <RiMenuLine className="w-6 h-6" />
                   </motion.span>
                 )}
@@ -386,7 +383,7 @@ export default function Navbar() {
             </button>
           </div>
         </div>
-      </motion.header>
+      </header>
 
       {/* ── Mobile drawer ─────────────────────────────────────── */}
       <AnimatePresence>

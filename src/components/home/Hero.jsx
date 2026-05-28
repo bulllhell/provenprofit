@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
   RiArrowRightUpLine,
   RiPlayCircleLine,
@@ -41,9 +41,7 @@ export default function Hero() {
   const [wordIdx, setWordIdx] = useState(0);
   const [displayed, setDisplayed] = useState('');
   const [deleting, setDeleting] = useState(false);
-  const { scrollYProgress } = useScroll();
-  const y       = useTransform(scrollYProgress, [0, 1], ['0%', '25%']);
-  const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+
 
   useEffect(() => {
     const word = WORDS[wordIdx];
@@ -92,13 +90,13 @@ export default function Hero() {
 
       <div className="absolute inset-0 bg-hero-mesh pointer-events-none" />
 
-      <motion.div style={{ y, opacity }} className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -top-32 -right-32 w-[700px] h-[700px] rounded-full border border-purple-600/10" />
         <div className="absolute -top-32 -right-32 w-[560px] h-[560px] rounded-full border border-purple-600/6 translate-x-16 translate-y-16" />
         <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] rounded-full border border-orange-500/10" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-purple-600/5 blur-[100px]" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-orange-500/4 blur-[80px]" />
-      </motion.div>
+      </div>
 
       <div
         className="absolute inset-0 pointer-events-none"
