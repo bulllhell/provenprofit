@@ -32,9 +32,9 @@ const VIDEOS = [
     src: '/videos/bos3.mp4',
     label: 'Paid Ads',
     result: '6.2% Conv.',
-    color: '#7C3AED',
-    glow: 'rgba(124,58,237,0.25)',
-    border: 'rgba(124,58,237,0.30)',
+    color: '#16a34a',
+    glow: 'rgba(22,163,74,0.25)',
+    border: 'rgba(22,163,74,0.30)',
   },
 ]
 
@@ -124,14 +124,21 @@ function Player({ video, total, index }) {
 
       {/* Gradient overlay */}
       <div className="absolute inset-0 rounded-3xl pointer-events-none"
-           style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.35) 0%, transparent 30%, transparent 45%, rgba(0,0,0,0.70) 100%)', zIndex: 4 }} />
+           style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.40) 0%, transparent 28%, transparent 45%, rgba(0,0,0,0.72) 100%)', zIndex: 4 }} />
 
-      {/* TOP — label + stars */}
+      {/* TOP — counter + label + stars */}
       <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-        <span className="text-[10px] font-heading font-bold uppercase tracking-widest px-3 py-1.5 rounded-full"
-              style={{ background: color + '22', border: '1px solid ' + color + '50', color, backdropFilter: 'blur(8px)' }}>
-          {label}
-        </span>
+        <div className="flex items-center gap-2">
+          {/* Video counter so it never reads as one video */}
+          <span className="flex items-center gap-0.5 text-[11px] font-heading font-extrabold px-2.5 py-1.5 rounded-full text-white"
+                style={{ background: color, boxShadow: '0 2px 10px ' + glow }}>
+            {index + 1}<span className="opacity-60 font-bold"> / {total}</span>
+          </span>
+          <span className="text-[10px] font-heading font-bold uppercase tracking-widest px-3 py-1.5 rounded-full"
+                style={{ background: color + '22', border: '1px solid ' + color + '50', color, backdropFilter: 'blur(8px)' }}>
+            {label}
+          </span>
+        </div>
         <div className="flex items-center gap-0.5 px-2.5 py-1.5 rounded-xl"
              style={{ background: 'rgba(0,0,0,0.45)', backdropFilter: 'blur(8px)' }}>
           {[...Array(5)].map((_, i) => (
@@ -148,7 +155,7 @@ function Player({ video, total, index }) {
             exit={{ opacity: 0, scale: 0.80 }}
             transition={{ duration: 0.2 }}
             onClick={togglePlay}
-            className="absolute inset-0 flex items-center justify-center z-10"
+            className="absolute inset-0 flex flex-col items-center justify-center gap-3 z-10"
           >
             <motion.div
               whileHover={{ scale: 1.12 }}
@@ -168,6 +175,10 @@ function Player({ video, total, index }) {
               <RiPlayCircleLine size={32}
                 style={{ color: loaded ? '#FFFFFF' : color }} />
             </motion.div>
+            <span className="text-[11px] font-heading font-bold uppercase tracking-wider text-white"
+                  style={{ textShadow: '0 1px 6px rgba(0,0,0,0.6)' }}>
+              Tap to watch
+            </span>
           </motion.button>
         )}
       </AnimatePresence>
@@ -175,7 +186,7 @@ function Player({ video, total, index }) {
       {/* BOTTOM */}
       <div className="absolute bottom-0 inset-x-0 p-4 z-10">
 
-        {/* ── Verified + result pills — responsive ── */}
+        {/* ── Verified + result pills ── */}
         <div className="flex items-center gap-1.5 mb-4 flex-wrap">
           <div className="flex items-center gap-1 px-2 py-1 rounded-full"
                style={{ background: 'rgba(0,0,0,0.55)', border: '1px solid rgba(255,255,255,0.15)', backdropFilter: 'blur(8px)' }}>
@@ -247,11 +258,13 @@ export default function VideoReviews() {
     exit:   (d) => ({ x: d > 0 ? -80 : 80, opacity: 0, scale: 0.93 }),
   }
 
+  const active = VIDEOS[current]
+
   return (
     <section
       id="videoreviews"
       className="relative overflow-hidden py-16 sm:py-20"
-      style={{ background: 'var(--light)' }}
+      style={{ background: '#F8F7FF' }}
     >
       {/* Top / bottom rules */}
       <div className="absolute top-0 left-0 right-0 h-px pointer-events-none"
@@ -269,55 +282,42 @@ export default function VideoReviews() {
 
         {/* Header */}
         <div className="text-center mb-10 sm:mb-14">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex justify-center mb-4"
-          >
+          <div className="flex justify-center mb-4">
             <span className="section-tag">Client Reviews</span>
-          </motion.div>
-          <motion.h2
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+          </div>
+          <h2
             className="font-heading text-3xl sm:text-4xl font-extrabold leading-tight mb-3"
-            style={{ color: 'var(--text)' }}
+            style={{ color: '#1E1B2E' }}
           >
             Don't take our word for it{' '}
             <span className="text-gradient">hear it from them</span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.15 }}
-            className="text-sm font-body"
-            style={{ color: 'var(--text-muted)' }}
-          >
-            Real clients. Real results. Unscripted.
-          </motion.p>
+          </h2>
+          <p className="text-sm font-body" style={{ color: '#6B6880' }}>
+            3 different clients. 3 different wins. Tap any to watch.
+          </p>
         </div>
 
         {/* ── DECK LAYOUT ── */}
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
 
           {/* LEFT — Stacked deck */}
-          <div className="relative w-full max-w-[260px] mx-auto lg:mx-0 shrink-0"
-               style={{ height: '460px' }}>
+          <div className="relative w-full max-w-[280px] mx-auto lg:mx-0 shrink-0"
+               style={{ height: '470px' }}>
 
-            {/* Ghost cards */}
-            {[2, 1].map((offset) => (
-              <div key={offset} className="absolute inset-0 rounded-3xl"
-                   style={{
-                     background: '#F1EEF9',
-                     border: '1px solid #E2D9F3',
-                     boxShadow: '0 2px 12px rgba(124,58,237,0.07)',
-                     transform: 'translateY(' + (offset * 10) + 'px) scale(' + (1 - offset * 0.04) + ')',
-                     zIndex: 3 - offset,
-                   }} />
-            ))}
+            {/* Colored ghost cards peeking out — clearly shows a stack of 3 */}
+            {[2, 1].map((offset) => {
+              const ghost = VIDEOS[(current + offset) % VIDEOS.length]
+              return (
+                <div key={offset} className="absolute inset-0 rounded-3xl"
+                     style={{
+                       background: ghost.color + '14',
+                       border: '2px solid ' + ghost.color + '35',
+                       boxShadow: '0 2px 16px ' + ghost.glow,
+                       transform: 'translateX(' + (offset * 16) + 'px) translateY(' + (offset * 12) + 'px) scale(' + (1 - offset * 0.05) + ')',
+                       zIndex: 3 - offset,
+                     }} />
+              )
+            })}
 
             {/* Active card */}
             <AnimatePresence mode="wait" custom={direction}>
@@ -332,17 +332,31 @@ export default function VideoReviews() {
                 className="absolute inset-0 rounded-3xl overflow-hidden"
                 style={{
                   zIndex: 10,
-                  boxShadow: '0 8px 40px ' + VIDEOS[current].glow + ', 0 2px 8px rgba(0,0,0,0.08)',
-                  border: '1px solid ' + VIDEOS[current].border,
+                  boxShadow: '0 12px 48px ' + active.glow + ', 0 2px 8px rgba(0,0,0,0.1)',
+                  border: '2px solid ' + active.color,
                 }}
               >
                 <Player
-                  video={VIDEOS[current]}
+                  video={active}
                   total={VIDEOS.length}
                   index={current}
                 />
               </motion.div>
             </AnimatePresence>
+
+            {/* Dots under the deck */}
+            <div className="absolute -bottom-9 left-1/2 -translate-x-1/2 flex items-center gap-2">
+              {VIDEOS.map((v, i) => (
+                <button key={i}
+                  onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i) }}
+                  className="rounded-full transition-all duration-300"
+                  style={{
+                    width: i === current ? '24px' : '8px',
+                    height: '8px',
+                    background: i === current ? v.color : '#D6CEE8',
+                  }} />
+              ))}
+            </div>
           </div>
 
           {/* RIGHT — Info panel */}
@@ -359,100 +373,85 @@ export default function VideoReviews() {
                      style={{ background: '#F1EEF9', border: '1px solid #E2D9F3' }}>
                   <p className="font-heading font-extrabold text-xl mb-0.5"
                      style={{ color: '#7C3AED' }}>{val}</p>
-                  <p className="font-body text-xs" style={{ color: 'var(--text-muted)' }}>{label}</p>
+                  <p className="font-body text-xs" style={{ color: '#6B6880' }}>{label}</p>
                 </div>
               ))}
             </div>
 
-            {/* Selector list */}
+            {/* Selector list — clearly 3 separate clickable videos */}
             <div>
-              <p className="font-body text-xs uppercase tracking-widest mb-4"
-                 style={{ color: 'var(--text-muted)' }}>
-                Select Review
-              </p>
+              <div className="flex items-center justify-between mb-4">
+                <p className="font-body text-xs uppercase tracking-widest"
+                   style={{ color: '#6B6880' }}>
+                  Watch a review
+                </p>
+                <span className="font-body text-xs font-semibold px-2.5 py-1 rounded-full"
+                      style={{ background: '#EDE7FA', color: '#7C3AED' }}>
+                  {VIDEOS.length} videos
+                </span>
+              </div>
               <div className="flex flex-col gap-2.5">
                 {VIDEOS.map((v, i) => (
                   <motion.button
                     key={v.id}
                     onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i) }}
                     whileHover={{ x: 4 }}
-                    className="flex items-center gap-4 p-4 rounded-2xl text-left transition-all duration-300"
+                    className="flex items-center gap-3.5 p-3.5 rounded-2xl text-left transition-all duration-300"
                     style={{
-                      background: current === i ? v.color + '10' : '#F1EEF9',
-                      border: '1px solid ' + (current === i ? v.color + '40' : '#E2D9F3'),
+                      background: current === i ? v.color + '10' : '#FFFFFF',
+                      border: '1px solid ' + (current === i ? v.color + '50' : '#E2D9F3'),
+                      boxShadow: current === i ? '0 4px 16px ' + v.glow : 'none',
                     }}
                   >
-                    <div className="w-1 h-8 rounded-full shrink-0"
-                         style={{ background: current === i ? v.color : '#E2D9F3' }} />
+                    {/* Numbered circle */}
+                    <div className="w-9 h-9 rounded-xl flex items-center justify-center font-heading font-extrabold text-sm shrink-0"
+                         style={{
+                           background: current === i ? v.color : v.color + '15',
+                           color: current === i ? '#fff' : v.color,
+                         }}>
+                      {i + 1}
+                    </div>
                     <div className="flex-1 min-w-0">
                       <p className="font-heading font-bold text-sm mb-0.5"
-                         style={{ color: current === i ? 'var(--text)' : 'var(--text-muted)' }}>
+                         style={{ color: current === i ? '#1E1B2E' : '#4B4669' }}>
                         {v.label}
                       </p>
-                      <p className="font-body text-xs"
-                         style={{ color: current === i ? v.color : 'var(--text-muted)' }}>
+                      <p className="font-body text-xs font-semibold"
+                         style={{ color: v.color }}>
                         {v.result}
                       </p>
                     </div>
-                    <div className="flex items-center gap-0.5">
-                      {[...Array(5)].map((_, j) => (
-                        <RiStarFill key={j} size={9}
-                                    style={{ color: current === i ? '#FBBF24' : '#E2D9F3' }} />
-                      ))}
+                    {/* Play indicator */}
+                    <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0"
+                         style={{ background: current === i ? v.color : v.color + '12' }}>
+                      <RiPlayCircleLine size={16}
+                        style={{ color: current === i ? '#fff' : v.color }} />
                     </div>
                   </motion.button>
                 ))}
               </div>
             </div>
 
-            {/* Prev / Next + dots */}
+            {/* Prev / Next */}
             <div className="flex items-center gap-3">
               <button onClick={() => go(-1)}
                 className="flex items-center gap-2 px-5 py-3 rounded-2xl font-body text-sm font-semibold transition-all duration-200"
-                style={{ background: '#F1EEF9', border: '1px solid #E2D9F3', color: 'var(--text-muted)' }}
+                style={{ background: '#FFFFFF', border: '1px solid #E2D9F3', color: '#6B6880' }}
                 onMouseEnter={e => e.currentTarget.style.borderColor = '#C4B5F4'}
                 onMouseLeave={e => e.currentTarget.style.borderColor = '#E2D9F3'}>
                 <RiArrowLeftLine size={16} />
                 Prev
               </button>
               <button onClick={() => go(1)}
-                className="flex items-center gap-2 px-5 py-3 rounded-2xl font-body text-sm font-semibold transition-all duration-200"
-                style={{ background: '#7C3AED', color: '#FFFFFF' }}
-                onMouseEnter={e => e.currentTarget.style.background = '#6D28D9'}
-                onMouseLeave={e => e.currentTarget.style.background = '#7C3AED'}>
-                Next
+                className="flex items-center gap-2 px-5 py-3 rounded-2xl font-body text-sm font-semibold transition-all duration-200 text-white"
+                style={{ background: active.color }}>
+                Next Review
                 <RiArrowRightLine size={16} />
               </button>
-
-              {/* Dots */}
-              <div className="flex items-center gap-1.5 ml-1">
-                {VIDEOS.map((v, i) => (
-                  <button key={i}
-                    onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i) }}
-                    className="rounded-full transition-all duration-300"
-                    style={{
-                      width: i === current ? '20px' : '7px',
-                      height: '7px',
-                      background: i === current ? VIDEOS[current].color : '#E2D9F3',
-                    }} />
-                ))}
-              </div>
             </div>
 
           </div>
         </div>
-
-        {/* Tap hint */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          className="text-center text-xs font-body mt-8"
-          style={{ color: 'var(--light-dim)' }}
-        >
-          Tap a card to play · Use arrows to browse
-        </motion.p>
 
       </div>
     </section>

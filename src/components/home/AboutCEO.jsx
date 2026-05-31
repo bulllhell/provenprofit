@@ -242,7 +242,7 @@ export default function AboutCEO() {
                 See Our Services
               </Link>
               <Link
-                to="/team"
+                to="/About"
                 className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-heading font-semibold text-sm transition-all duration-300 hover:scale-[1.03]"
                 style={{
                   background: 'rgba(124,58,237,0.08)',
