@@ -50,17 +50,15 @@ const VIDEOS = [
 function Player({ video, total, index }) {
   const videoRef                = useRef(null)
   const [playing,  setPlaying]  = useState(false)
-  const [muted,    setMuted]    = useState(true)
+  const [muted,    setMuted]    = useState(false)
   const [progress, setProgress] = useState(0)
   const [loaded,   setLoaded]   = useState(false)
   const { src, label, result, color, glow } = video
 
   useEffect(() => {
-    setPlaying(false)
     setProgress(0)
     setLoaded(false)
     if (videoRef.current) {
-      videoRef.current.pause()
       videoRef.current.currentTime = 0
     }
   }, [video.id])
@@ -69,6 +67,32 @@ function Player({ video, total, index }) {
     const t = setTimeout(() => { if (!loaded) setLoaded(true) }, 3000)
     return () => clearTimeout(t)
   }, [loaded])
+
+  // Auto-play with sound when this video scrolls into view
+  useEffect(() => {
+    const v = videoRef.current
+    if (!v) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          v.muted = false
+          setMuted(false)
+          v.play().then(() => setPlaying(true)).catch(() => {
+            // Browser blocked sound autoplay — fall back to muted autoplay
+            v.muted = true
+            setMuted(true)
+            v.play().then(() => setPlaying(true)).catch(() => {})
+          })
+        } else {
+          v.pause()
+          setPlaying(false)
+        }
+      },
+      { threshold: 0.6 }
+    )
+    observer.observe(v)
+    return () => observer.disconnect()
+  }, [video.id])
 
   const togglePlay = () => {
     const v = videoRef.current
