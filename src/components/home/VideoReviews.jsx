@@ -12,8 +12,8 @@ const VIDEOS = [
   {
     id: 1,
     src: '/videos/bos1.mp4',
-    label: 'Store Launch',
-    result: '$24K / 60 days',
+    label: 'Brand Growth',
+    result: '+340% Revenue',
     color: '#7C3AED',
     glow: 'rgba(124,58,237,0.25)',
     border: 'rgba(124,58,237,0.30)',
@@ -21,8 +21,8 @@ const VIDEOS = [
   {
     id: 2,
     src: '/videos/bos2.mp4',
-    label: 'Brand Growth',
-    result: '+340% Revenue',
+    label: 'Store Setup & Ads',
+    result: '6.2% Conversion',
     color: '#F97316',
     glow: 'rgba(249,115,22,0.25)',
     border: 'rgba(249,115,22,0.30)',
@@ -30,11 +30,20 @@ const VIDEOS = [
   {
     id: 3,
     src: '/videos/bos3.mp4',
-    label: 'Paid Ads',
-    result: '6.2% Conv.',
+    label: 'Shopify Store Launch',
+    result: '$24K / 60 days',
     color: '#16a34a',
     glow: 'rgba(22,163,74,0.25)',
     border: 'rgba(22,163,74,0.30)',
+  },
+  {
+    id: 4,
+    src: 'https://res.cloudinary.com/dm2zp4jb1/video/upload/q_auto/f_auto/v1780614759/WhatsApp_Video_2026-06-04_at_02.20.57_onxepz.mp4',
+    label: 'Brand Growth & Marketing',
+    result: 'Full Brand Scale',
+    color: '#E1306C',
+    glow: 'rgba(225,48,108,0.25)',
+    border: 'rgba(225,48,108,0.30)',
   },
 ]
 
@@ -293,7 +302,7 @@ export default function VideoReviews() {
             <span className="text-gradient">hear it from them</span>
           </h2>
           <p className="text-sm font-body" style={{ color: '#6B6880' }}>
-            3 different clients. 3 different wins. Tap any to watch.
+            Different clients. Different wins. Tap any to watch.
           </p>
         </div>
 
