@@ -2,7 +2,6 @@ import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   RiPlayCircleLine, RiPauseLine,
-  RiVolumeUpLine, RiVolumeMuteLine,
   RiFullscreenLine, RiStarFill,
   RiArrowRightLine, RiArrowLeftLine,
   RiShieldCheckLine,
@@ -97,16 +96,13 @@ function Player({ video, total, index }) {
   const togglePlay = () => {
     const v = videoRef.current
     if (!v) return
-    if (v.paused) { v.play(); setPlaying(true) }
-    else          { v.pause(); setPlaying(false) }
-  }
-
-  const toggleMute = (e) => {
-    e.stopPropagation()
-    const v = videoRef.current
-    if (!v) return
-    v.muted = !v.muted
-    setMuted(v.muted)
+    if (v.paused) {
+      v.muted = false
+      setMuted(false)
+      v.play(); setPlaying(true)
+    } else {
+      v.pause(); setPlaying(false)
+    }
   }
 
   const openFullscreen = (e) => {
@@ -253,13 +249,6 @@ function Player({ video, total, index }) {
               {playing
                 ? <RiPauseLine      size={15} className="text-white" />
                 : <RiPlayCircleLine size={15} className="text-white" />}
-            </button>
-            <button onClick={toggleMute}
-              className="w-9 h-9 rounded-xl flex items-center justify-center"
-              style={{ background: 'rgba(255,255,255,0.18)', backdropFilter: 'blur(8px)' }}>
-              {muted
-                ? <RiVolumeMuteLine size={15} className="text-white" />
-                : <RiVolumeUpLine   size={15} className="text-white" />}
             </button>
             <button onClick={openFullscreen}
               className="w-9 h-9 rounded-xl flex items-center justify-center"
