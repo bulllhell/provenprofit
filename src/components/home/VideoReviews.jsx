@@ -2,10 +2,14 @@ import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   RiPlayCircleLine, RiPauseLine,
+  RiVolumeUpLine, RiVolumeMuteLine,
   RiFullscreenLine, RiStarFill,
   RiArrowRightLine, RiArrowLeftLine,
   RiShieldCheckLine,
 } from 'react-icons/ri'
+
+// Remembers if the visitor has turned on sound — once on, stays on for all videos
+let SOUND_ON = false
 
 const VIDEOS = [
   {
@@ -74,9 +78,9 @@ function Player({ video, total, index }) {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // Try with sound first; if blocked, autoplay muted
-          v.muted = false
-          setMuted(false)
+          // If visitor already enabled sound earlier, keep it on
+          v.muted = !SOUND_ON
+          setMuted(!SOUND_ON)
           v.play().then(() => setPlaying(true)).catch(() => {
             v.muted = true
             setMuted(true)
@@ -97,6 +101,7 @@ function Player({ video, total, index }) {
   // the playing video. Browsers block sound until any user gesture happens.
   useEffect(() => {
     const unlock = () => {
+      SOUND_ON = true
       const v = videoRef.current
       if (v && !v.paused) {
         v.muted = false
@@ -119,6 +124,7 @@ function Player({ video, total, index }) {
     if (v.paused) {
       v.muted = false
       setMuted(false)
+      SOUND_ON = true
       v.play(); setPlaying(true)
     } else {
       v.pause(); setPlaying(false)
@@ -174,6 +180,29 @@ function Player({ video, total, index }) {
       {/* Gradient overlay */}
       <div className="absolute inset-0 rounded-3xl pointer-events-none"
            style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.40) 0%, transparent 28%, transparent 45%, rgba(0,0,0,0.72) 100%)', zIndex: 4 }} />
+
+      {/* Prominent TAP FOR SOUND button — shows when muted */}
+      {playing && muted && (
+        <button
+          onClick={(e) => {
+            e.stopPropagation()
+            const v = videoRef.current
+            if (!v) return
+            v.muted = false
+            setMuted(false)
+            SOUND_ON = true
+          }}
+          className="absolute z-20 flex items-center gap-2 px-4 py-2.5 rounded-full font-heading font-bold text-sm text-white animate-pulse"
+          style={{
+            top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
+            background: color,
+            boxShadow: '0 4px 24px ' + glow + ', 0 0 0 4px rgba(255,255,255,0.25)',
+          }}
+        >
+          <RiVolumeMuteLine size={18} />
+          Tap for sound
+        </button>
+      )}
 
       {/* TOP — counter + label + stars */}
       <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
@@ -269,6 +298,21 @@ function Player({ video, total, index }) {
               {playing
                 ? <RiPauseLine      size={15} className="text-white" />
                 : <RiPlayCircleLine size={15} className="text-white" />}
+            </button>
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                const v = videoRef.current
+                if (!v) return
+                v.muted = !v.muted
+                setMuted(v.muted)
+                SOUND_ON = !v.muted
+              }}
+              className="w-9 h-9 rounded-xl flex items-center justify-center"
+              style={{ background: muted ? color : 'rgba(255,255,255,0.18)', backdropFilter: 'blur(8px)' }}>
+              {muted
+                ? <RiVolumeMuteLine size={15} className="text-white" />
+                : <RiVolumeUpLine   size={15} className="text-white" />}
             </button>
             <button onClick={openFullscreen}
               className="w-9 h-9 rounded-xl flex items-center justify-center"
