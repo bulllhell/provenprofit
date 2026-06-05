@@ -67,17 +67,17 @@ function Player({ video, total, index }) {
     return () => clearTimeout(t)
   }, [loaded])
 
-  // Auto-play with sound when this video scrolls into view
+  // Auto-play when this video scrolls into view
   useEffect(() => {
     const v = videoRef.current
     if (!v) return
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
+          // Try with sound first; if blocked, autoplay muted
           v.muted = false
           setMuted(false)
           v.play().then(() => setPlaying(true)).catch(() => {
-            // Browser blocked sound autoplay — fall back to muted autoplay
             v.muted = true
             setMuted(true)
             v.play().then(() => setPlaying(true)).catch(() => {})
@@ -91,6 +91,26 @@ function Player({ video, total, index }) {
     )
     observer.observe(v)
     return () => observer.disconnect()
+  }, [video.id])
+
+  // The first time the visitor interacts ANYWHERE on the page, unmute
+  // the playing video. Browsers block sound until any user gesture happens.
+  useEffect(() => {
+    const unlock = () => {
+      const v = videoRef.current
+      if (v && !v.paused) {
+        v.muted = false
+        setMuted(false)
+      }
+    }
+    window.addEventListener('pointerdown', unlock)
+    window.addEventListener('keydown', unlock)
+    window.addEventListener('touchstart', unlock)
+    return () => {
+      window.removeEventListener('pointerdown', unlock)
+      window.removeEventListener('keydown', unlock)
+      window.removeEventListener('touchstart', unlock)
+    }
   }, [video.id])
 
   const togglePlay = () => {
