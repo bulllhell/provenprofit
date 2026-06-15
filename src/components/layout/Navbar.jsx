@@ -327,7 +327,7 @@ export default function Navbar() {
 
               {/* About Us */}
               <NavLink
-                to="/about"
+                to="/about-us"
                 style={{ position: 'relative', fontSize: 'clamp(0.8125rem, 1.2vw, 0.9375rem)', padding: 'clamp(0.5rem, 1vw, 0.625rem) clamp(0.75rem, 2vw, 1rem)' }}
                 className={({ isActive }) =>
                   `font-body font-medium tracking-wide rounded-lg transition-all duration-200 ${
@@ -507,7 +507,7 @@ export default function Navbar() {
 
                 {/* About Us */}
                 <motion.div initial={{ opacity: 1, x: 0 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.24 }}>
-                  <NavLink to="/about" onClick={() => setMenuOpen(false)}
+                  <NavLink to="/about-us" onClick={() => setMenuOpen(false)}
                     className={({ isActive }) =>
                       `flex items-center justify-between px-4 py-3 rounded-xl text-sm font-body font-medium transition-all ${
                         isActive ? 'text-[#7C3AED] bg-purple-50' : 'text-[#4B4669] hover:text-[#1E1B2E] hover:bg-purple-50'

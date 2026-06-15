@@ -114,9 +114,9 @@ export default function App() {
           />
 
           <Route
-            path="about"
+            path="about-us"
             element={
-              <Page seo={{ title: 'About Us | Proven Profit Marketing Agency', description: 'Learn about Proven Profit Marketing Agency, our mission, our story, and the team behind your brand growth.', url: 'https://www.provenprofitbrand.com/about' }}>
+              <Page seo={{ title: 'About Us | Proven Profit Marketing Agency', description: 'Learn about Proven Profit Marketing Agency, our mission, our story, and the team behind your brand growth.', url: 'https://www.provenprofitbrand.com/about-us' }}>
                 <About />
               </Page>
             }

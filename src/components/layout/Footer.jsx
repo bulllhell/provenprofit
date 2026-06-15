@@ -11,7 +11,7 @@ import { SiTiktok } from 'react-icons/si';
 import { useNewsletter } from '../../hooks/useNewsletter';
 
 const LINKS_COMPANY = [
-  { label: 'About Us',  to: '/about'     },
+  { label: 'About Us',  to: '/about-us'  },
   { label: 'Services',  to: '/services'  },
   { label: 'Portfolio', to: '/portfolio' },
   { label: 'Packages',  to: '/#packages' },
