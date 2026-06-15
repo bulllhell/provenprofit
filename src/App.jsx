@@ -37,6 +37,11 @@ const NotFound       = lazy(() => import('./pages/NotFound'));
 const AdminLogin     = lazy(() => import('./pages/AdminLogin'));
 const AdminDashboard = lazy(() => import('./pages/AdminDashboard'));
 
+// ── Legal pages ────────────────────────────
+const PrivacyPolicy = lazy(() => import('./pages/legal/PrivacyPolicy'));
+const TermsOfUse    = lazy(() => import('./pages/legal/TermsOfUse'));
+const RefundPolicy  = lazy(() => import('./pages/legal/RefundPolicy'));
+
 // ── Service pages ──────────────────────────
 const SvcEcommerce   = lazy(() => import('./pages/services/ecommerce'));
 const SvcBranding    = lazy(() => import('./pages/services/branding'));
@@ -116,6 +121,11 @@ export default function App() {
               </Page>
             }
           />
+
+          {/* ── Legal pages ── */}
+          <Route path="privacy-policy" element={<Page seo={{ title: 'Privacy Policy | Proven Profit Marketing Agency', description: 'How Proven Profit Marketing Agency collects, uses, and protects your information.', url: 'https://www.provenprofitbrand.com/privacy-policy' }}><PrivacyPolicy /></Page>} />
+          <Route path="terms-of-use" element={<Page seo={{ title: 'Terms of Use | Proven Profit Marketing Agency', description: 'The terms governing the use of Proven Profit Marketing Agency services.', url: 'https://www.provenprofitbrand.com/terms-of-use' }}><TermsOfUse /></Page>} />
+          <Route path="refund-policy" element={<Page seo={{ title: 'Refund Policy | Proven Profit Marketing Agency', description: 'Our refund terms and how to request a refund.', url: 'https://www.provenprofitbrand.com/refund-policy' }}><RefundPolicy /></Page>} />
 
           {/* ── Service pages ── */}
           <Route path="services/ecommerce"       element={<Page seo={{ title: 'eCommerce Store Design | Proven Profit Marketing Agency', description: 'Shopify and WooCommerce store design built to convert visitors into paying customers.', url: 'https://www.provenprofitbrand.com/services/ecommerce' }}><SvcEcommerce /></Page>} />

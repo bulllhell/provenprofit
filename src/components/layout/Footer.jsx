@@ -11,7 +11,7 @@ import { SiTiktok } from 'react-icons/si';
 import { useNewsletter } from '../../hooks/useNewsletter';
 
 const LINKS_COMPANY = [
-  { label: 'About Us',  to: '/#about'    },
+  { label: 'About Us',  to: '/about'     },
   { label: 'Services',  to: '/services'  },
   { label: 'Portfolio', to: '/portfolio' },
   { label: 'Packages',  to: '/#packages' },
@@ -26,9 +26,9 @@ const LINKS_SERVICES = [
 ];
 
 const LINKS_LEGAL = [
-  { label: 'Privacy Policy', to: '#' },
-  { label: 'Terms of Use',   to: '#' },
-  { label: 'Refund Policy',  to: '#' },
+  { label: 'Privacy Policy', to: '/privacy-policy' },
+  { label: 'Terms of Use',   to: '/terms-of-use'   },
+  { label: 'Refund Policy',  to: '/refund-policy'  },
 ];
 
 const SOCIALS = [
@@ -182,7 +182,7 @@ export default function Footer() {
             </div>
             {/* Contact */}
             <div className="space-y-2.5 pt-1">
-              <a href="mailto:info@provenprofitmarketing.com"
+              <a href="mailto:support@provenprofitbrand.com"
                 className="flex items-center gap-2 text-xs font-body transition-colors"
                 style={{ color: 'rgba(255,255,255,0.4)' }}
                 onMouseEnter={e => { e.currentTarget.style.color = '#fff'; }}
