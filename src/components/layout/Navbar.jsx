@@ -346,6 +346,15 @@ export default function Navbar() {
                 )}
               </NavLink>
 
+              {/* Blog — served by Vercel rewrite to the Next.js blog app, so use a plain anchor */}
+              <a
+                href="/blog"
+                style={{ position: 'relative', fontSize: 'clamp(0.8125rem, 1.2vw, 0.9375rem)', padding: 'clamp(0.5rem, 1vw, 0.625rem) clamp(0.75rem, 2vw, 1rem)' }}
+                className="font-body font-medium tracking-wide rounded-lg transition-all duration-200 text-[#4B4669] hover:text-[#1E1B2E] hover:bg-purple-50"
+              >
+                Blog
+              </a>
+
             </nav>
 
             {/* Desktop CTAs */}
@@ -517,6 +526,14 @@ export default function Navbar() {
                   </NavLink>
                 </motion.div>
 
+                {/* Blog — served by Vercel rewrite, plain anchor */}
+                <motion.div initial={{ opacity: 1, x: 0 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.30 }}>
+                  <a href="/blog" onClick={() => setMenuOpen(false)}
+                    className="flex items-center justify-between px-4 py-3 rounded-xl text-sm font-body font-medium transition-all text-[#4B4669] hover:text-[#1E1B2E] hover:bg-purple-50">
+                    Blog <RiArrowRightUpLine className="w-4 h-4 opacity-40" />
+                  </a>
+                </motion.div>
+
               </nav>
 
               {/* Drawer footer */}
@@ -538,3 +555,4 @@ export default function Navbar() {
     </>
   );
 }
+
